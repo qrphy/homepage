@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/furkan-titiz-site/static/css/main.4c838087.css",
+    "main.js": "/furkan-titiz-site/static/js/main.7050fbca.js",
+    "static/js/453.2f250bef.chunk.js": "/furkan-titiz-site/static/js/453.2f250bef.chunk.js",
+    "index.html": "/furkan-titiz-site/index.html",
+    "main.4c838087.css.map": "/furkan-titiz-site/static/css/main.4c838087.css.map",
+    "main.7050fbca.js.map": "/furkan-titiz-site/static/js/main.7050fbca.js.map",
+    "453.2f250bef.chunk.js.map": "/furkan-titiz-site/static/js/453.2f250bef.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4c838087.css",
+    "static/js/main.7050fbca.js"
+  ]
+}
