@@ -1,9 +1,9 @@
 .App {
   min-height: 100vh;
-  background-color: #000000;
   background-color: #0F0F0F;
   color: #ffffff;
   padding: 40px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
   max-width: 600px;
@@ -19,7 +19,7 @@
 
 .name h1 {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 700;
   color: #ffffff;
   margin: 0;
 }
@@ -48,7 +48,7 @@
 
 .main-content p {
   font-size: 14px;
-  line-height: 1.4;
+  line-height: 1.5;
   color: #ffffff;
   font-weight: 400;
   max-width: 650px;
@@ -68,22 +68,19 @@
 }
 
 .footer {
-  margin-top: auto;
-}
-
-.social-links {
-  display: flex;
-  gap: 40px;
-}
-
-.social-links a {
-  font-size: 16px;
+  text-align: center;
+  font-size: 13px;
+  margin-bottom: 0;
+  padding-bottom: 0;
   color: #888888;
-  font-weight: 400;
-  text-decoration: none;
-  cursor: pointer;
 }
 
-.social-links a:hover {
-  color: #ffffff;
+.fade-in {
+  opacity: 0;
+  animation: fade 1s forwards;
+}
+@keyframes fade {
+  to {
+    opacity: 1;
+  }
 }
