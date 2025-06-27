@@ -20,13 +20,6 @@ function App() {
           Off the screen, I watching F1 races, tennis matches and listening some music.
         </p>
       </main>
-      {/* Projects section can be added here if needed }
-      <footer className="footer">
-        <div className="social-links">
-          <a href="https://twitter.com">Twitter</a>
-          <a href="https://github.com">GitHub</a>
-        </div>
-      </footer> */}
     </div>
   );
 }
