@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="header">
+        <div className="name">
+          <h1>furkan titiz</h1>
+        </div>
+        <nav className="nav-links">
+          <a href="#about">about</a>
+          <a href="#projects">projects</a>
+        </nav>
       </header>
+      
+      <main className="main-content">
+        <p>
+          Currently working on frontend projects and sharing them on <a href='https://github.com/qrphy' target='_blank'>GitHub </a> 
+          check them out and get in <a href="mailto:furkantitiz96@gmail.com">touch</a> for collab.
+          Off the screen, I watching F1 races, tennis matches and listening some music.
+        </p>
+      </main>
+      {/* Projects section can be added here if needed }
+      <footer className="footer">
+        <div className="social-links">
+          <a href="https://twitter.com">Twitter</a>
+          <a href="https://github.com">GitHub</a>
+        </div>
+      </footer> */}
     </div>
   );
 }
