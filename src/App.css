@@ -9,6 +9,8 @@
   max-width: 576px;
   margin: 0 auto;
   -webkit-text-size-adjust: 100%;
+  opacity: 0;
+  animation: fade 1.3s forwards;
 }
 
 .header {
@@ -67,19 +69,6 @@
   transition: ease 0.3s;
 }
 
-.footer {
-  text-align: center;
-  font-size: 10px;
-  margin-bottom: 0;
-  padding-bottom: 0;
-  color: #888888;
-}
-
-.App {
-  opacity: 0;
-  animation: fade 1.3s forwards;
-}
-
 @keyframes fade {
   to {
     opacity: 1;
@@ -89,7 +78,7 @@
 @media screen and (max-width: 460px) {
   
   .App {
-    padding: 60px 40px 10px 40px;
+    padding: 40px 40px 20px 40px;
   }
 
   .name h1 {

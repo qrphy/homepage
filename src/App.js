@@ -22,11 +22,6 @@ function App() {
           Outside of coding, I enjoy watching F1 races, tennis matches, and listening to music.
         </p>
       </main>
-      <footer className="footer">
-        <p>
-          &copy; 2025 furkan titiz. All rights reserved.
-        </p>
-        </footer>
     </div>
   );
 }
