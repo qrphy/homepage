@@ -17,6 +17,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 10px;
   margin-bottom: 50px;
 }
 
@@ -77,10 +78,6 @@
 
 @media screen and (max-width: 460px) {
   
-  .App {
-    padding: 40px 40px 20px 40px;
-  }
-
   .name h1 {
     font-size: 16px;
   }
