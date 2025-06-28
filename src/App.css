@@ -8,6 +8,7 @@
   flex-direction: column;
   max-width: 576px;
   margin: 0 auto;
+  -webkit-text-size-adjust: 100%;
 }
 
 .header {
