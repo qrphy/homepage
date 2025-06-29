@@ -1,6 +1,6 @@
 .App {
   min-height: 100vh;
-  background-color: #0F0F0F;
+  background-color: #0f0f0f;
   color: #ffffff;
   padding: 40px;
   padding-bottom: 20px;
@@ -26,6 +26,15 @@
   font-weight: 700;
   color: #ffffff;
   margin: 0;
+}
+
+.home-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.home-link:hover {
+  color: inherit;
 }
 
 .nav-links {
@@ -59,15 +68,83 @@
 }
 
 .main-content a {
-  color: #08D9D6;
+  color: #08d9d6;
   text-decoration: none;
-  text-shadow: 2px 2px 12px #08D9D6;
+  text-shadow: 2px 2px 12px #08d9d6;
 }
 
 .main-content a:hover {
-  color: #E84545;
-  text-shadow: 2px 2px 10px #D2DAFF;
+  color: #e84545;
+  text-shadow: 2px 2px 10px #d2daff;
   transition: ease 0.3s;
+}
+
+.about-content {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.about-image {
+  flex-shrink: 0;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.portrait-img {
+  max-width: 250px;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.about-page h2,
+.projects-page h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 25px 0;
+}
+
+.about-page h3,
+.projects-page h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 5px 0 15px 0;
+}
+
+.about-page p,
+.projects-page p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ffffff;
+  font-weight: 400;
+  margin: 0 0 30px 0;
+}
+
+.about-page a,
+.projects-page a {
+  color: #08d9d6;
+  text-decoration: none;
+  text-shadow: 2px 2px 12px #08d9d6;
+}
+
+.about-page a:hover,
+.projects-page a:hover {
+  color: #e84545;
+  text-shadow: 2px 2px 10px #d2daff;
+  transition: ease 0.3s;
+}
+
+.project {
+  margin-bottom: 25px;
+  padding: 20px;
+  border-left: 3px solid #08d9d6;
+  background-color: rgba(8, 217, 214, 0.05);
+  border-radius: 0 5px 5px 0;
 }
 
 @keyframes fade {
@@ -77,7 +154,6 @@
 }
 
 @media screen and (max-width: 460px) {
-  
   .name h1 {
     font-size: 16px;
   }
@@ -88,5 +164,34 @@
 
   .main-content p {
     font-size: 14px;
+  }
+
+  .about-page h2,
+  .projects-page h2 {
+    font-size: 16px;
+  }
+
+  .about-page h3,
+  .projects-page h3 {
+    font-size: 14px;
+  }
+
+  .about-page p,
+  .projects-page p {
+    font-size: 14px;
+  }
+
+  .about-content {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .about-image {
+    text-align: center;
+  }
+
+  .portrait-img {
+    max-width: 150px;
   }
 }
