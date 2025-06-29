@@ -27,7 +27,7 @@ function About() {
 
           <h3>Contact</h3>
           <p>
-            <a href="mailto:furkantitiz96.com">Mail</a> <a href="https://www.linkedin.com/in/furkan-titiz/">linkedIn</a>
+            <a href="mailto:furkantitiz96@gmail.com">Mail</a> & <a href="https://www.linkedin.com/in/furkan-titiz/">linkedIn</a>
           </p>
         </div>
       </div>

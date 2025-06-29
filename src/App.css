@@ -8,9 +8,6 @@
   flex-direction: column;
   max-width: 576px;
   margin: 0 auto;
-  -webkit-text-size-adjust: 100%;
-  opacity: 0;
-  animation: fade 1.3s forwards;
 }
 
 .header {
@@ -145,12 +142,6 @@
   border-left: 3px solid #08d9d6;
   background-color: rgba(8, 217, 214, 0.05);
   border-radius: 0 5px 5px 0;
-}
-
-@keyframes fade {
-  to {
-    opacity: 1;
-  }
 }
 
 @media screen and (max-width: 460px) {
