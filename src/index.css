@@ -14,7 +14,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #0f0f0f;
   opacity: 0;
-  animation: fade 1.3s forwards;
+  animation: fade 2.3s forwards;
 }
 
 @keyframes fade {

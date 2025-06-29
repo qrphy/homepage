@@ -15,7 +15,7 @@ function About() {
           </p>
 
           <h2>My Skills</h2>
-          <h3>Frontend Techologies</h3>
+          <h3>Frontend Technologies</h3>
           <p>
             React.js, JavaScript, HTML5, CSS3, Tailwind CSS
           </p>
@@ -27,7 +27,7 @@ function About() {
 
           <h3>Contact</h3>
           <p>
-            <a href="mailto:furkantitiz96@gmail.com">Mail</a> & <a href="https://www.linkedin.com/in/furkan-titiz/">linkedIn</a>
+            <a href="mailto:furkantitiz96@gmail.com">Mail</a> & <a href="https://www.linkedin.com/in/furkan-titiz/">LinkedIn</a>
           </p>
         </div>
       </div>
