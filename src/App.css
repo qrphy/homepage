@@ -6,7 +6,7 @@
   padding-bottom: 20px;
   display: flex;
   flex-direction: column;
-  max-width: 630px;
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -16,6 +16,10 @@
   align-items: center;
   margin-top: 10px;
   margin-bottom: 50px;
+}
+
+.name {
+  position: relative;
 }
 
 .name h1 {
@@ -28,10 +32,36 @@
 .home-link {
   text-decoration: none;
   color: inherit;
+  position: relative;
 }
 
 .home-link:hover {
   color: inherit;
+}
+
+.home-link::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translateX(50%);
+  background-color: #08d9d6;
+  color: #0f0f0f;
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s, visibility 0.3s;
+  margin-top: 6px;
+  z-index: 1000;
+}
+
+.home-link:hover::after {
+  opacity: 1;
+  visibility: visible;
 }
 
 .nav-links {
@@ -97,24 +127,21 @@
   border-radius: 6px;
 }
 
-.about-page h2,
-.projects-page h2 {
+.about-page h2 {
   font-size: 17px;
   font-weight: 700;
   color: #ffffff;
   margin: 0 0 25px 0;
 }
 
-.about-page h3,
-.projects-page h3 {
+.about-page h3 {
   font-size: 15px;
   font-weight: 600;
   color: #ffffff;
   margin: 5px 0 15px 0;
 }
 
-.about-page p,
-.projects-page p {
+.about-page p {
   font-size: 14px;
   line-height: 1.5;
   color: #ffffff;
@@ -122,30 +149,21 @@
   margin: 0 0 30px 0;
 }
 
-.about-page a,
-.projects-page a {
+.about-page a {
   color: #08d9d6;
   text-decoration: none;
   text-shadow: 2px 2px 12px #08d9d6;
 }
 
-.about-page a:hover,
-.projects-page a:hover {
+.about-page a:hover {
   color: #e84545;
   text-shadow: 2px 2px 10px #d2daff;
   transition: ease 0.3s;
 }
 
-.project {
-  margin-bottom: 25px;
-  padding: 20px;
-  border-left: 3px solid #08d9d6;
-  background-color: rgba(8, 217, 214, 0.05);
-  border-radius: 0 5px 5px 0;
-}
-
-@media screen and (max-width: 460px) {
-  .name h1 {
+@media screen and (max-width: 530px) {
+  .name h1,
+  .about-page h2 {
     font-size: 16px;
   }
 
@@ -153,22 +171,9 @@
     font-size: 12px;
   }
 
-  .main-content p {
-    font-size: 14px;
-  }
-
-  .about-page h2,
-  .projects-page h2 {
-    font-size: 16px;
-  }
-
-  .about-page h3,
-  .projects-page h3 {
-    font-size: 14px;
-  }
-
+  .main-content p,
   .about-page p,
-  .projects-page p {
+  .about-page h3{
     font-size: 14px;
   }
 
