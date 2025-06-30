@@ -16,6 +16,15 @@ function Projects() {
           <strong>Tecnologies</strong> React, JavaScript, CSS3, React Router
         </p>
       </div>
+      <div className="project">
+        <h3>Mersin Sanal</h3>
+        <p>
+          Sanal museum about Mersin.
+        </p>
+        <p>
+          <strong>Tecnologies</strong> Next.js, JavaScript
+        </p>
+      </div>
     </div>
   );
 }
