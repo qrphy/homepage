@@ -6,7 +6,7 @@
   padding-bottom: 20px;
   display: flex;
   flex-direction: column;
-  max-width: 576px;
+  max-width: 630px;
   margin: 0 auto;
 }
 
@@ -91,7 +91,7 @@
 }
 
 .portrait-img {
-  max-width: 250px;
+  max-width: 260px;
   width: 100%;
   height: auto;
   border-radius: 6px;
