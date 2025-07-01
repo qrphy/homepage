@@ -33,7 +33,7 @@ function Home() {
       </p>
       
       <div className="home-image">
-          <img src="/youngknight.jpg" alt="Young Knight by Vittore Carpaccio 1510" className="portrait-img" />
+          <img src="/YoungKnight.jpg" alt="Young Knight by Vittore Carpaccio 1510" className="portrait-img" />
         <p>Young Knight by Vittore Carpaccio 1510</p>
       </div>
     </>
