@@ -1,21 +1,11 @@
 .App {
-  min-height: 100vh;
-  background-color: #0f0f0f;
+  background-color: #000000;
   color: #ffffff;
-  padding: 40px;
-  padding-bottom: 20px;
+  padding: 80px 40px 0px 40px;
   display: flex;
   flex-direction: column;
-  max-width: 630px;
+  max-width: 580px;
   margin: 0 auto;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
-  margin-bottom: 50px;
 }
 
 .name {
@@ -23,73 +13,20 @@
 }
 
 .name h1 {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 600;
   color: #ffffff;
-  margin: 0;
-}
-
-.home-link {
-  text-decoration: none;
-  color: inherit;
-  position: relative;
-}
-
-.home-link:hover {
-  color: inherit;
-}
-
-.home-link::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  transform: translateX(50%);
-  background-color: #08d9d6;
-  color: #0f0f0f;
-  padding: 4px 8px;
-  border-radius: 10px;
-  font-size: 10px;
-  font-weight: 400;
-  white-space: nowrap;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s, visibility 0.3s;
-  margin-top: 6px;
-  z-index: 1000;
-}
-
-.home-link:hover::after {
-  opacity: 1;
-  visibility: visible;
-}
-
-.nav-links {
-  display: flex;
-  gap: 40px;
-}
-
-.nav-links a {
-  font-size: 13px;
-  color: #888888;
-  font-weight: 400;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.nav-links a:hover {
-  color: #ffffff;
+  margin-bottom: 30px;
 }
 
 .main-content {
   flex: 1;
-  margin-bottom: 60px;
 }
 
 .main-content p {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.5;
-  color: #ffffff;
+  color: rgb(148, 148, 156);
   font-weight: 400;
   margin: 0;
 }
@@ -106,88 +43,50 @@
   transition: ease 0.3s;
 }
 
-.about-content {
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;
+.main-content h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 70px 0 20px 0;
 }
 
-.about-image {
+.home-image {
   flex-shrink: 0;
-}
-
-.about-text {
-  flex: 1;
+  margin: 50px 0 0 0;
 }
 
 .portrait-img {
-  max-width: 260px;
+  max-width: 150px;
   width: 100%;
   height: auto;
   border-radius: 6px;
 }
 
-.about-page h2 {
-  font-size: 17px;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0 0 25px 0;
-}
-
-.about-page h3 {
-  font-size: 15px;
-  font-weight: 600;
-  color: #ffffff;
-  margin: 5px 0 15px 0;
-}
-
-.about-page p {
-  font-size: 14px;
-  line-height: 1.5;
-  color: #ffffff;
-  font-weight: 400;
-  margin: 0 0 30px 0;
-}
-
-.about-page a {
-  color: #08d9d6;
-  text-decoration: none;
-  text-shadow: 2px 2px 12px #08d9d6;
-}
-
-.about-page a:hover {
-  color: #e84545;
-  text-shadow: 2px 2px 10px #d2daff;
-  transition: ease 0.3s;
+.home-image p {
+  margin: 8px 0 0 0;
+  font-size: 10px;
+  color: rgb(148, 148, 156);
+  font-style: italic;
+  font-weight: 300;
 }
 
 @media screen and (max-width: 530px) {
-  .name h1,
-  .about-page h2 {
-    font-size: 16px;
+  .App {
+    padding: 80px 20px 0px 20px;
   }
 
-  .nav-links a {
-    font-size: 12px;
+  .name h1 {
+    font-size: 20px;
   }
 
-  .main-content p,
-  .about-page p,
-  .about-page h3{
-    font-size: 14px;
-  }
-
-  .about-content {
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-  }
-
-  .about-image {
-    text-align: center;
+  .main-content p {
+    font-size: 15px;
   }
 
   .portrait-img {
-    max-width: 150px;
+    max-width: 120px;
+  }
+
+  .home-image p {
+    font-size: 8px;
   }
 }
