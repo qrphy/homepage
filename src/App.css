@@ -6,6 +6,7 @@
   flex-direction: column;
   max-width: 580px;
   margin: 0 auto;
+  scroll-behavior: smooth;
 }
 
 .name {
