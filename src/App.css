@@ -68,6 +68,7 @@
   color: rgb(148, 148, 156);
   font-style: italic;
   font-weight: 300;
+  max-width: 150px;
 }
 
 @media screen and (max-width: 530px) {
