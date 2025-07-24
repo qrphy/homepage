@@ -31,8 +31,8 @@ function Home() {
       </p>
       
       <div className="home-image">
-          <img src="/YoungKnight.jpg" alt="Young Knight by Vittore Carpaccio 1510" className="portrait-img" />
-        <p>Young Knight in a Landscape</p>
+          <img src="/YoungKnight.jpg" alt="Young Knight in a Landscape by Vittore Carpaccio 1510" className="portrait-img" />
+        <p>Young Knight in a Landscape by Vittore Carpaccio 1510</p>
       </div>
     </>
   );
