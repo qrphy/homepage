@@ -18,7 +18,7 @@ export default function Home() {
   const opacity = Math.max(0, 1 - scrollY / maxScroll);
 
   return (
-    <div className="relative text-[#00b919] h-[200vh]">
+    <div className="relative text-[#00b919] h-[200vh] bg-black">
       <p
         className="fixed top-1/2 left-1/2 whitespace-nowrap text-xl font-mono pointer-events-none transition-transform duration-100 ease-in-out"
         style={{
