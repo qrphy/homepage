@@ -1,29 +1,9 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --color-green-matrix: #ffffff;
-}
-
-:root inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-green-matrix: var(--color-green-matrix);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  scroll-behavior: smooth;
 }
 
 body {
   background-color: #000000;
-  color: var(--color-green-matrix);
-  font-family: var(--font-geist-mono);
-  font-size: 20px;
 }
