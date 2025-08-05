@@ -1,33 +1,20 @@
-"use client";
-import { useEffect, useState } from "react";
-
 export default function Home() {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const maxScroll = 500;
-  const scale = 1 + scrollY / 100;
-  const opacity = Math.max(0, 1 - scrollY / maxScroll);
-
   return (
-    <div className="relative text-[#00b919] h-[200vh] bg-black">
-      <p
-        className="fixed top-1/2 left-1/2 whitespace-nowrap text-xl font-mono pointer-events-none transition-transform duration-100 ease-in-out"
-        style={{
-          transform: `translate(-50%, -50%) scale(${scale})`,
-          opacity: opacity,
-        }}
-      >
-        coming soon...
-      </p>
+    <div className="text-white h-[100vh] bg-black">
+      <div className="flex flex-col items-center justify-center h-full">
+        <img
+          src="/YoungKnight.jpg"
+          style={{
+            width: "300px",
+            borderRadius: "15px",
+            boxShadow: "0 0 10px rgba(255, 255, 255, 0.5)",
+            filter: "grayscale(40%)",
+          }}
+        />
+        <p className="fixed whitespace-nowrap text-xl pointer-events-none justify-center items-center flex w-full h-full">
+          // rebuilding in progress...
+        </p>
+      </div>
     </div>
   );
 
