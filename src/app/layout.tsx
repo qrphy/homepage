@@ -4,7 +4,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import Script from "next/script";
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GA_ID = "G-1FTZJ3VKTT";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
