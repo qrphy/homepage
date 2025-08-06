@@ -47,11 +47,11 @@ export default function RootLayout({
         {GA_ID && (
           <>
             <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
               strategy="afterInteractive"
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
             />
             <Script
-              id="ga-init"
+              id="gtag-init"
               strategy="afterInteractive"
               dangerouslySetInnerHTML={{
                 __html: `
