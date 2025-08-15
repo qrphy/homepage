@@ -4,7 +4,7 @@ export default function Home() {
       <div className="max-w-lg mx-auto">
         <h1 className="text-xl font-semibold mb-6">Furkan Titiz</h1>
         <p className="mb-3 text-base">
-          I'm currently working on frontend projects and sharing them on
+          I&apos;m currently working on frontend projects and sharing them on
           <a
             href="https://github.com/qrphy"
             target="_blank"
