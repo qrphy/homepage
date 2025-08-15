@@ -1,24 +1,44 @@
-"use client";
-import { useEffect, useState } from "react";
-
 export default function Home() {
-  const text = "redesign in progress...";
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    if (index < text.length) {
-      const timeout = setTimeout(() => {
-        setIndex(index + 1);
-      }, 100);
-      return () => clearTimeout(timeout);
-    }
-  }, [index, text.length]);
-
   return (
-    <div className="text-white h-[100vh] bg-black">
-      <div className="flex flex-col items-center justify-center h-full">
-        <p className="fixed whitespace-nowrap text-xl pointer-events-none justify-center items-center  flex w-full h-full font-system">
-          {text.slice(0, index)}
+    <div className="min-h-screen bg-black text-white p-8">
+      <div className="max-w-2xl mx-auto">
+        <h1 className="text-3xl font-bold mb-8">Furkan Titiz</h1>
+        <p className="mb-4 text-lg">
+          I'm currently working on frontend projects and sharing them on
+          <a
+            href="https://github.com/qrphy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:text-blue-300 underline ml-1"
+          >
+            GitHub
+          </a>
+          .
+        </p>
+        <p className="mb-4 text-lg">
+          Feel free to check them out and reach out for{" "}
+          <a
+            href="mailto:furkantitiz96@gmail.com"
+            className="text-blue-400 hover:text-blue-300 underline"
+          >
+            collaboration
+          </a>
+          .
+        </p>
+        <p className="mb-6 text-lg">
+          Outside of coding, I enjoy watching F1 races, tennis matches, and
+          listening to music.
+        </p>
+        <h4 className="text-xl font-semibold mb-4">Contact</h4>
+        <p className="text-lg">
+          Catch me on
+          <a
+            href="https://www.linkedin.com/in/furkan-titiz/"
+            className="text-blue-400 hover:text-blue-300 underline ml-1"
+          >
+            LinkedIn
+          </a>
+          .
         </p>
       </div>
     </div>
