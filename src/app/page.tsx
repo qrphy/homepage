@@ -3,8 +3,8 @@ export default function Home() {
     <div className="f-full bg-black text-white pt-16 m-6">
       <div className="max-w-sm mx-auto">
         <header className="mb-6">
-          <h1 className="text-base font-semibold">Furkan Titiz</h1>
-          <p className="text-xs font-semibold text-gray-400">
+          <h1 className="text-lg font-medium">Furkan Titiz</h1>
+          <p className="text-xs font-medium text-gray-400">
             Frontend Developer
           </p>
         </header>
@@ -15,12 +15,7 @@ export default function Home() {
           </p>
           <br />
           <p>
-            I graduated from Selcuk University with a degree in Computer
-            Programming.
-          </p>
-          <br />
-          <p>
-            I&apos;m currently working on frontend project and sharing them on{" "}
+            I&apos;m currently working on frontend projects and sharing them on{" "}
             <a
               href="https://github.com/qrphy"
               className="underline hover:no-underline"
@@ -31,7 +26,7 @@ export default function Home() {
           </p>
         </div>
         <div>
-          <h4 className="mb-3 text-base font-semibold">Contact</h4>
+          <h4 className="mb-3 text-lg font-medium">Contact</h4>
           <p className="text-sm">
             Drop me an{" "}
             <a
