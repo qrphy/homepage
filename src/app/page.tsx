@@ -1,46 +1,39 @@
 export default function Home() {
   return (
     <div className="f-full bg-black text-white pt-16 m-6">
-      <div className="max-w-lg mx-auto">
+      <div className="max-w-sm mx-auto">
         <header className="mb-6">
-          <h1 className="text-xl font-semibold">Furkan Titiz</h1>
-          <p className="text-xs text-base">Frontend Developer</p>
+          <h1 className="text-sm font-semibold">Furkan Titiz</h1>
+          <p className="text-xs font-medium text-gray-500">
+            Frontend Developer
+          </p>
         </header>
-        <div className="mb-12 [&>p]:leading-loose">
-          <p className="text-base">
-            I&apos;m currently working on frontend projects and sharing them on
-            <a
-              href="https://github.com/qrphy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-blue-500 underline ml-1"
-            >
-              GitHub
-            </a>
-            .
+        <div className="mb-12 [&>p]:leading-loose text-sm font-normal">
+          <p>
+            I focus on developing frontend projects using JavaScript,
+            TypeScript, React, Next.js, and TailwindCSS.
           </p>
-          <p className="text-base">
-            Feel free to check them out and reach out for{" "}
-            <a
-              href="mailto:furkantitiz96@gmail.com"
-              className="hover:text-blue-500 underline"
-            >
-              collaboration
-            </a>
-            .
-          </p>
-          <p className="text-base">
+
+          <p>
             Outside of coding, I enjoy watching F1 races, tennis matches, and
             listening to music.
           </p>
         </div>
-        <h4 className="text-xl font-semibold mb-3">Contact</h4>
-        <p className="text-base">
-          Catch me on{" "}
+        <h4 className="mb-3 text-sm font-semibold">Contact</h4>
+        <p className="text-sm">
+          Drop me an{" "}
+          <a
+            href="mailto:furkantitiz44@gmail.com"
+            className="underline hover:no-underline"
+          >
+            {""}email
+          </a>{" "}
+          or catch me on{" "}
           <a
             href="https://www.linkedin.com/in/furkan-titiz/"
-            className="hover:text-blue-500 underline"
+            className="underline hover:no-underline"
           >
+            {" "}
             LinkedIn
           </a>
           .
