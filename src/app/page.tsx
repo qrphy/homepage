@@ -1,17 +1,17 @@
 export default function Home() {
   return (
     <div className="f-full bg-black text-white pt-16 m-6">
-      <div className="max-w-sm mx-auto">
+      <div className="max-w-lg mx-auto">
         <header className="mb-6">
-          <h1 className="text-lg font-medium">Furkan Titiz</h1>
+          <h1 className="text-lg font-semibold">Furkan Titiz</h1>
           <p className="text-xs font-medium text-gray-400">
             Frontend Developer
           </p>
         </header>
-        <div className="mb-12 [&>p]:leading-snug text-sm font-medium">
+        <div className="mb-12 [&>p]:leading-snug text-normal font-medium">
           <p>
-            I build digital products that transform ideas into effortless and
-            enjoyable web experiences.
+            I enjoy creating digital products that turn ideas into enjoyable web
+            experiences.
           </p>
           <br />
           <p>
