@@ -4,7 +4,7 @@ body {
   background-color: #000000;
   font-family: sans-serif;
   opacity: 0;
-  animation: fade 2.2s forwards;
+  animation: fade 2.5s forwards;
 }
 
 @keyframes fade {

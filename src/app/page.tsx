@@ -3,7 +3,7 @@ export default function Home() {
     <div className="f-full bg-black text-white pt-16 m-6">
       <div className="max-w-lg mx-auto">
         <header className="mb-6">
-          <h1 className="text-lg font-semibold">Furkan Titiz</h1>
+          <h1 className="text-lg font-medium">Furkan Titiz</h1>
           <p className="text-xs font-medium text-gray-400">
             Frontend Developer
           </p>
@@ -27,7 +27,7 @@ export default function Home() {
         </div>
         <div>
           <h4 className="mb-3 text-lg font-medium">Contact</h4>
-          <p className="text-sm">
+          <p className="text-normal">
             Drop me an{" "}
             <a
               href="mailto:furkantitiz44@gmail.com"
