@@ -1,3 +1,5 @@
+/* import ContactForm from "./components/ContactForm"; */
+
 export default function Home() {
   return (
     <div className="f-full bg-black text-white pt-16 m-6">
@@ -15,7 +17,7 @@ export default function Home() {
           </p>
           <br />
           <p>
-            I&apos;m currently working on frontend projects and sharing them on{" "}
+            Currently working on frontend projects check them out on{" "}
             <a
               href="https://github.com/qrphy"
               className="underline hover:no-underline"
@@ -28,14 +30,14 @@ export default function Home() {
         <div>
           <h4 className="mb-3 text-lg font-medium">Contact</h4>
           <p className="text-normal">
-            Drop me an{" "}
+            I'd love to connect send me an{" "}
             <a
               href="mailto:furkantitiz44@gmail.com"
               className="underline hover:no-underline"
             >
               {""}email
             </a>{" "}
-            or catch me on{" "}
+            or find me on{" "}
             <a
               href="https://www.linkedin.com/in/furkan-titiz/"
               className="underline hover:no-underline"
