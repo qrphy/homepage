@@ -19,22 +19,32 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://furkantitiz.dev"),
   alternates: {
-    canonical: "/",
+    canonical: "https://furkantitiz.dev",
   },
   title: {
     default: "Furkan Titiz",
     template: "%s | Furkan Titiz",
   },
   description: "Frontend Developer",
+  keywords: [
+    "Furkan Titiz",
+    "Furkan",
+    "Titiz",
+    "Frontend Developer",
+    "Web Developer",
+  ],
   openGraph: {
     title: "Furkan Titiz",
     description: "Frontend Developer",
     url: "https://furkantitiz.dev",
     siteName: "Furkan Titiz",
+    locale: "tr_TR",
+    type: "website",
   },
   icons: {
     icon: "/favicon.ico",
   },
+  authors: [{ name: "Furkan Titiz", url: "https://furkantitiz.dev" }],
 };
 
 export default function RootLayout({
