@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 body {
-  font-family: sans-serif;
   opacity: 0;
   animation: fade 2.5s forwards;
 }
