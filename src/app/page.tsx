@@ -138,7 +138,7 @@ export default function Home() {
         </div>
         <div>
           <h4 className="mb-3 text-lg font-medium">Contact</h4>
-          <p className="text-normal">
+          <p className="text-normal font-medium">
             I&apos;d love to connect send me an{" "}
             <a
               href="mailto:furkantitiz44@gmail.com"
