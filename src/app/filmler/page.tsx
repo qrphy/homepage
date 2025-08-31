@@ -11,7 +11,7 @@ export default function Filmler() {
     fetch("/api/letterboxd")
       .then((res) => {
         if (!res.ok) {
-          throw new Error("API yanıt vermedi");
+          throw new Error("API does not respond");
         }
         return res.json();
       })

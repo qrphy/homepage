@@ -74,11 +74,11 @@ export async function GET(request: NextRequest) {
       method: "Liste scraping + TMDB posters",
     });
   } catch (error) {
-    console.error("Scraping hatası:", error);
+    console.error("Scraping Error:", error);
     return NextResponse.json(
       {
-        error: "Scraping hatası",
-        detail: error instanceof Error ? error.message : "Bilinmeyen hata",
+        error: "Scraping Error",
+        detail: error instanceof Error ? error.message : "Error",
       },
       { status: 500 }
     );
