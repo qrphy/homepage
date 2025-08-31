@@ -48,7 +48,9 @@ export default function Filmler() {
   return (
     <div className="min-h-screen p-8">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl font-bold mb-8 text-center">Index</h1>
+        <h1 className="text-xl font-bold mb-8 text-center">
+          Some of my favorite films
+        </h1>
 
         {posters.length === 0 ? (
           <div className="text-center text-gray-500">Index not found.</div>

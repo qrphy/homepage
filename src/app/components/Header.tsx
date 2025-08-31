@@ -15,7 +15,7 @@ const Header = () => {
         </div>
         <Link href="/">
           <Image
-            src="/me.jpg"
+            src="/me.JPG"
             alt="furkan titiz"
             width={46}
             height={46}
