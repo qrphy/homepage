@@ -27,7 +27,7 @@ export default function Home() {
         <div className="mb-12">
           <h1 className="mb-3">Contact</h1>
           <p className="custom-text-color">
-            I'd love to connect send me an{" "}
+            I&apos;d love to connect send me an{" "}
             <a
               href="mailto:furkantitiz44@gmail.com"
               className="underline underline-offset-2 hover:text-blue-600"
