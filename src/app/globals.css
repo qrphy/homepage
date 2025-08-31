@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
+.custom-text-color {
+  color: oklch(60.9% 0 0);
+}
+
 body {
   opacity: 0;
-  animation: fade 2.5s forwards;
+  animation: fade 3s forwards;
 }
 
 @keyframes fade {

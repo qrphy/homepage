@@ -1,19 +1,27 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const Header = () => {
   return (
-    <header className="w-full pt-3">
-      <div className="flex justify-between items-center text-lg font-medium text-sm">
+    <header className="w-full h-[12rem] flex items-center">
+      <div className="flex justify-between items-center w-full">
         <div>
-          <Link href="/">Furkan Titiz</Link>
-          <p className="text-xs font-medium text-gray-400">
+          <Link href="/" className="text-sms font-medium">
+            Furkan Titiz
+          </Link>
+          <p className="text-xs font-medium custom-text-color">
             Frontend Developer
           </p>
         </div>
-        <div className="flex justify-between items-center gap-4">
-          <Link href="/projects">Projects</Link>
-          <Link href="/bookmarks">Bookmarks</Link>
-        </div>
+        <Link href="/">
+          <Image
+            src="/me.jpg"
+            alt="furkan titiz"
+            width={46}
+            height={46}
+            className="rounded-full cursor-pointer hover:opacity-80 transition-opacity"
+          />
+        </Link>
       </div>
     </header>
   );
