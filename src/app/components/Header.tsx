@@ -6,7 +6,7 @@ const Header = () => {
     <header className="w-full h-[12rem] flex items-center">
       <div className="flex justify-between items-center w-full">
         <div>
-          <Link href="/" className="text-sms font-medium">
+          <Link href="/" className="text-base font-medium">
             Furkan Titiz
           </Link>
           <p className="text-xs font-medium custom-text-color">

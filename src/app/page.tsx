@@ -1,7 +1,7 @@
 export default function Home() {
   return (
     <div className="f-full">
-      <section className="text-sm font-medium">
+      <section className="text-base font-medium">
         <div className="mb-12">
           <h1 className="mb-3">About</h1>
           <p className="custom-text-color">

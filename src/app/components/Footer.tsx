@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="mt-auto py-8 text-center text-sm text-gray-600 dark:text-gray-400">
+    <footer className="mt-auto py-8 text-center text-base text-gray-600 dark:text-gray-400">
       <div className="flex justify-between items-center w-full">
         <a
           href="/filmler"
