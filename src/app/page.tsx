@@ -9,7 +9,7 @@ export default function Home() {
       title: "Current",
       content: (
         <>
-          I spending most of my time experimenting with{" "}
+          Currently I&apos;m spending most of my time experimenting with{" "}
           <a
             href="https://github.com/qrphy"
             target="_blank"
