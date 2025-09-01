@@ -9,16 +9,16 @@ export default function Home() {
       title: "Current",
       content: (
         <>
-          Currently working on frontend projects check them out on{" "}
+          I spending most of my time experimenting with{" "}
           <a
             href="https://github.com/qrphy"
-            className="underline underline-offset-2 hover:text-blue-600 transition-colors duration-200"
             target="_blank"
             rel="noopener noreferrer"
+            className="underline underline-offset-2 hover:text-blue-600 transition-colors duration-200"
           >
-            GitHub
-          </a>
-          .
+            frontend
+          </a>{" "}
+          projects and learning new things.
         </>
       ),
     },
