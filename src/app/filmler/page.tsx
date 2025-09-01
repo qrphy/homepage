@@ -44,7 +44,7 @@ export default function Filmler() {
             {posters.length === 0 ? (
               <div className="text-center text-gray-500">Index not found.</div>
             ) : (
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+              <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                 {posters.map((poster, index) => (
                   <div key={index} className="group">
                     <img
@@ -63,8 +63,8 @@ export default function Filmler() {
   };
 
   return (
-    <div className="min-h-screen p-8">
-      <div className="max-w-lg mx-auto">{renderContent()}</div>
+    <div className="max-h-screen p-8">
+      <div className="max-w-xl mx-auto">{renderContent()}</div>
     </div>
   );
 }

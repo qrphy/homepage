@@ -12,7 +12,7 @@ export default function Home() {
           Currently working on frontend projects check them out on{" "}
           <a
             href="https://github.com/qrphy"
-            className="underline underline-offset-2 hover:text-blue-600"
+            className="underline underline-offset-2 hover:text-blue-600 transition-colors duration-200"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -29,14 +29,14 @@ export default function Home() {
           I&apos;d love to connect send me an{" "}
           <a
             href="mailto:furkantitiz44@gmail.com"
-            className="underline underline-offset-2 hover:text-blue-600"
+            className="underline underline-offset-2 hover:text-blue-600 transition-colors duration-200"
           >
             email
           </a>{" "}
           or catch me on{" "}
           <a
             href="https://www.linkedin.com/in/furkan-titiz/"
-            className="underline underline-offset-2 hover:text-blue-600"
+            className="underline underline-offset-2 hover:text-blue-600 transition-colors duration-200"
           >
             LinkedIn
           </a>
@@ -52,7 +52,9 @@ export default function Home() {
         {sectionData.map((section, index) => (
           <div key={index} className="mb-12">
             <h1 className="mb-3">{section.title}</h1>
-            <p className="custom-text-color">{section.content}</p>
+            <p className="text-gray-600 dark:text-gray-400">
+              {section.content}
+            </p>
           </div>
         ))}
       </section>
