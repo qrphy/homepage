@@ -3,13 +3,13 @@ export default function Home() {
     {
       title: "About",
       content:
-        "Hello I'm Furkan, I spend most of my time experimenting with frontend projects, and I enjoy turning ideas into digital products that deliver enjoyable web experiences.",
+        "I spend most of my time experimenting with frontend projects, and I enjoy turning ideas into digital products that deliver enjoyable web experiences.",
     },
     {
       title: "Current",
       content: (
         <>
-          Currently working on frontend projects and sharin them on{" "}
+          Currently working on frontend projects and sharing them on{" "}
           <a
             href="https://github.com/qrphy"
             target="_blank"
@@ -18,7 +18,7 @@ export default function Home() {
           >
             GitHub
           </a>{" "}
-          you can look.
+          feel free to take a look.
         </>
       ),
     },
