@@ -15,15 +15,15 @@ const Header = () => {
           <Image
             src="/IMG_9550.JPG"
             alt="furkan titiz"
-            width={46}
-            height={46}
+            width={48}
+            height={48}
             className="rounded-full cursor-pointer hover:opacity-80 transition-opacity"
           />
         </Link>
         <div className="flex gap-3">
-          <p>Project</p>
-          <p>Blog</p>
-          <p>Bookmarks</p>
+          <a href="/project">Project</a>
+          <a href="/blog">Blog</a>
+          <a href="/filmler">Bookmarks</a>
         </div>
       </div>
     </header>
