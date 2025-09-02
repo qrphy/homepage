@@ -3,22 +3,22 @@ export default function Home() {
     {
       title: "About",
       content:
-        "Hello I'm Furkan, I love exploring frontend projects and building digital products that make the web a more enjoyable place.",
+        "Hello I'm Furkan, I spend most of my time experimenting with frontend projects, and I enjoy turning ideas into digital products that deliver enjoyable web experiences.",
     },
     {
       title: "Current",
       content: (
         <>
-          Currently I&apos;m spending most of my time experimenting with{" "}
+          Currently working on frontend projects and sharin them on{" "}
           <a
             href="https://github.com/qrphy"
             target="_blank"
             rel="noopener noreferrer"
             className="underline underline-offset-2 hover:text-blue-600 transition-colors duration-200"
           >
-            frontend
+            GitHub
           </a>{" "}
-          projects and learning new things.
+          you can look.
         </>
       ),
     },
