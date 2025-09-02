@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-.custom-text-color {
+.ct-color {
   color: oklch(60.9% 0 0);
 }
 

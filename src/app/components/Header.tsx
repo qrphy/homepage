@@ -9,9 +9,7 @@ const Header = () => {
           <Link href="/" className="text-base font-medium">
             Furkan Titiz
           </Link>
-          <p className="text-xs font-medium custom-text-color">
-            Frontend Developer
-          </p>
+          <p className="text-xs font-medium ct-color">Frontend Developer</p>
         </div>
         <Link href="/">
           <Image
