@@ -9,7 +9,7 @@ const Header = () => {
           <Link href="/" className="text-base font-medium">
             Furkan Titiz
           </Link>
-          {/* <p className="text-xs font-medium ct-color">Frontend Developer</p> */}
+          <p className="text-xs font-medium ct-color">Frontend Developer</p>
         </div>{" "}
         {/* 
         <Link href="/">
@@ -22,6 +22,7 @@ const Header = () => {
           />
         </Link>*/}
         <div className="flex gap-3">
+          <p>Project</p>
           <p>Blog</p>
           <p>Bookmarks</p>
         </div>
