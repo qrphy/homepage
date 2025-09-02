@@ -9,8 +9,9 @@ const Header = () => {
           <Link href="/" className="text-base font-medium">
             Furkan Titiz
           </Link>
-          <p className="text-xs font-medium ct-color">Frontend Developer</p>
-        </div>
+          {/* <p className="text-xs font-medium ct-color">Frontend Developer</p> */}
+        </div>{" "}
+        {/* 
         <Link href="/">
           <Image
             src="/me.JPG"
@@ -19,7 +20,11 @@ const Header = () => {
             height={46}
             className="rounded-full cursor-pointer hover:opacity-80 transition-opacity"
           />
-        </Link>
+        </Link>*/}
+        <div className="flex gap-3">
+          <p>Blog</p>
+          <p>Bookmarks</p>
+        </div>
       </div>
     </header>
   );
