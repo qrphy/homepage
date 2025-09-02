@@ -5,22 +5,21 @@ const Header = () => {
   return (
     <header className="w-full h-[12rem] flex items-center">
       <div className="flex justify-between items-center w-full">
-        <div>
+        {/*<div>
           <Link href="/" className="text-base font-medium">
             Furkan Titiz
           </Link>
           <p className="text-xs font-medium ct-color">Frontend Developer</p>
-        </div>{" "}
-        {/* 
+        </div>{" "}*/}
         <Link href="/">
           <Image
-            src="/me.JPG"
+            src="/IMG_9550.JPG"
             alt="furkan titiz"
             width={46}
             height={46}
             className="rounded-full cursor-pointer hover:opacity-80 transition-opacity"
           />
-        </Link>*/}
+        </Link>
         <div className="flex gap-3">
           <p>Project</p>
           <p>Blog</p>
