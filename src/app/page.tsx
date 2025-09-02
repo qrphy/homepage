@@ -16,9 +16,9 @@ export default function Home() {
             rel="noopener noreferrer"
             className="underline underline-offset-2 hover:text-blue-600 transition-colors duration-200"
           >
-            GitHub.
-          </a>{" "}
-          Feel free to take a look.
+            GitHub
+          </a>
+          . Feel free to take a look.
         </>
       ),
     },
