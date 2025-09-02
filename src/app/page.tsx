@@ -3,7 +3,7 @@ export default function Home() {
     {
       title: "About",
       content:
-        "I enjoy creating digital products that turn ideas into enjoyable web experiences.",
+        "I spend most of my time experimenting with frontend projects, and I enjoy turning ideas into digital products that deliver enjoyable web experiences.",
     },
     {
       title: "Current",
