@@ -26,7 +26,7 @@ const bookmarks: Bookmark[] = [
     host: "youtube.com",
   },
   {
-    title: "MCP nedir? - Furkan Kılıç",
+    title: "MCP nedir?",
     url: "https://x.com/benfurkankilic/status/1962821941095739802",
     host: "x.com",
   },
