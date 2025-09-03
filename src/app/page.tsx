@@ -9,7 +9,7 @@ export default function Home() {
       title: "Current",
       content: (
         <>
-          Currently working on frontend projects and sharing them on{" "}
+          I enjoy creating frontend projects and sharing them on{" "}
           <a
             href="https://github.com/qrphy"
             target="_blank"
@@ -18,7 +18,7 @@ export default function Home() {
           >
             GitHub
           </a>
-          . Feel free to take a look.
+          . Feel free to check them out!
         </>
       ),
     },
@@ -52,9 +52,7 @@ export default function Home() {
         {sectionData.map((section, index) => (
           <div key={index} className="mb-12">
             <h1 className="mb-3">{section.title}</h1>
-            <p className="text-gray-600 dark:text-gray-400">
-              {section.content}
-            </p>
+            <p className="ct-color">{section.content}</p>
           </div>
         ))}
       </section>
