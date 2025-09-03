@@ -4,7 +4,6 @@ const TMDB_API_KEY = process.env.TMDB_API_KEY;
 
 export async function GET(request: NextRequest) {
   try {
-    // Environment variable kontrolü
     if (!TMDB_API_KEY) {
       return NextResponse.json(
         { error: "TMDB_API_KEY environment variable is missing" },
@@ -12,7 +11,6 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    // Liste sayfasından veri çek
     const response = await fetch("https://letterboxd.com/curny/list/homepage/");
 
     if (!response.ok) {
@@ -23,7 +21,6 @@ export async function GET(request: NextRequest) {
 
     let movies: string[] = [];
 
-    // Poster alt yazılarından film adlarını çek
     const posterTitles = html.match(/<img[^>]*alt="([^"]*)"[^>]*>/g);
     if (posterTitles) {
       movies = posterTitles
@@ -32,7 +29,6 @@ export async function GET(request: NextRequest) {
         .slice(0, 10); // İlk 10 film
     }
 
-    // TMDB'den posterleri çek
     const posters = await Promise.all(
       movies.map(async (title) => {
         try {
