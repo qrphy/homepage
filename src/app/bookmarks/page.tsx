@@ -53,9 +53,9 @@ function BookmarkItem({ title, url, host }: Bookmark) {
 export default function Bookmarks() {
   return (
     <div className="w-full">
-      <div className="font-medium mb-12">
-        <h1 className="mb-2 text-base">Bookmarks</h1>
-        <p className="text-xs">Archive for my bookmarked links and things.</p>
+      <div className="text-base font-medium mb-14">
+        <h1 className="mb-2">Bookmarks</h1>
+        <p className="ct-color">Archive for my bookmarked links and things.</p>
       </div>
 
       <ul aria-label="Bookmarks">

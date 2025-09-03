@@ -18,7 +18,7 @@ export default function Home() {
           >
             GitHub
           </a>
-          . Feel free to check them out!
+          .
         </>
       ),
     },
