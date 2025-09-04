@@ -41,4 +41,5 @@ export const bookBookmarks: BookBookmark[] = [
   { title: "Simulacra and Simulation", author: "Jean Baudrillard" },
   { title: "Out Of Control", author: "Kevin Kelly" },
   { title: "21 Lessons for 21st Century", author: "Yuval Naah Harrari" },
+  { title: "Permutation City", author: "Greg Egan" },
 ];
