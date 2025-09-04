@@ -1,36 +1,4 @@
-type Bookmark = {
-  title: string;
-  url: string;
-  host: string;
-};
-
-const bookmarks: Bookmark[] = [
-  {
-    title: "GeoHot Blog",
-    url: "https://geohot.github.io/blog/",
-    host: "geohot.github.io",
-  },
-  {
-    title: "Anthropic courses",
-    url: "https://anthropic.skilljar.com",
-    host: "anthropic.skilljar.com",
-  },
-  {
-    title: "Lex Fridman Podcast #333: Andrej Karpathy",
-    url: "https://youtu.be/cdiD-9MMpb0?si=PZxMlg7AYpCmBvti",
-    host: "youtube.com",
-  },
-  {
-    title: "Lex Fridman Podcast #400: Elon Musk Round 4",
-    url: "https://youtu.be/JN3KPFbWCy8?si=nt562R_J1RER3_08",
-    host: "youtube.com",
-  },
-  {
-    title: "MCP nedir?",
-    url: "https://x.com/benfurkankilic/status/1962821941095739802",
-    host: "x.com",
-  },
-];
+import { Bookmark, linkBookmarks, bookBookmarks, BookBookmark } from "./data";
 
 function BookmarkItem({ title, url, host }: Bookmark) {
   return (
@@ -50,6 +18,15 @@ function BookmarkItem({ title, url, host }: Bookmark) {
   );
 }
 
+function BookItem({ title, author }: BookBookmark) {
+  return (
+    <li className="mb-6">
+      <h2 className="text-base">{title}</h2>
+      <p className="ct-color text-xs">{author}</p>
+    </li>
+  );
+}
+
 export default function Bookmarks() {
   return (
     <div className="w-full">
@@ -58,11 +35,27 @@ export default function Bookmarks() {
         <p className="ct-color">Archive for my bookmarked links and things.</p>
       </div>
 
-      <ul aria-label="Bookmarks">
-        {bookmarks.map((b) => (
-          <BookmarkItem key={b.url} {...b} />
-        ))}
-      </ul>
+      <section className="mb-10">
+        <h2 className="text-lg font-medium mb-4">Links</h2>
+        <ul aria-label="Links">
+          {linkBookmarks.map((b) => (
+            <BookmarkItem key={b.url} {...b} />
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <h2 className="text-lg font-medium mb-4">Kitaplar</h2>
+        <ul aria-label="Books">
+          {bookBookmarks.length === 0 ? (
+            <li className="ct-color text-sm">Henüz eklenmiş kitap yok.</li>
+          ) : (
+            bookBookmarks.map((b) => (
+              <BookItem key={`${b.title}-${b.author}`} {...b} />
+            ))
+          )}
+        </ul>
+      </section>
     </div>
   );
 }
