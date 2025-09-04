@@ -45,10 +45,10 @@ export default function Bookmarks() {
       </section>
 
       <section>
-        <h2 className="text-lg font-medium mb-4">Kitaplar</h2>
+        <h2 className="text-lg font-medium mb-4">Books</h2>
         <ul aria-label="Books">
           {bookBookmarks.length === 0 ? (
-            <li className="ct-color text-sm">Henüz eklenmiş kitap yok.</li>
+            <li className="ct-color text-sm">Nothing to see here.</li>
           ) : (
             bookBookmarks.map((b) => (
               <BookItem key={`${b.title}-${b.author}`} {...b} />
