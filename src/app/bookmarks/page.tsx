@@ -32,7 +32,9 @@ export default function Bookmarks() {
     <div className="w-full">
       <div className="text-base font-medium mb-14">
         <h1 className="mb-2">Bookmarks</h1>
-        <p className="ct-color">Archive for my bookmarked links and things.</p>
+        <p className="ct-color font-normal">
+          Archive for my bookmarked links and things.
+        </p>
       </div>
 
       <section className="mb-10">

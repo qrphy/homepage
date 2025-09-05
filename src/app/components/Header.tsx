@@ -6,10 +6,10 @@ const Header = () => {
     <header className="w-full h-[12rem] flex items-center">
       <div className="flex justify-between items-center w-full">
         <div>
-          <Link href="/" className="text-base font-bold">
+          <Link href="/" className="text-base font-medium">
             Furkan Titiz
           </Link>
-          <p className="text-xs font-medium ct-color">Frontend Developer</p>
+          <p className="text-xs font-normal ct-color">Frontend Developer</p>
         </div>
         <Link href="/">
           <Image
