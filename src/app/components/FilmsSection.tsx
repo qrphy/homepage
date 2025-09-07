@@ -38,7 +38,7 @@ export default function FilmsSection() {
   }
 
   return (
-    <section id="films">
+    <section id="films" className="mb-10">
       <h2 className="text-lg font-medium mb-4">Films</h2>
       {posters.length === 0 ? (
         <div className="ct-color text-sm">Nothing to show here.</div>
