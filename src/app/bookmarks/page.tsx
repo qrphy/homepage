@@ -1,4 +1,5 @@
 import { Bookmark, linkBookmarks, bookBookmarks, BookBookmark } from "./data";
+import FilmsSection from "../components/FilmsSection";
 
 function BookmarkItem({ title, url, host }: Bookmark) {
   return (
@@ -46,7 +47,7 @@ export default function Bookmarks() {
         </ul>
       </section>
 
-      <section>
+      <section className="mb-10">
         <h2 className="text-lg font-medium mb-4">Books</h2>
         <ul aria-label="Books">
           {bookBookmarks.length === 0 ? (
@@ -58,6 +59,8 @@ export default function Bookmarks() {
           )}
         </ul>
       </section>
+
+      <FilmsSection />
     </div>
   );
 }
