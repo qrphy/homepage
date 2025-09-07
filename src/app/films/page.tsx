@@ -38,11 +38,12 @@ export default function Filmler() {
       case "success":
         return (
           <>
-            <h1 className="text-lg font-bold mb-8 text-center">
-              Some of my favorite films
-            </h1>
+            <h1 className="text-lg font-normal mb-4">Films</h1>
+            <p className="font-medium text-base mb-6 ct-color">
+              Some of my favorite movies
+            </p>
             {posters.length === 0 ? (
-              <div className="text-center text-gray-500">Index not found.</div>
+              <div className="text-gray-500">Index not found.</div>
             ) : (
               <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                 {posters.map((poster, index) => (
@@ -64,7 +65,7 @@ export default function Filmler() {
 
   return (
     <div className="max-h-screen p-8">
-      <div className="max-w-xl mx-auto">{renderContent()}</div>
+      <div className="w-full">{renderContent()}</div>
     </div>
   );
 }
