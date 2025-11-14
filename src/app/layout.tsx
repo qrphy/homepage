@@ -4,7 +4,6 @@ import "./globals.css";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-1FTZJ3VKTT";
 
@@ -57,7 +56,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`font-sans ${geistMono.variable} ${geistSans.variable} ${geistSans.className} antialiased dark:bg-black dark:text-white max-w-2xl mx-auto px-4`}
+      className={`font-sans antialiased dark:bg-black dark:text-white max-w-2xl mx-auto px-4`}
     >
       <head>
         {GA_ID && (
