@@ -57,7 +57,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`font-sans ${geistMono.variable} antialiased dark:bg-black dark:text-white max-w-2xl mx-auto px-4`}
+      className={`font-sans ${geistMono.variable} ${geistSans.variable} ${geistSans.className} antialiased dark:bg-black dark:text-white max-w-2xl mx-auto px-4`}
     >
       <head>
         {GA_ID && (
