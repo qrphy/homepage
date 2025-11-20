@@ -9,7 +9,7 @@ const Header = () => {
           <p className="text-lg font-medium">
             Furkan Titiz
           </p>
-          <p className="text-base font-normal ct-color pt-1">Frontend Developer</p>
+          <p className="text-base font-normal ct-color">Frontend Developer</p>
         </div>
       </div>
     </header>

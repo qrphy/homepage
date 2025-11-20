@@ -36,7 +36,7 @@ export default function Home() {
           or catch me on{" "}
           <a
             href="https://www.linkedin.com/in/furkan-titiz/"
-            className="underline underline-offset-3 hover:text-orange-600 transition-colors duration-200"
+            className="underline underline-offset-3 hover:text-blue-600 transition-colors duration-200"
           >
             LinkedIn
           </a>
