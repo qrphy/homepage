@@ -3,23 +3,14 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <header className="w-full h-[12rem] flex items-center">
-      <div className="flex justify-between items-center w-full">
+    <header className="w-full h-[16rem] flex items-center">
+      <div className="flex items-center justify-between w-full">
         <div>
-          <Link href="/" className="text-base font-medium">
+          <p className="text-lg font-medium">
             Furkan Titiz
-          </Link>
-          <p className="text-xs font-normal ct-color">Frontend Developer</p>
+          </p>
+          <p className="text-base font-normal ct-color pt-1">Frontend Developer</p>
         </div>
-        <Link href="/">
-          <Image
-            src="/me.JPG"
-            alt="furkan titiz"
-            width={46}
-            height={46}
-            className="rounded-full cursor-pointer hover:opacity-80 transition-opacity"
-          />
-        </Link>
       </div>
     </header>
   );

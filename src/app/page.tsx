@@ -3,7 +3,7 @@ export default function Home() {
     {
       title: "About",
       content:
-        "I spend most of my time exploring frontend projects and love turning ideas into digital products that make the web more enjoyable.",
+"I spend most of my time exploring frontend projects and love turning ideas into digital products that make the web more enjoyable.",
     },
     {
       title: "Current",
@@ -14,7 +14,7 @@ export default function Home() {
             href="https://github.com/qrphy"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline underline-offset-2 hover:text-blue-600 transition-colors duration-200"
+            className="underline underline-offset-3 hover:text-blue-600 transition-colors duration-200"
           >
             GitHub
           </a>
@@ -29,14 +29,14 @@ export default function Home() {
           I&apos;d love to connect send me an{" "}
           <a
             href="mailto:furkantitiz44@gmail.com"
-            className="underline underline-offset-2 hover:text-blue-600 transition-colors duration-200"
+            className="underline underline-offset-3 hover:text-blue-600 transition-colors duration-200"
           >
             email
           </a>{" "}
           or catch me on{" "}
           <a
             href="https://www.linkedin.com/in/furkan-titiz/"
-            className="underline underline-offset-2 hover:text-blue-600 transition-colors duration-200"
+            className="underline underline-offset-3 hover:text-orange-600 transition-colors duration-200"
           >
             LinkedIn
           </a>
@@ -48,7 +48,7 @@ export default function Home() {
 
   return (
     <div className="w-full">
-      <section className="text-base font-normal">
+      <section className="text-lg font-normal">
         {sectionData.map((section, index) => (
           <div key={index} className="mb-12">
             <h1 className="mb-3 font-medium">{section.title}</h1>
