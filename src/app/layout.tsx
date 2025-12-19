@@ -5,6 +5,8 @@ import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import SnowfallEffect from "./components/SnowfallEffect";
+
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-1FTZJ3VKTT";
 
@@ -48,7 +50,6 @@ export const metadata: Metadata = {
   },
   authors: [{ name: "Furkan Titiz", url: "https://furkantitiz.dev" }],
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -84,6 +85,7 @@ export default function RootLayout({
         )}
       </head>
       <body className="min-h-screen flex flex-col">
+        <SnowfallEffect />
         <Header />
         <main className="flex-1">
           {children}

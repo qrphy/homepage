@@ -18,3 +18,19 @@ body {
     opacity: 1;
   }
 }
+
+/*
+.autoRotate {
+  animation: AutoRotateAnimation;
+  animation-timeline: view();
+}
+
+@keyframes AutoRotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+  */
