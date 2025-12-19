@@ -7,4 +7,3 @@ const SnowfallEffect = () => {
 };
 
 export default SnowfallEffect;
-
