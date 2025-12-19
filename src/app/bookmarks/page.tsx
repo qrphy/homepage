@@ -1,5 +1,5 @@
 import { Bookmark, linkBookmarks, bookBookmarks, BookBookmark } from "./data";
-import FilmsSection from "../components/FilmsSection";
+// import FilmsSection from "../components/FilmsSection";
 
 function BookmarkItem({ title, url, host }: Bookmark) {
   return (
@@ -60,7 +60,7 @@ export default function Bookmarks() {
         </ul>
       </section>
 
-      <FilmsSection />
+      {/* <FilmsSection /> */}
     </div>
   );
 }

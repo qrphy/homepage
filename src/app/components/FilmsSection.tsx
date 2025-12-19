@@ -12,15 +12,32 @@ export default function FilmsSection() {
   useEffect(() => {
     const fetchPosters = async () => {
       try {
-        const res = await fetch("/api/letterboxd");
-        if (!res.ok) throw new Error("API does not respond");
+        const res = await fetch("/api/letterboxd", {
+          cache: 'no-store',
+        });
+        
+        if (!res.ok) {
+          const errorData = await res.json().catch(() => ({}));
+          throw new Error(errorData.error || errorData.detail || `API error: ${res.status}`);
+        }
 
         const data = await res.json();
-        if (data.error) throw new Error(data.error);
+        if (data.error) {
+          throw new Error(data.error + (data.detail ? `: ${data.detail}` : ""));
+        }
 
-        setPosters(data.posters || []);
+        console.log("FilmsSection API response:", data);
+        console.log("Posters received:", data.posters);
+        
+        const postersArray = data.posters || [];
+        if (postersArray.length === 0 && data.movies && data.movies.length > 0) {
+          console.warn("Movies found but no posters:", data.movies);
+        }
+        
+        setPosters(postersArray);
         setStatus("success");
       } catch (err) {
+        console.error("FilmsSection fetch error:", err);
         setErrorMessage(err instanceof Error ? err.message : "Unknown error");
         setStatus("error");
       }
