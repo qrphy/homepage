@@ -85,7 +85,7 @@ export default function RootLayout({
         )}
       </head>
       <body className="min-h-screen flex flex-col">
-        <SnowfallEffect />
+      <SnowfallEffect />
         <Header />
         <main className="flex-1">
           {children}

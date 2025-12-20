@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="mt-auto py-8">
       <div className="flex justify-end">
-        <Link href="/bookmarks" target="_blank" rel="noopener noreferrer">
+        <Link href="/bookmarks" target="_self" rel="noopener noreferrer">
         <Image className="rounded cursor-pointer hover:opacity-80 transition-opacity"
             src="/IMG_9550.jpg"
             alt="furkan titiz"
