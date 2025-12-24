@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="flex justify-end">
         <Link href="/bookmarks" target="_self" rel="noopener noreferrer">
         <Image className="rounded cursor-pointer hover:opacity-80 transition-opacity"
-            src="/IMG_9550.jpg"
+            src="/me.JPG"
             alt="furkan titiz"
             width={50}
             height={50}
