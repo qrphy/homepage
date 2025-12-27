@@ -14,7 +14,7 @@ export async function GET() {
       );
     }
 
-    const response = await fetch("https://letterboxd.com/curny/list/homepage/");
+    const response = await fetch("https://letterboxd.com/qrpy/list/homepage/");
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -55,8 +55,7 @@ export async function GET() {
           .slice(0, 10);
       }
     }
-
-    // Son çare: film linklerinden slug çıkar
+    // Son olarak href'leri dene
     if (movies.length === 0) {
       const filmLinks = html.match(/href="\/film\/([^"]+)\/"/g);
       if (filmLinks) {
