@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="mt-auto pt-1 pb-1 bg-black text-sm rounded-4xl -translate-y-14 max-w-sm mx-auto px-4 shadow-lg shadow-gray-900/60 text-white underline-offset-3 md:pt-2 md:pb-2 md:text-md md:max-w-md">
+    <footer className="fixed bottom-10 left-1/2 -translate-x-1/2 pt-1 pb-1 bg-black text-sm rounded-4xl -translate-y-14 max-w-sm mx-auto px-4 shadow-lg shadow-gray-900/60 text-white underline-offset-3 md:pt-2 md:pb-2 md:text-md md:max-w-md">
       <div className="flex justify-around items-center gap-4 md:gap-6">
         <Link href="/" target="_self" rel="noopener noreferrer">
           <p className="hover:underline">Home</p>
