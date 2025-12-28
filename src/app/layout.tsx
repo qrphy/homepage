@@ -5,7 +5,6 @@ import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import SnowfallEffect from "./components/SnowfallEffect";
 
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-1FTZJ3VKTT";
@@ -58,7 +57,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`font-sans antialiased dark:bg-black dark:text-white max-w-3xl mx-auto px-4`}
+      className={`font-sans antialiased max-w-3xl mx-auto px-4`}
     >
       <head>
         {GA_ID && (
@@ -85,7 +84,6 @@ export default function RootLayout({
         )}
       </head>
       <body className="min-h-screen flex flex-col">
-      <SnowfallEffect />
         <Header />
         <main className="mb-14">
           {children}
