@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'ct-color': 'oklch(60.9% 0 0)',
+      },
       fontFamily: {
         sans: [
           "var(--font-geist-sans)",

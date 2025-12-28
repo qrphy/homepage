@@ -87,11 +87,11 @@ export default function RootLayout({
       <body className="min-h-screen flex flex-col">
       <SnowfallEffect />
         <Header />
-        <main className="flex-1">
+        <main className="mb-14">
           {children}
           <SpeedInsights />{" "}
         </main>
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );
