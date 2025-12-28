@@ -85,7 +85,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col">
         <Header />
-        <main className="mb-50">
+        <main className="mb-40">
           {children}
           <SpeedInsights />{" "}
         </main>
