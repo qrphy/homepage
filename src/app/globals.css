@@ -1,7 +1,15 @@
 @import "tailwindcss";
 
+@theme {
+  --color-back-ground: rgb(30, 30, 30);
+}
+
 .ct-color {
   color: oklch(60.9% 0 0);
+}
+
+.cp-color {
+  color: rgb(30, 30, 30);
 }
 
 body {

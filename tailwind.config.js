@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       colors: {
         'ct-color': 'oklch(60.9% 0 0)',
+        'cp-color': 'rgb(14, 15, 20)',
       },
       fontFamily: {
         sans: [
