@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-@theme {
-  --color-back-ground: rgb(30, 30, 30);
-}
 
 .ct-color {
   color: oklch(60.9% 0 0);
@@ -16,6 +13,13 @@ body {
   /* font-family: "ui-monospace", "SFMono-Regular", "SF Mono", Consolas, "Liberation Mono", Menlo, monospace; */
   opacity: 0;
   animation: fade 3s forwards;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: rgb(30, 30, 30);
+    color: white;
+  }
 }
 
 @keyframes fade {
