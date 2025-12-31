@@ -15,12 +15,6 @@ body {
   animation: fade 3s forwards;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: rgb(30, 30, 30);
-    color: white;
-  }
-}
 
 @keyframes fade {
   from {
