@@ -57,7 +57,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`font-sans antialiased max-w-3xl mx-auto px-4 dark:text-white dark:bg-black`}
+      className={`antialiased max-w-2xl mx-auto px-4 dark:text-white dark:bg-black`}
     >
       <head>
         {GA_ID && (
@@ -85,7 +85,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen flex flex-col">
         <Header />
-        <main className="mb-40">
+        <main>
           {children}
           <SpeedInsights />{" "}
         </main>

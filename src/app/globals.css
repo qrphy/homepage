@@ -11,6 +11,7 @@
 
 body {
   /* font-family: "ui-monospace", "SFMono-Regular", "SF Mono", Consolas, "Liberation Mono", Menlo, monospace; */
+  font-family: sans-serif;
   opacity: 0;
   animation: fade 3s forwards;
 }
