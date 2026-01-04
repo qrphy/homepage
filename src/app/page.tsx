@@ -14,7 +14,7 @@ export default function Home() {
             href="https://github.com/qrphy"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline decoration-wavy decoration-gray-400 underline-offset-3 hover:text-blue-600 text-blue-500 transition-colors duration-200"
+            className="underline decoration-gray-700 hover:decoration-(--my-color) underline-offset-3 transition-colors duration-200"
           >
             GitHub
           </a>
@@ -29,7 +29,7 @@ export default function Home() {
           I&apos;d love to connect send me an{" "}
           <a
             href="mailto:furkantitiz44@gmail.com"
-            className="underline decoration-wavy decoration-gray-400 underline-offset-3 hover:text-blue-600 text-blue-500 transition-colors duration-200"
+            className="underline decoration-gray-700 hover:decoration-(--my-color) underline-offset-3 transition-colors duration-200"
           >
             email
           </a>{" "}
@@ -37,7 +37,7 @@ export default function Home() {
           <a
             href="https://www.linkedin.com/in/furkan-titiz/"
             target="_blank"
-            className="underline decoration-wavy decoration-gray-400 underline-offset-3 hover:text-blue-600 text-blue-500 transition-colors duration-200"
+            className="underline decoration-gray-700 hover:decoration-(--my-color) underline-offset-3 transition-colors duration-200"
           >
             LinkedIn
           </a>
@@ -52,8 +52,8 @@ export default function Home() {
       <section className="w-full">
         {sectionData.map((section, index) => (
           <div key={index} className="mb-12">
-            <h1 className="mb-3 font-semibold text-base">{section.title}</h1>
-            <p className="font-normal">{section.content}</p>
+            <h1 className="mb-3 font-normal text-lg">{section.title}</h1>
+            <p className="font-medium ct-color text-base">{section.content}</p>
           </div>
         ))}
       </section>
