@@ -52,8 +52,8 @@ export default function Home() {
       <section className="w-full">
         {sectionData.map((section, index) => (
           <div key={index} className="mb-12">
-            <h1 className="mb-3 font-normal text-lg">{section.title}</h1>
-            <p className="font-medium ct-color text-base">{section.content}</p>
+            <h1 className="mb-3 font-medium text-lg">{section.title}</h1>
+            <p className="font-normal ct-color text-base">{section.content}</p>
           </div>
         ))}
       </section>
