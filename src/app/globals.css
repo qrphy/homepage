@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --my-color: oklch(60.9% 0 0);
+  --my-color: oklch(54.517% 0.00006 271.152);
 }
 
 .ct-color {
@@ -13,7 +13,6 @@
 }
 
 body {
-  /* font-family: "ui-monospace", "SFMono-Regular", "SF Mono", Consolas, "Liberation Mono", Menlo, monospace; */
   opacity: 0;
   animation: fade 3s forwards;
 }

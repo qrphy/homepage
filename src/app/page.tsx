@@ -14,7 +14,7 @@ export default function Home() {
             href="https://github.com/qrphy"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline decoration-gray-700 hover:decoration-(--my-color) underline-offset-3 transition-colors duration-200"
+            className="underline decoration-current/40 hover:decoration-(--my-color) underline-offset-3 transition-colors duration-200"
           >
             GitHub
           </a>
@@ -29,7 +29,7 @@ export default function Home() {
           I&apos;d love to connect send me an{" "}
           <a
             href="mailto:furkantitiz44@gmail.com"
-            className="underline decoration-gray-700 hover:decoration-(--my-color) underline-offset-3 transition-colors duration-200"
+            className="underline decoration-current/40 hover:decoration-(--my-color) underline-offset-3 transition-colors duration-200"
           >
             email
           </a>{" "}
@@ -37,7 +37,7 @@ export default function Home() {
           <a
             href="https://www.linkedin.com/in/furkan-titiz/"
             target="_blank"
-            className="underline decoration-gray-700 hover:decoration-(--my-color) underline-offset-3 transition-colors duration-200"
+            className="underline decoration-current/40 hover:decoration-(--my-color) underline-offset-3 transition-colors duration-200"
           >
             LinkedIn
           </a>
