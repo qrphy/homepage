@@ -2,6 +2,7 @@
 
 :root {
   --my-color: oklch(54.517% 0.00006 271.152);
+  --my-background: rgb(14, 15, 20);
 }
 
 .ct-color {
