@@ -3,7 +3,7 @@ export default function Home() {
     {
       title: "About",
       content:
-"I spend most of my time exploring frontend projects and love turning ideas into digital products that make the web more enjoyable.",
+"I focus on clean UI, performance-oriented frontend architecture, and real-world case studies.",
     },
     {
       title: "Current",
@@ -39,14 +39,15 @@ export default function Home() {
       title: "Contact",
       content: (
         <>
-          I&apos;d love to connect send me an{" "}
+          I&apos;m open to junior frontend opportunities —{" "}
           <a
             href="mailto:furkantitiz44@gmail.com"
             className="underline decoration-current/40 hover:decoration-(--my-color) underline-offset-3 transition-colors duration-200"
           >
-            email
-          </a>{" "}
-          or catch me on{" "}
+          email
+          </a>
+          {" "}
+          or {" "}
           <a
             href="https://www.linkedin.com/in/furkan-titiz/"
             target="_blank"
