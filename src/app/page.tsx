@@ -9,7 +9,20 @@ export default function Home() {
       title: "Current",
       content: (
         <>
-          I enjoy creating frontend projects and sharing them on{" "}
+        Currently building{" "}
+          <a
+            href="https://aurora-lamb.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-current/40 hover:decoration-(--my-color) underline-offset-3 transition-colors duration-200"
+          >
+            Aurora Lamb
+          </a>
+          ,
+          {" "}
+          a fictional physical product brand as a frontend case study.
+          {" "}
+          My other projests can be found on{" "}
           <a
             href="https://github.com/qrphy"
             target="_blank"

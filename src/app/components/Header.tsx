@@ -14,18 +14,19 @@ const Header = () => {
           <p className="text-sm font-normal ct-color">Frontend Developer</p>
         </div>
         </div>
-        { /* 
+        { /*
         <div className="flex gap-5 text-sm font-medium items-right mt-6">
           <Link href="/">
-          <p>Projects</p>
+          <p>projects</p>
           </Link>
           <Link href="/">
-          <p>Connect</p>
+          <p>connect</p>
           </Link>
           <Link href="/bookmarks">
-          <p>Bookmarks</p>
+          <p>bookmarks</p>
           </Link>
-        </div> */}
+        </div>
+        */}
     </header>
   );
 };
