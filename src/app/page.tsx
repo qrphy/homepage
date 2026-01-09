@@ -22,7 +22,7 @@ export default function Home() {
           {" "}
           a fictional physical product brand as a frontend case study.
           {" "}
-          My projests can be found on{" "}
+          My projects can be found on{" "}
           <a
             href="https://github.com/qrphy"
             target="_blank"
