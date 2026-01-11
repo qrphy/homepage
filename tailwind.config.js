@@ -9,8 +9,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'ct-color': 'oklch(60.9% 0 0)',
-        'cp-color': 'rgb(14, 15, 20)',
+        "ct-color": "oklch(60.9% 0 0)",
+        "cp-color": "rgb(14, 15, 20)",
+        "aurora-color": "oklch(70.806% 0.16183 62.596)",
       },
       fontFamily: {
         sans: [

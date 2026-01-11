@@ -13,12 +13,14 @@ export default function FilmsSection() {
     const fetchPosters = async () => {
       try {
         const res = await fetch("/api/letterboxd", {
-          cache: 'no-store',
+          cache: "no-store",
         });
-        
+
         if (!res.ok) {
           const errorData = await res.json().catch(() => ({}));
-          throw new Error(errorData.error || errorData.detail || `API error: ${res.status}`);
+          throw new Error(
+            errorData.error || errorData.detail || `API error: ${res.status}`,
+          );
         }
 
         const data = await res.json();
@@ -28,12 +30,16 @@ export default function FilmsSection() {
 
         console.log("FilmsSection API response:", data);
         console.log("Posters received:", data.posters);
-        
+
         const postersArray = data.posters || [];
-        if (postersArray.length === 0 && data.movies && data.movies.length > 0) {
+        if (
+          postersArray.length === 0 &&
+          data.movies &&
+          data.movies.length > 0
+        ) {
           console.warn("Movies found but no posters:", data.movies);
         }
-        
+
         setPosters(postersArray);
         setStatus("success");
       } catch (err) {

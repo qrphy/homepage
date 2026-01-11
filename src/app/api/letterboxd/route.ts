@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
-export const dynamic = 'force-dynamic';
-export const runtime = 'nodejs';
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 
 const TMDB_API_KEY = process.env.TMDB_API_KEY;
 
@@ -10,7 +10,7 @@ export async function GET() {
     if (!TMDB_API_KEY) {
       return NextResponse.json(
         { error: "TMDB_API_KEY environment variable is missing" },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -43,15 +43,19 @@ export async function GET() {
         movies = filmSlugMatches
           .map((match) => {
             const slug = match.match(/data-film-slug="([^"]+)"/)?.[1] || "";
-            const parts = slug.split('-');
-            const yearIndex = parts.findIndex(part => /^\d{4}$/.test(part));
-            const titleParts = yearIndex > 0 ? parts.slice(0, yearIndex) : parts.slice(0, -1);
+            const parts = slug.split("-");
+            const yearIndex = parts.findIndex((part) => /^\d{4}$/.test(part));
+            const titleParts =
+              yearIndex > 0 ? parts.slice(0, yearIndex) : parts.slice(0, -1);
             if (titleParts.length === 0) return null;
             return titleParts
-              .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-              .join(' ');
+              .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(" ");
           })
-          .filter((title): title is string => title !== null && title.length > 0 && title.length < 100)
+          .filter(
+            (title): title is string =>
+              title !== null && title.length > 0 && title.length < 100,
+          )
           .slice(0, 10);
       }
     }
@@ -64,18 +68,22 @@ export async function GET() {
           const slug = match.match(/\/film\/([^"]+)\//)?.[1] || "";
           if (slug) uniqueSlugs.add(slug);
         });
-        
+
         movies = Array.from(uniqueSlugs)
           .map((slug) => {
-            const parts = slug.split('-');
-            const yearIndex = parts.findIndex(part => /^\d{4}$/.test(part));
-            const titleParts = yearIndex > 0 ? parts.slice(0, yearIndex) : parts.slice(0, -1);
+            const parts = slug.split("-");
+            const yearIndex = parts.findIndex((part) => /^\d{4}$/.test(part));
+            const titleParts =
+              yearIndex > 0 ? parts.slice(0, yearIndex) : parts.slice(0, -1);
             if (titleParts.length === 0) return null;
             return titleParts
-              .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-              .join(' ');
+              .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+              .join(" ");
           })
-          .filter((title): title is string => title !== null && title.length > 0 && title.length < 100)
+          .filter(
+            (title): title is string =>
+              title !== null && title.length > 0 && title.length < 100,
+          )
           .slice(0, 10);
       }
     }
@@ -85,8 +93,8 @@ export async function GET() {
         try {
           const response = await fetch(
             `https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API_KEY}&query=${encodeURIComponent(
-              title
-            )}`
+              title,
+            )}`,
           );
 
           if (!response.ok) {
@@ -108,7 +116,7 @@ export async function GET() {
           console.error(`Error fetching poster for "${title}":`, error);
           return null;
         }
-      })
+      }),
     );
 
     const validPosters = posters.filter(Boolean);
@@ -128,7 +136,7 @@ export async function GET() {
         error: "Scraping Error",
         detail: error instanceof Error ? error.message : "Error",
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

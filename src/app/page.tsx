@@ -3,26 +3,23 @@ export default function Home() {
     {
       title: "About",
       content:
-"I focus on clean UI, performance-oriented frontend architecture, and real-world case studies.",
+        "I focus on clean UI, performance-oriented frontend architecture, and real-world case studies.",
     },
     {
       title: "Current",
       content: (
         <>
-        Currently building{" "}
+          Currently building{" "}
           <a
             href="https://aurora-lamb.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline decoration-current/40 hover:decoration-(--my-color) underline-offset-3 transition-colors duration-200"
+            className="aurora-link underline decoration-current/40 hover:decoration-(--my-color) underline-offset-3 transition-colors duration-200"
           >
             Aurora Lamb
           </a>
-          ,
-          {" "}
-          a fictional physical product brand as a frontend case study.
-          {" "}
-          My projects can be found on{" "}
+          , a fictional physical product brand as a frontend case study. My
+          projects can be found on{" "}
           <a
             href="https://github.com/qrphy"
             target="_blank"
@@ -44,10 +41,9 @@ export default function Home() {
             href="mailto:furkantitiz44@gmail.com"
             className="underline decoration-current/40 hover:decoration-(--my-color) underline-offset-3 transition-colors duration-200"
           >
-          email
-          </a>
-          {" "}
-          or {" "}
+            email
+          </a>{" "}
+          or{" "}
           <a
             href="https://www.linkedin.com/in/furkan-titiz/"
             target="_blank"

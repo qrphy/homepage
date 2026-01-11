@@ -7,14 +7,12 @@ const Header = () => {
       <div className="flex items-center justify-between w-full">
         <div>
           <Link href="/">
-          <p className="text-lg font-medium">
-            Furkan Titiz
-          </p>
+            <p className="text-lg font-medium">Furkan Titiz</p>
           </Link>
           <p className="text-sm font-normal ct-color">Frontend Developer</p>
         </div>
-        </div>
-        { /*
+      </div>
+      {/*
         <div className="flex gap-5 text-sm font-medium items-right mt-6">
           <Link href="/">
           <p>projects</p>
