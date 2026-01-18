@@ -7,7 +7,7 @@ const Header = () => {
       <div className="flex items-center justify-between w-full">
         <div>
           <Link href="/">
-            <p className="text-lg font-medium">Furkan Titiz</p>
+            <p className="text-md font-medium">Furkan Titiz</p>
           </Link>
           <p className="text-sm font-normal ct-color">Frontend Developer</p>
         </div>

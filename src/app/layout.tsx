@@ -57,7 +57,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`antialiased max-w-[690px] mx-auto px-4 dark:text-white dark:bg-[var(--my-background)] font-sans`}
+      className={`antialiased max-w-[690px] mx-auto px-4 dark:text-white dark:bg-black font-sans`}
     >
       <head>
         {GA_ID && (
