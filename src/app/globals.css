@@ -18,6 +18,11 @@
   text-shadow: 0 0 10px oklch(70.806% 0.16183 62.596);
 }
 
+@theme {
+  --color-off-white: rgb(253, 253, 252);
+  --color-dark: rgb(17, 17, 17); 
+}
+
 body {
   opacity: 0;
   animation: fade 3s forwards;
