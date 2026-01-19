@@ -21,6 +21,7 @@
 @theme {
   --color-off-white: rgb(253, 253, 252);
   --color-dark: rgb(17, 17, 17); 
+  --ct-color: oklch(60.9% 0 0);
 }
 
 body {
