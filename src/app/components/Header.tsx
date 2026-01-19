@@ -9,7 +9,7 @@ const Header = () => {
           <Link href="/">
             <p className="text-dark">Furkan Titiz</p>
           </Link>
-          <p className="ct-color mt-1">Frontend Developer</p>
+          <p className="ct-color mt-1 text-sm">Frontend Developer</p>
         </div>
       </div>
       {/*
