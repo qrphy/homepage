@@ -7,7 +7,7 @@ const Header = () => {
       <div className="flex items-center justify-between w-full">
         <div>
           <Link href="/">
-            <p className="text-dark">Furkan Titiz</p>
+            <p className="">Furkan Titiz</p>
           </Link>
           <p className="ct-color mt-1 text-sm">Frontend Developer</p>
         </div>
