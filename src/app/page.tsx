@@ -38,7 +38,7 @@ export default function Home() {
         <>
           I&apos;m open to junior frontend opportunities —{" "}
           <a
-            href="mailto:furkantitiz44@gmail.com"
+            href="mailto:furkan@furkantitiz.dev"
             className="decoration-current/40 hover:decoration-(--my-color) hover:text-blue-300 text-blue-500 underline-offset-3 transition-colors duration-200"
           >
             email
