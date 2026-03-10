@@ -5,7 +5,7 @@ export default function Header() {
         <div className="flex items-center justify-between w-full">
           <div>
             <p className="text-xl font-medium">Furkan Titiz</p>
-            <p className="ct-color mt-1 text-sm">Frontend Developer</p>
+            <p className="ct-color mt-1 text-sm font-medium">Frontend Developer</p>
           </div>
         </div>
       </header>
