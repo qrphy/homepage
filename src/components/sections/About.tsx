@@ -3,7 +3,7 @@ import Contact from "../sections/Contact";
 export default function About() {
   return (
     <>
-    <div className="w-full font-normal text-md">
+    <div className="w-full font-normal text-base">
       <section className="w-full flex flex-col gap-4">
         <p>
         I focus on clean UI, performance-oriented frontend architecture, and

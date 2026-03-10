@@ -22,3 +22,7 @@ body {
 .ct-color {
   color: oklch(60.9% 0 0);
 }
+.aurora-link:hover {
+  color: oklch(70.806% 0.16183 62.596);
+  text-shadow: 0 0 10px oklch(70.806% 0.16183 62.596);
+}

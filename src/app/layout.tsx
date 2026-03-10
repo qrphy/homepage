@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased flex flex-col min-h-screen w-full max-w-lg mx-auto bg-white dark:bg-black text-black dark:text-white`}
+        className={`antialiased p-4 flex flex-col min-h-screen w-full max-w-xl mx-auto bg-white dark:bg-black text-black dark:text-white`}
       >
         <Header />
         {children}
