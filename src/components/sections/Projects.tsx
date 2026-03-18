@@ -12,7 +12,17 @@ export default function Projects() {
           >
             Aurora Lamb
           </a>
-          , a fictional physical product brand as a frontend case study. My
+          {" "}
+          and
+          <a
+          href="https://eclat-iota.vercel.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="aurora-link decoration-current/40 hover:decoration-(--my-color) text-blue-500 underline-offset-3 transition-colors duration-200"
+        >
+          {" "}
+          ÉCLAT
+            </a> My
           projects can be found on{" "}
           <a
             href="https://github.com/qrphy"
