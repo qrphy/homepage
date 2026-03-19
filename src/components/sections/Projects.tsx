@@ -22,7 +22,7 @@ export default function Projects() {
         >
           {" "}
           ÉCLAT
-            </a> My
+            </a>. My
           projects can be found on{" "}
           <a
             href="https://github.com/qrphy"
