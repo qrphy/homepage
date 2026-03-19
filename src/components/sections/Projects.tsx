@@ -2,7 +2,7 @@ export default function Projects() {
   return (
     <>
     <div className="w-full">
-      <section className="w-full">
+      <section className="w-full">  
         <p>Currently building{" "}
         <a
             href="https://aurora-lamb.vercel.app"
