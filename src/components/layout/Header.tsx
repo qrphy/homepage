@@ -1,14 +1,13 @@
+import ThemeToggle from "./ThemeToggle";
+
 export default function Header() {
   return (
-    <>
-      <div className="w-full h-[7rem] mt-[51px] flex items-center">
-        <div className="flex items-center justify-between w-full">
-          <div>
-            <p className="text-lg font-medium">Furkan Titiz</p>
-            <p className="ct-color mt-1 text-sm font-normal">Frontend Developer</p>
-          </div>
-        </div>
+    <div className="w-full mb-12 flex justify-between items-start">
+      <div>
+        <p className="text-base font-medium">Furkan Titiz</p>
+        <p className="ct-color text-sm mt-0.5">Frontend Developer</p>
       </div>
-    </>
+      <ThemeToggle />
+    </div>
   );
 }

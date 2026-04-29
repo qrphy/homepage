@@ -1,12 +1,16 @@
 import About from "@/components/sections/About";
-import Projects from "@/components/sections/Projects";
+import Stack from "@/components/sections/Stack";
+import GitHubActivity from "@/components/sections/GitHubActivity";
+import Experience from "@/components/sections/Experience";
 import Contact from "@/components/sections/Contact";
 
 export default function Home() {
   return (
-    <main className="w-full mx-auto font-normal text-base flex flex-col gap-4">
+    <main className="w-full flex flex-col gap-10">
       <About />
-      <Projects />
+      <Stack />
+      <GitHubActivity />
+      <Experience />
       <Contact />
     </main>
   );

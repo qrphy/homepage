@@ -2,14 +2,18 @@
 
 :root {
   --background: #ffffff;
-  --foreground: rgb(0, 0, 0);
+  --foreground: #0d0d0d;
+  --muted: oklch(45% 0 0);
+  --link-color: #16a34a;
+  --link-hover: #15803d;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: rgb(0, 0, 0);
-    --foreground: #ffffff;
-  }
+html.dark {
+  --background: #0d0d0d;
+  --foreground: #e5e5e5;
+  --muted: oklch(55% 0 0);
+  --link-color: #4ade80;
+  --link-hover: #86efac;
 }
 
 body {
@@ -19,10 +23,16 @@ body {
 }
 
 .ct-color {
-  color: oklch(60.9% 0 0);
+  color: var(--muted);
 }
 
-.aurora-link:hover {
-  color: oklch(70.806% 0.16183 62.596);
-  text-shadow: 0 0 10px oklch(70.806% 0.16183 62.596);
+.mono-link {
+  color: var(--link-color);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.mono-link:hover {
+  color: var(--link-hover);
 }

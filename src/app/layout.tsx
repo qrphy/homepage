@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
+import ThemeProvider from "@/components/ThemeProvider";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
@@ -53,15 +54,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased p-4 flex flex-col min-h-screen w-full max-w-xl mx-auto bg-white dark:bg-black text-black dark:text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased px-6 pt-16 pb-8 flex flex-col min-h-screen w-full max-w-2xl mx-auto`}
       >
-        <Header />
-        {children}
-        <GoogleAnalytics />
-        <Analytics />
-        <Footer />
+        <ThemeProvider>
+          <Header />
+          {children}
+          <GoogleAnalytics />
+          <Analytics />
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
