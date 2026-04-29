@@ -9,6 +9,7 @@ import {
   siCursor,
   siFigma,
   siAnthropic,
+  siVercel,
 } from "simple-icons";
 
 const VSCODE_PATH =
@@ -21,6 +22,7 @@ const icons = [
   { path: siJavascript.path, label: "JavaScript" },
   { path: siTypescript.path, label: "TypeScript" },
   { path: siNextdotjs.path, label: "Next.js" },
+  { path: siVercel.path, label: "Vercel" },
   { path: siTailwindcss.path, label: "Tailwind CSS" },
   { path: siNodedotjs.path, label: "Node.js" },
   { path: siGit.path, label: "Git" },
