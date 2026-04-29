@@ -23,16 +23,15 @@ export default function GitHubActivity() {
   return (
     <div className="flex flex-col gap-2">
       <p className="ct-color text-sm font-medium">Recent GitHub Activity</p>
-      <div className="overflow-x-auto">
-        <GitHubCalendar
-          username="qrphy"
-          colorScheme={isDark ? "dark" : "light"}
-          theme={isDark ? darkTheme : lightTheme}
-          fontSize={11}
-          blockSize={13}
-          blockMargin={3}
-        />
-      </div>
+      <GitHubCalendar
+        username="qrphy"
+        colorScheme={isDark ? "dark" : "light"}
+        theme={isDark ? darkTheme : lightTheme}
+        fontSize={11}
+        blockSize={13}
+        blockMargin={3}
+        errorMessage="GitHub activity could not be loaded."
+      />
     </div>
   );
 }
