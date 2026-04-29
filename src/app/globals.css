@@ -5,7 +5,6 @@
   --foreground: rgb(0, 0, 0);
 }
 
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: rgb(0, 0, 0);
@@ -16,22 +15,14 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
+  font-family: var(--font-geist-sans), var(--font-sans);
 }
 
 .ct-color {
   color: oklch(60.9% 0 0);
 }
+
 .aurora-link:hover {
   color: oklch(70.806% 0.16183 62.596);
   text-shadow: 0 0 10px oklch(70.806% 0.16183 62.596);
-}
-
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
