@@ -1,11 +1,10 @@
-import Script from 'next/script';
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
-import Header from "../components/layout/Header";
-import GoogleAnalytics from '../components/analytics/GoogleAnalytics';
-import Footer from "../components/layout/Footer";
-import VercelAnalytics from '../components/analytics/VercelAnalytics';
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +15,6 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://furkantitiz.dev"),
@@ -57,12 +55,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased p-4 flex flex-col min-h-screen w-full max-w-xl mx-auto bg-white dark:bg-black text-black dark:text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased p-4 flex flex-col min-h-screen w-full max-w-xl mx-auto bg-white dark:bg-black text-black dark:text-white`}
       >
         <Header />
         {children}
         <GoogleAnalytics />
-        <VercelAnalytics />
+        <Analytics />
         <Footer />
       </body>
     </html>
