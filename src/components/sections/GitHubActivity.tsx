@@ -1,7 +1,12 @@
 "use client";
-import { GitHubCalendar } from "react-github-calendar";
+import dynamic from "next/dynamic";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+
+const GitHubCalendar = dynamic(
+  () => import("react-github-calendar").then((mod) => ({ default: mod.GitHubCalendar })),
+  { ssr: false }
+);
 
 const darkTheme = {
   dark: ["#1a1a1a", "#14532d", "#166534", "#15803d", "#4ade80"],
