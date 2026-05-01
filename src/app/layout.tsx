@@ -18,9 +18,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://furkantitiz.dev"),
+  metadataBase: new URL("https://www.furkantitiz.dev"),
   alternates: {
-    canonical: "https://furkantitiz.dev",
+    canonical: "https://www.furkantitiz.dev",
   },
   title: {
     default: "Furkan Titiz",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     title: "Furkan Titiz",
     description:
       "Furkan Titiz — Frontend Developer building with Next.js, TypeScript and Tailwind CSS. Co-founder of STYLEFINDEN. Open to frontend opportunities.",
-    url: "https://furkantitiz.dev",
+    url: "https://www.furkantitiz.dev",
     siteName: "Furkan Titiz",
     locale: "tr_TR",
     type: "website",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
-  authors: [{ name: "Furkan Titiz", url: "https://furkantitiz.dev" }],
+  authors: [{ name: "Furkan Titiz", url: "https://www.furkantitiz.dev" }],
 };
 
 export default function RootLayout({
