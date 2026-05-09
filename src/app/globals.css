@@ -9,7 +9,7 @@
 }
 
 html.dark {
-  --background: #0d0d0d;
+  --background: #000000;
   --foreground: #e5e5e5;
   --muted: oklch(55% 0 0);
   --link-color: #4ade80;
