@@ -99,7 +99,7 @@ const techIcons = [
   { path: siCursor.path, label: "Cursor" },
   { path: siFigma.path, label: "Figma" },
   { path: siAnthropic.path, label: "Claude" },
-  { path: OPENAI_PATH, label: "ChatGPT" },
+
 ];
 
 function WelcomeOutput() {
@@ -110,9 +110,6 @@ function WelcomeOutput() {
         <span className={`${t.accent} font-medium`}>Furkan Titiz</span>
         <span className="text-gray-600"> — </span>
         <span className="text-gray-400">Frontend Developer</span>
-      </p>
-      <p className="text-gray-600">
-        type <span className={t.accent}>help</span> to see available commands
       </p>
     </div>
   );
@@ -135,7 +132,7 @@ function HelpOutput() {
         <p key={cmd}>
           <span className={`${t.accent} inline-block w-24`}>{cmd}</span>
           <span className="text-gray-600">— {desc}</span>
-          <span className="text-gray-700 ml-3 text-xs">[{shortcut}]</span>
+          <span className="text-gray-700 ml-3 text-xs hidden sm:inline">[{shortcut}]</span>
         </p>
       ))}
     </div>
@@ -226,17 +223,17 @@ function ContactOutput() {
         Open to junior frontend opportunities.
       </p>
       {links.map(([label, display, href]) => (
-        <p key={label}>
-          <span className="text-gray-600 inline-block w-16">{label}</span>
+        <div key={label} className="flex flex-col sm:flex-row sm:items-center gap-0 sm:gap-0">
+          <span className="text-gray-600 sm:inline-block sm:w-16">{label}</span>
           <a
             href={href}
             target={href.startsWith("mailto") ? undefined : "_blank"}
             rel="noopener noreferrer"
-            className={`${t.accent} underline underline-offset-2 ${t.accentHover} transition-colors`}
+            className={`${t.accent} underline underline-offset-2 ${t.accentHover} transition-colors break-all`}
           >
             {display}
           </a>
-        </p>
+        </div>
       ))}
     </div>
   );
@@ -292,8 +289,8 @@ function BgSwitcher({ mode, toggle }: { mode: BgMode; toggle: () => void }) {
   const t = useTheme();
   return (
     <button
-      className={`fixed top-4 right-4 z-50 ${t.accent} opacity-30 hover:opacity-70 transition-opacity font-mono text-base leading-none`}
-      style={{ background: "none", border: "none", cursor: "pointer", padding: "4px 6px" }}
+      className={`${t.accent} opacity-60 hover:opacity-100 transition-opacity font-mono text-xl leading-none select-none`}
+      style={{ background: "none", border: "none", cursor: "pointer", padding: "2px 4px" }}
       onClick={(e) => { e.stopPropagation(); toggle(); }}
       title={mode === "dark" ? "Switch to light mode" : "Switch to dark mode"}
       aria-label={mode === "dark" ? "Switch to light mode" : "Switch to dark mode"}
@@ -312,6 +309,7 @@ function NotFoundOutput({ cmd }: { cmd: string }) {
     </p>
   );
 }
+
 
 function getOutput(raw: string): ReactNode | null {
   const cmd = raw.trim().toLowerCase();
@@ -358,8 +356,9 @@ export default function Terminal() {
   const [histIdx, setHistIdx] = useState(-1);
   const [theme, setTheme] = useState<ThemeKey>("green");
   const [bgMode, setBgMode] = useState<BgMode>("dark");
+  const [helpSeen, setHelpSeen] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const t = THEMES[theme];
   const bgHex = bgMode === "light" ? "#fafafa" : "#0c0c0c";
@@ -369,13 +368,16 @@ export default function Terminal() {
   }, [bgHex]);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    const el = containerRef.current;
+    if (el) el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
   }, [lines]);
 
   const focus = () => inputRef.current?.focus();
 
-  const resetToWelcome = () =>
+  const resetToWelcome = () => {
     setLines([{ type: "output", node: <WelcomeOutput /> }]);
+    setHelpSeen(false);
+  };
 
   const run = (raw: string) => {
     const cmd = raw.trim();
@@ -411,6 +413,10 @@ export default function Terminal() {
       ]);
       return;
     }
+
+    const lower2 = cmd.toLowerCase();
+    if (lower2 === "help" || lower2 === "-h" || lower2 === "--help")
+      setHelpSeen(true);
 
     const out = getOutput(cmd);
     setLines((prev) => [
@@ -455,53 +461,63 @@ export default function Terminal() {
 
   return (
     <ThemeCtx.Provider value={theme}>
-      <BgSwitcher mode={bgMode} toggle={() => setBgMode((m) => (m === "dark" ? "light" : "dark"))} />
       <div
-        className={`min-h-screen font-mono text-sm cursor-text${bgMode === "light" ? " light-mode" : ""}`}
-        style={{ backgroundColor: bgHex }}
-        onClick={focus}
+        className={`font-mono text-sm${bgMode === "light" ? " light-mode" : ""}`}
+        style={{ backgroundColor: bgHex, height: "100dvh", overflow: "hidden" }}
       >
-        <div className="max-w-2xl mx-auto px-6 py-12 flex flex-col gap-3">
-          {lines.map((line, i) =>
-            line.type === "command" ? (
-              <div key={i} className="flex items-start gap-2">
-                <span className={`${t.accent} shrink-0 select-none`}>
-                  {PROMPT}
-                </span>
-                <span className="text-gray-200 break-all">{line.text}</span>
-              </div>
-            ) : (
-              <div key={i} className="py-0.5">
-                {line.node}
-              </div>
-            )
-          )}
+        <div
+          ref={containerRef}
+          className="h-full overflow-y-auto cursor-text"
+          onClick={focus}
+        >
+          <div className="max-w-2xl mx-auto px-4 sm:px-6 py-8 sm:py-12 flex flex-col gap-3 relative">
+            <div className="absolute top-8 sm:top-12 right-4 sm:right-6">
+              <BgSwitcher mode={bgMode} toggle={() => setBgMode((m) => (m === "dark" ? "light" : "dark"))} />
+            </div>
+            {lines.map((line, i) =>
+              line.type === "command" ? (
+                <div key={i} className="flex items-start gap-2">
+                  <span className={`${t.accent} shrink-0 select-none`}>{PROMPT}</span>
+                  <span className="text-gray-200 break-all">{line.text}</span>
+                </div>
+              ) : (
+                <div key={i} className="py-0.5">
+                  {line.node}
+                </div>
+              )
+            )}
 
-          <div className="flex items-center gap-2">
-            <span className={`${t.accent} shrink-0 select-none`}>
-              {PROMPT}
-            </span>
-            <div className="relative flex-1 flex items-center overflow-hidden">
-              <span className="text-gray-200 whitespace-pre">{input}</span>
-              <span className={`cursor-blink ${t.accent} leading-none`}>█</span>
-              <input
-                ref={inputRef}
-                type="text"
-                value={input}
-                autoFocus
-                autoComplete="off"
-                autoCorrect="off"
-                autoCapitalize="off"
-                spellCheck={false}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={handleKey}
-                className="absolute inset-0 opacity-0 w-full cursor-text"
-                aria-label="Terminal input"
-              />
+            <div className="flex items-center gap-2">
+              <span className={`${t.accent} shrink-0 select-none`}>
+                <span className="hidden sm:inline">{PROMPT}</span>
+                <span className="sm:hidden">$</span>
+              </span>
+              <div className="relative flex-1 min-w-0 flex items-center overflow-hidden">
+                <span className="text-gray-200 whitespace-pre">{input}</span>
+                <span className={`cursor-blink ${t.accent} leading-none`}>█</span>
+                {!input && !helpSeen && (
+                  <span className="text-gray-700 select-none pointer-events-none whitespace-nowrap">
+                    {" "}type help to see available commands
+                  </span>
+                )}
+                <input
+                  ref={inputRef}
+                  type="text"
+                  inputMode="text"
+                  value={input}
+                  autoFocus
+                  autoComplete="off"
+                  autoCorrect="off"
+                  autoCapitalize="off"
+                  spellCheck={false}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={handleKey}
+                  className="absolute inset-0 opacity-0 w-full cursor-text"
+                  aria-label="Terminal input"
+                />
+              </div>
             </div>
           </div>
-
-          <div ref={bottomRef} />
         </div>
       </div>
     </ThemeCtx.Provider>
