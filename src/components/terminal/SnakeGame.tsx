@@ -60,7 +60,7 @@ export function SnakeGame({
   const [savedId,     setSavedId]     = useState<string | null>(null);
   const [promptDone,  setPromptDone]  = useState(false);
   const [lbKey,       setLbKey]       = useState(0);
-  const [saveError,   setSaveError]   = useState(false);
+  const [saveError,   setSaveError]   = useState<string | null>(null);
 
   // Game loop refs
   const phaseR = useRef<Phase>("idle");
@@ -94,7 +94,7 @@ export function SnakeGame({
     phaseR.current = "playing";
     promptDoneR.current = false;
     setSnake(s); setFood(f); setScore(0); setPhase("playing");
-    setNickInput(""); setPromptDone(false); setSavedId(null); setSaveError(false);
+    setNickInput(""); setPromptDone(false); setSavedId(null); setSaveError(null);
   }, []);
 
   // Global keyboard handler
@@ -201,9 +201,20 @@ export function SnakeGame({
   const handleSave = async () => {
     const nick = nickInput.trim().replace(/[^\p{L}\p{N}_\-. ]/gu, "").slice(0, 20);
     if (!nick || saving || savedId || !supabase) return;
-    setSaveError(false);
+    setSaveError(null);
     setSaving(true);
     try {
+      // Check if nickname already exists (case-insensitive)
+      const { count } = await supabase
+        .from("scores")
+        .select("*", { count: "exact", head: true })
+        .ilike("nickname", nick);
+
+      if (count && count > 0) {
+        setSaveError("nickname already taken");
+        return;
+      }
+
       let country = "XX";
       try {
         const res = await fetch("/api/country");
@@ -223,7 +234,7 @@ export function SnakeGame({
       }
     } catch (err) {
       console.error("Failed to save score:", err);
-      setSaveError(true);
+      setSaveError("save failed");
     } finally {
       setSaving(false);
     }
@@ -355,7 +366,7 @@ export function SnakeGame({
                   skip
                 </button>
                 {saveError && (
-                  <span className="text-red-400/60">save failed</span>
+                  <span className="text-red-400/60">{saveError}</span>
                 )}
               </div>
             ) : (
