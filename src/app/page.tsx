@@ -10,6 +10,8 @@ import {
   siFigma,
   siAnthropic,
   siVercel,
+  siSupabase,
+  siSanity,
 } from "simple-icons";
 import { GitHubSection } from "@/components/GitHubSection";
 
@@ -23,6 +25,8 @@ const techStack = [
   { path: siVercel.path, label: "Vercel" },
   { path: siTailwindcss.path, label: "Tailwind CSS" },
   { path: siNodedotjs.path, label: "Node.js" },
+  { path: siSupabase.path, label: "Supabase" },
+  { path: siSanity.path, label: "Sanity" },
   { path: siGit.path, label: "Git" },
   { path: siGithub.path, label: "GitHub" },
   { path: VSCODE_PATH, label: "VS Code" },
@@ -39,7 +43,7 @@ const projects = [
     period: "Apr 2026 → Present",
     description:
       "Fashion content platform. Full technical architecture, UI development and monetization integration (Google AdSense, affiliate links).",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "Node.js"],
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Sanity", "Supabase", "Vercel", "AI SDK", "Resend", "Zod"],
     githubHref: null,
   },
   {
@@ -49,7 +53,7 @@ const projects = [
     period: null,
     description:
       "Personal portfolio built with Next.js App Router and Tailwind CSS.",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Vercel"],
     githubHref: "https://github.com/qrphy",
   },
 ];
