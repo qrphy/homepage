@@ -1,9 +1,15 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 body {
   background: #fafafa;
   color: #111827;
   font-family: var(--font-geist-sans), var(--font-sans);
+}
+
+.dark body {
+  background: #111111;
+  color: #f9fafb;
 }
 
 /* GitHub calendar text */

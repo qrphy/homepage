@@ -1,3 +1,4 @@
+import { DarkModeToggle } from "@/components/DarkModeToggle";
 import {
   siJavascript,
   siTypescript,
@@ -63,18 +64,21 @@ export default function Home() {
     <main className="max-w-xl mx-auto px-6 py-16 sm:py-24">
       {/* Hero */}
       <section>
-        <h1 className="text-2xl font-semibold tracking-tight text-gray-900">
-          Furkan Titiz
-        </h1>
-        <p className="text-gray-500 text-sm mt-1">Frontend Developer</p>
-        <p className="mt-5 text-sm text-gray-600 leading-relaxed">
+        <div className="flex items-center justify-between">
+          <h1 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+            Furkan Titiz
+          </h1>
+          <DarkModeToggle />
+        </div>
+        <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Frontend Developer</p>
+        <p className="mt-5 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
           Building clean, performance-oriented interfaces with Next.js and
           TypeScript. Co-founder of{" "}
           <a
             href="https://stylefinden.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-900 underline underline-offset-2 decoration-gray-300 hover:decoration-gray-600 transition-colors"
+            className="text-gray-900 dark:text-white underline underline-offset-2 decoration-gray-300 dark:decoration-gray-600 hover:decoration-gray-600 dark:hover:decoration-gray-300 transition-colors"
           >
             STYLEFINDEN
           </a>
@@ -83,7 +87,7 @@ export default function Home() {
         <div className="flex gap-5 mt-5">
           <a
             href="mailto:furkan@furkantitiz.dev"
-            className="text-xs text-gray-400 hover:text-gray-700 transition-colors"
+            className="text-xs text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
           >
             email
           </a>
@@ -91,7 +95,7 @@ export default function Home() {
             href="https://www.linkedin.com/in/furkan-titiz/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-gray-400 hover:text-gray-700 transition-colors"
+            className="text-xs text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
           >
             linkedin
           </a>
@@ -99,18 +103,18 @@ export default function Home() {
             href="https://github.com/qrphy"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-gray-400 hover:text-gray-700 transition-colors"
+            className="text-xs text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
           >
             github
           </a>
         </div>
       </section>
 
-      <hr className="border-gray-100 my-12" />
+      <hr className="border-gray-100 dark:border-gray-800 my-12" />
 
       {/* Projects */}
       <section>
-        <h2 className="text-[11px] font-medium text-gray-400 uppercase tracking-widest mb-8">
+        <h2 className="text-[11px] font-medium text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-8">
           Projects
         </h2>
         <div className="flex flex-col gap-8">
@@ -122,7 +126,7 @@ export default function Home() {
                     href={p.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-medium text-gray-900 hover:text-gray-500 transition-colors"
+                    className="text-sm font-medium text-gray-900 dark:text-white hover:text-gray-500 dark:hover:text-gray-400 transition-colors"
                   >
                     {p.name} ↗
                   </a>
@@ -131,27 +135,27 @@ export default function Home() {
                       href={p.githubHref}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[11px] text-gray-400 hover:text-gray-600 transition-colors"
+                      className="text-[11px] text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
                     >
                       github ↗
                     </a>
                   )}
                 </div>
                 {p.period && (
-                  <span className="text-[11px] text-gray-400 shrink-0">
+                  <span className="text-[11px] text-gray-400 dark:text-gray-500 shrink-0">
                     {p.period}
                   </span>
                 )}
               </div>
-              <p className="text-[11px] text-gray-400 mt-0.5">{p.role}</p>
-              <p className="text-sm text-gray-600 mt-2 leading-relaxed">
+              <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-0.5">{p.role}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
                 {p.description}
               </p>
               <div className="flex flex-wrap gap-2 mt-3">
                 {p.stack.map((tag) => (
                   <span
                     key={tag}
-                    className="text-[11px] text-gray-400 bg-gray-50 border border-gray-100 px-2 py-0.5 rounded"
+                    className="text-[11px] text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/8 px-2 py-0.5 rounded"
                   >
                     {tag}
                   </span>
@@ -162,11 +166,11 @@ export default function Home() {
         </div>
       </section>
 
-      <hr className="border-gray-100 my-12" />
+      <hr className="border-gray-100 dark:border-gray-800 my-12" />
 
       {/* Stack */}
       <section>
-        <h2 className="text-[11px] font-medium text-gray-400 uppercase tracking-widest mb-6">
+        <h2 className="text-[11px] font-medium text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-6">
           Stack
         </h2>
         <div className="flex flex-wrap gap-x-5 gap-y-3">
@@ -177,27 +181,27 @@ export default function Home() {
                 width="13"
                 height="13"
                 fill="currentColor"
-                className="text-gray-400 shrink-0"
+                className="text-gray-400 dark:text-gray-500 shrink-0"
               >
                 <path d={path} />
               </svg>
-              <span className="text-xs text-gray-500">{label}</span>
+              <span className="text-xs text-gray-500 dark:text-gray-400">{label}</span>
             </div>
           ))}
         </div>
       </section>
 
-      <hr className="border-gray-100 my-12" />
+      <hr className="border-gray-100 dark:border-gray-800 my-12" />
 
       {/* GitHub Activity */}
       <section>
-        <h2 className="text-[11px] font-medium text-gray-400 uppercase tracking-widest mb-6">
+        <h2 className="text-[11px] font-medium text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-6">
           GitHub Activity
         </h2>
         <GitHubSection />
       </section>
 
-      <div className="mt-16 text-[11px] text-gray-300 text-center">
+      <div className="mt-16 text-[11px] text-gray-300 dark:text-gray-600 text-center">
         trying to be better than yesterday
       </div>
     </main>
