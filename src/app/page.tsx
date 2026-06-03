@@ -40,10 +40,10 @@ const experience = [
   {
     name: "STYLEFINDEN",
     href: "https://stylefinden.com",
-    role: "Co-Founder & Frontend Developer",
+    role: "Co-Founder & Full-Stack Developer",
     period: "Apr 2026 → Present",
     description:
-      "Fashion content platform with outfit recommendations and affiliate monetization. Responsible for all technical work — 10+ content sections, interactive Style Quiz with shareable OG image cards, Piece Picker visual tool, ISR caching, SEO infrastructure (FAQ schema, canonical audits), Sanity CMS and Supabase integration, AI-powered content generation.",
+      "Fashion content platform with outfit recommendations and affiliate monetization. Responsible for all technical work — 10+ content sections, interactive Style Quiz with shareable OG image cards, Piece Picker visual tool, ISR caching, SEO infrastructure (FAQ schema, canonical audits), Sanity CMS, Supabase with RLS and database views for user behavior analytics, and AI-powered content generation.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Sanity", "Supabase", "Vercel", "AI SDK", "Resend", "Zod"],
     githubHref: null,
   },
@@ -73,10 +73,10 @@ export default function Home() {
           </h1>
           <DarkModeToggle />
         </div>
-        <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Frontend Developer</p>
+        <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Full-Stack Developer</p>
         <p className="mt-5 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-          Building clean, performance-oriented interfaces with Next.js and
-          TypeScript. Co-founder of{" "}
+          Building clean, performance-oriented web applications with Next.js and
+          TypeScript — from UI to backend integrations. Co-founder of{" "}
           <a
             href="https://stylefinden.com"
             target="_blank"
@@ -85,7 +85,7 @@ export default function Home() {
           >
             STYLEFINDEN
           </a>
-          . Open to junior frontend opportunities.
+          . Open to junior full-stack or frontend opportunities.
         </p>
         <div className="flex gap-5 mt-5">
           <a
