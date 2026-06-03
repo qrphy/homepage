@@ -36,17 +36,20 @@ const techStack = [
   { path: siAnthropic.path, label: "Claude" },
 ];
 
-const projects = [
+const experience = [
   {
     name: "STYLEFINDEN",
     href: "https://stylefinden.com",
     role: "Co-Founder & Frontend Developer",
     period: "Apr 2026 → Present",
     description:
-      "Fashion content platform. Full technical architecture, UI development and monetization integration (Google AdSense, affiliate links).",
+      "Fashion content platform with outfit recommendations and affiliate monetization. Responsible for all technical work — 10+ content sections, interactive Style Quiz with shareable OG image cards, Piece Picker visual tool, ISR caching, SEO infrastructure (FAQ schema, canonical audits), Sanity CMS and Supabase integration, AI-powered content generation.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Sanity", "Supabase", "Vercel", "AI SDK", "Resend", "Zod"],
     githubHref: null,
   },
+];
+
+const projects = [
   {
     name: "Portfolio",
     href: "https://www.furkantitiz.dev",
@@ -107,6 +110,52 @@ export default function Home() {
           >
             github
           </a>
+        </div>
+      </section>
+
+      <hr className="border-gray-100 dark:border-gray-800 my-12" />
+
+      {/* Experience */}
+      <section>
+        <h2 className="text-[11px] font-medium text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-8">
+          Experience
+        </h2>
+        <div className="flex flex-col gap-8">
+          {experience.map((p) => (
+            <div key={p.name}>
+              <div className="flex items-baseline justify-between gap-4">
+                <div className="flex items-baseline gap-3">
+                  <a
+                    href={p.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-medium text-gray-900 dark:text-white hover:text-gray-500 dark:hover:text-gray-400 transition-colors"
+                  >
+                    {p.name} ↗
+                  </a>
+                </div>
+                {p.period && (
+                  <span className="text-[11px] text-gray-400 dark:text-gray-500 shrink-0">
+                    {p.period}
+                  </span>
+                )}
+              </div>
+              <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-0.5">{p.role}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
+                {p.description}
+              </p>
+              <div className="flex flex-wrap gap-2 mt-3">
+                {p.stack.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[11px] text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/8 px-2 py-0.5 rounded"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
