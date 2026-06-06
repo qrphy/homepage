@@ -2,7 +2,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 body {
-  background: #fafafa;
+  background: #ffffff;
   color: #111827;
   font-family: var(--font-geist-sans), var(--font-sans);
 }
