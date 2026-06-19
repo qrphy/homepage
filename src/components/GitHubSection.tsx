@@ -1,7 +1,9 @@
 "use client";
 import dynamic from "next/dynamic";
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
+
+const subscribe = () => () => {};
 
 const GitHubCalendar = dynamic(
   () =>
@@ -13,9 +15,7 @@ const GitHubCalendar = dynamic(
 
 export function GitHubSection() {
   const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
+  const mounted = useSyncExternalStore(subscribe, () => true, () => false);
 
   const colorScheme = mounted && resolvedTheme === "dark" ? "dark" : "light";
 
