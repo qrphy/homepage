@@ -51,6 +51,16 @@ const experience = [
 
 const projects = [
   {
+    name: "museum of my mind",
+    href: "https://museumofmymind.com",
+    role: "Personal Image Archive",
+    period: null,
+    description:
+      "A responsive personal image archive for photographs, visual notes, and fragments collected over time, with configurable gallery layouts and optimized image delivery.",
+    stack: ["Next.js", "TypeScript", "Cloudinary", "Vercel"],
+    githubHref: null,
+  },
+  {
     name: "Portfolio",
     href: "https://www.furkantitiz.dev",
     role: "Personal Site",
