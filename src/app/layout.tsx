@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | Furkan Titiz",
   },
   description:
-    "Furkan Titiz — Frontend Developer building with Next.js, TypeScript and Tailwind CSS. Co-founder of STYLEFINDEN. Open to frontend opportunities.",
+    "Furkan Titiz — Frontend developer and co-founder of STYLEFINDEN, building digital products, interfaces, and content systems.",
   keywords: [
     "Furkan Titiz",
     "Frontend Developer",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Furkan Titiz",
     description:
-      "Furkan Titiz — Frontend Developer building with Next.js, TypeScript and Tailwind CSS. Co-founder of STYLEFINDEN. Open to frontend opportunities.",
+      "Furkan Titiz — Frontend developer and co-founder of STYLEFINDEN, building digital products, interfaces, and content systems.",
     url: "https://www.furkantitiz.dev",
     siteName: "Furkan Titiz",
     locale: "tr_TR",

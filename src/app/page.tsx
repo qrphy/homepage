@@ -1,268 +1,73 @@
-import { DarkModeToggle } from "@/components/DarkModeToggle";
-import {
-  siJavascript,
-  siTypescript,
-  siNextdotjs,
-  siTailwindcss,
-  siNodedotjs,
-  siGit,
-  siGithub,
-  siCursor,
-  siFigma,
-  siAnthropic,
-  siVercel,
-  siSupabase,
-  siSanity,
-} from "simple-icons";
-import { GitHubSection } from "@/components/GitHubSection";
+const contentLinkClass =
+  "text-[#4a9bf6] no-underline hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#4a9bf6]";
 
-const VSCODE_PATH =
-  "M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z";
+const socialLinkClass =
+  "text-base text-[#999] no-underline hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#4a9bf6]";
 
-const techStack = [
-  { path: siJavascript.path, label: "JavaScript" },
-  { path: siTypescript.path, label: "TypeScript" },
-  { path: siNextdotjs.path, label: "Next.js" },
-  { path: siVercel.path, label: "Vercel" },
-  { path: siTailwindcss.path, label: "Tailwind CSS" },
-  { path: siNodedotjs.path, label: "Node.js" },
-  { path: siSupabase.path, label: "Supabase" },
-  { path: siSanity.path, label: "Sanity" },
-  { path: siGit.path, label: "Git" },
-  { path: siGithub.path, label: "GitHub" },
-  { path: VSCODE_PATH, label: "VS Code" },
-  { path: siCursor.path, label: "Cursor" },
-  { path: siFigma.path, label: "Figma" },
-  { path: siAnthropic.path, label: "Claude" },
-];
-
-const experience = [
-  {
-    name: "STYLEFINDEN",
-    href: "https://stylefinden.com",
-    role: "Co-Founder & Lead Developer",
-    period: "Apr 2026 → Present",
-    description:
-      "Fashion content platform with outfit recommendations and affiliate monetization. Responsible for all technical work — 10+ content sections, interactive Style Quiz with shareable OG image cards, Piece Picker visual tool, ISR caching, SEO infrastructure (FAQ schema, canonical audits), Sanity CMS, Supabase with RLS and database views for user behavior analytics, and AI-powered content generation.",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Sanity", "Supabase", "Vercel", "AI SDK", "Resend", "Zod"],
-    githubHref: null,
-  },
-];
-
-const projects = [
-  {
-    name: "museum of my mind",
-    href: "https://museumofmymind.com",
-    role: "Personal Image Archive",
-    period: null,
-    description:
-      "A responsive personal image archive for photographs, visual notes, and fragments collected over time, with configurable gallery layouts and optimized image delivery.",
-    stack: ["Next.js", "TypeScript", "Cloudinary", "Vercel"],
-    githubHref: null,
-  },
-  {
-    name: "Portfolio",
-    href: "https://www.furkantitiz.dev",
-    role: "Personal Site",
-    period: null,
-    description:
-      "Personal portfolio built with Next.js App Router and Tailwind CSS.",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Vercel"],
-    githubHref: "https://github.com/qrphy",
-  },
-];
+const paragraphClass =
+  "m-0 text-[17px] leading-[1.34] tracking-[-0.015em] max-sm:text-base max-sm:leading-[1.4]";
 
 export default function Home() {
   return (
-    <main className="max-w-xl mx-auto px-6 py-16 sm:py-24">
-      {/* Hero */}
-      <section>
-        <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+    <main className="flex min-h-svh items-center justify-center bg-white px-[22px] py-12 font-[Arial,Helvetica,sans-serif] text-[#282828] max-sm:min-h-dvh max-sm:py-6">
+      <article className="w-full max-w-[470px]">
+        <header>
+          <h1 className="m-0 text-[17px] leading-[1.35] font-normal">
             Furkan Titiz
           </h1>
-          <DarkModeToggle />
+        </header>
+
+        <div className="mt-7 grid gap-[22px]">
+          <p className={paragraphClass}>
+            Co-founder of{" "}
+            <a
+              href="https://stylefinden.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={contentLinkClass}
+            >
+              stylefinden
+            </a>.
+          </p>
+          <p className={paragraphClass}>
+            We build fashion content, interactive tools, and software with
+            Next.js, TypeScript, Sanity, Supabase, and Vercel.
+          </p>
+          <p className={paragraphClass}>
+            I also keep a personal image archive at{" "}
+            <a
+              href="https://museumofmymind.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={contentLinkClass}
+            >
+              museum of my mind
+            </a>.
+          </p>
         </div>
-        <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Frontend Developer</p>
-        <p className="mt-5 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-          Building clean, performance-oriented interfaces with Next.js and
-          TypeScript. Co-founder of{" "}
-          <a
-            href="https://stylefinden.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-900 dark:text-white underline underline-offset-2 decoration-gray-300 dark:decoration-gray-600 hover:decoration-gray-600 dark:hover:decoration-gray-300 transition-colors"
-          >
-            STYLEFINDEN
-          </a>
-          . Open to junior frontend opportunities.
-        </p>
-        <div className="flex gap-5 mt-5">
-          <a
-            href="mailto:furkan@furkantitiz.dev"
-            className="text-xs text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
-          >
+
+        <nav className="mt-[38px] flex gap-[18px]" aria-label="Links">
+          <a href="mailto:furkan@furkantitiz.dev" className={socialLinkClass}>
             email
-          </a>
-          <a
-            href="https://www.linkedin.com/in/furkan-titiz/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
-          >
-            linkedin
           </a>
           <a
             href="https://github.com/qrphy"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
+            className={socialLinkClass}
           >
-            github
+            GitHub
           </a>
-        </div>
-      </section>
-
-      <hr className="border-gray-100 dark:border-gray-800 my-12" />
-
-      {/* Experience */}
-      <section>
-        <h2 className="text-[11px] font-medium text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-8">
-          Experience
-        </h2>
-        <div className="flex flex-col gap-8">
-          {experience.map((p) => (
-            <div key={p.name}>
-              <div className="flex items-baseline justify-between gap-4">
-                <div className="flex items-baseline gap-3">
-                  <a
-                    href={p.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-medium text-gray-900 dark:text-white hover:text-gray-500 dark:hover:text-gray-400 transition-colors"
-                  >
-                    {p.name} ↗
-                  </a>
-                </div>
-                {p.period && (
-                  <span className="text-[11px] text-gray-400 dark:text-gray-500 shrink-0">
-                    {p.period}
-                  </span>
-                )}
-              </div>
-              <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-0.5">{p.role}</p>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
-                {p.description}
-              </p>
-              <div className="flex flex-wrap gap-2 mt-3">
-                {p.stack.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[11px] text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/8 px-2 py-0.5 rounded"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <hr className="border-gray-100 dark:border-gray-800 my-12" />
-
-      {/* Projects */}
-      <section>
-        <h2 className="text-[11px] font-medium text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-8">
-          Projects
-        </h2>
-        <div className="flex flex-col gap-8">
-          {projects.map((p) => (
-            <div key={p.name}>
-              <div className="flex items-baseline justify-between gap-4">
-                <div className="flex items-baseline gap-3">
-                  <a
-                    href={p.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-medium text-gray-900 dark:text-white hover:text-gray-500 dark:hover:text-gray-400 transition-colors"
-                  >
-                    {p.name} ↗
-                  </a>
-                  {p.githubHref && (
-                    <a
-                      href={p.githubHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[11px] text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
-                    >
-                      github ↗
-                    </a>
-                  )}
-                </div>
-                {p.period && (
-                  <span className="text-[11px] text-gray-400 dark:text-gray-500 shrink-0">
-                    {p.period}
-                  </span>
-                )}
-              </div>
-              <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-0.5">{p.role}</p>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mt-2 leading-relaxed">
-                {p.description}
-              </p>
-              <div className="flex flex-wrap gap-2 mt-3">
-                {p.stack.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-[11px] text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/8 px-2 py-0.5 rounded"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <hr className="border-gray-100 dark:border-gray-800 my-12" />
-
-      {/* Stack */}
-      <section>
-        <h2 className="text-[11px] font-medium text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-6">
-          Stack
-        </h2>
-        <div className="flex flex-wrap gap-x-5 gap-y-3">
-          {techStack.map(({ path, label }) => (
-            <div key={label} className="flex items-center gap-1.5">
-              <svg
-                viewBox="0 0 24 24"
-                width="13"
-                height="13"
-                fill="currentColor"
-                className="text-gray-400 dark:text-gray-500 shrink-0"
-              >
-                <path d={path} />
-              </svg>
-              <span className="text-xs text-gray-500 dark:text-gray-400">{label}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <hr className="border-gray-100 dark:border-gray-800 my-12" />
-
-      {/* GitHub Activity */}
-      <section>
-        <h2 className="text-[11px] font-medium text-gray-400 dark:text-gray-500 uppercase tracking-widest mb-6">
-          GitHub Activity
-        </h2>
-        <GitHubSection />
-      </section>
-
-      <div className="mt-16 text-[11px] text-gray-300 dark:text-gray-600 text-center">
-        trying to be better than yesterday
-      </div>
+          <a
+            href="https://www.linkedin.com/in/furkan-titiz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={socialLinkClass}
+          >
+            LinkedIn
+          </a>
+        </nav>
+      </article>
     </main>
   );
 }

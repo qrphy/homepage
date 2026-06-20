@@ -1,19 +1,5 @@
 @import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
 
-body {
-  background: #ffffff;
-  color: #111827;
-  font-family: var(--font-geist-sans), var(--font-sans);
-}
-
-.dark body {
-  background: #111111;
-  color: #f9fafb;
-}
-
-/* GitHub calendar text */
-.react-activity-calendar text,
-.react-activity-calendar tspan {
-  fill: #9ca3af;
+::selection {
+  background: #dcecff;
 }
