@@ -30,7 +30,7 @@ export default function Home() {
           </p>
           <p className={paragraphClass}>
             We build fashion content, interactive tools, and software with
-            Next.js, TypeScript, Sanity, Supabase.
+            Next.js, Sanity, Supabase.
           </p>
           <p className={paragraphClass}>
             I also keep a personal image archive at{" "}
