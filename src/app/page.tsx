@@ -16,10 +16,9 @@ export default function Home() {
             Furkan Titiz
           </h1>
         </header>
-
         <div className="mt-7 grid gap-[22px]">
           <p className={paragraphClass}>
-            Co-founder of{" "}
+            Co-founder and lead developer of{" "}
             <a
               href="https://stylefinden.com"
               target="_blank"
@@ -31,7 +30,7 @@ export default function Home() {
           </p>
           <p className={paragraphClass}>
             We build fashion content, interactive tools, and software with
-            Next.js, TypeScript, Sanity, Supabase, and Vercel.
+            Next.js, TypeScript, Sanity, Supabase.
           </p>
           <p className={paragraphClass}>
             I also keep a personal image archive at{" "}
@@ -45,8 +44,7 @@ export default function Home() {
             </a>.
           </p>
         </div>
-
-        <nav className="mt-[38px] flex gap-[18px]" aria-label="Links">
+        <nav className="mt-[20px] flex gap-[10px]" aria-label="Links">
           <a href="mailto:furkan@furkantitiz.dev" className={socialLinkClass}>
             email
           </a>
@@ -56,7 +54,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className={socialLinkClass}
           >
-            GitHub
+            github
           </a>
           <a
             href="https://www.linkedin.com/in/furkan-titiz/"
@@ -64,7 +62,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className={socialLinkClass}
           >
-            LinkedIn
+            linkedin
           </a>
         </nav>
       </article>
