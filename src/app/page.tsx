@@ -65,7 +65,7 @@ export default function Home() {
         </div>
       </section>
 
-      <hr className="border-gray-100 my-12" />
+      <hr className="border-white my-10" />
 
       {/* Experience */}
       <section>
@@ -111,7 +111,7 @@ export default function Home() {
         </div>
       </section>
 
-      <hr className="border-gray-100 my-12" />
+      <hr className="border-white my-10" />
 
       {/* Projects */}
       <section>
@@ -168,11 +168,11 @@ export default function Home() {
       </section>
 
 
-      <hr className="border-gray-100 my-12" />
+      <hr className="border-white my-10" />
 
       {/* GitHub Activity */}
       <section>
-        <h2 className="text-[11px] font-medium text-gray-400 uppercase tracking-widest mb-4">
+        <h2 className="text-[11px] font-medium text-gray-400 tracking-widest mb-4">
           GitHub Activity
         </h2>
         <GitHubSection />
