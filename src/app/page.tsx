@@ -1,5 +1,3 @@
-import { GitHubSection } from "@/components/GitHubSection";
-
 const experience = [
   {
     name: "STYLEFINDEN",
@@ -32,17 +30,17 @@ export default function Home() {
       {/* Hero */}
       <section>
         <div className="flex items-center justify-between">
-          <h1 className="text-xl font-medium tracking-tight text-gray-800">
+          <h1 className="text-xl font-medium tracking-tight text-gray-100">
             Furkan Titiz
           </h1>
         </div>
-        <p className="mt-4 text-sm text-gray-600 leading-relaxed">
+        <p className="mt-4 text-sm text-gray-400 leading-relaxed">
           Building clean, fast products that bring ideas to life with Next.js, Sanity, and Supabase.
         </p>
         <div className="flex gap-5 mt-5">
           <a
             href="mailto:furkan@furkantitiz.dev"
-            className="text-xs text-gray-400 hover:text-gray-700 transition-colors"
+            className="text-xs text-gray-300 hover:text-gray-700 transition-colors"
           >
             email
           </a>
@@ -50,7 +48,7 @@ export default function Home() {
             href="https://www.linkedin.com/in/furkan-titiz/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-gray-400 hover:text-gray-700 transition-colors"
+            className="text-xs text-gray-300 hover:text-gray-700 transition-colors"
           >
             linkedin
           </a>
@@ -58,18 +56,18 @@ export default function Home() {
             href="https://github.com/qrphy"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-gray-400 hover:text-gray-700 transition-colors"
+              className="text-xs text-gray-300 hover:text-gray-700 transition-colors"
           >
             github
           </a>
         </div>
       </section>
 
-      <hr className="border-white my-10" />
+<hr className="my-10" />
 
       {/* Experience */}
       <section>
-        <h2 className="text-[11px] font-medium text-gray-400 tracking-widest mb-4">
+        <h2 className="text-[11px] font-medium text-gray-300/50 tracking-widest mb-4">
           Experience
         </h2>
         <div className="flex flex-col gap-8">
@@ -81,26 +79,26 @@ export default function Home() {
                     href={p.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-medium text-gray-900 hover:text-gray-500 transition-colors"
+                    className="text-sm font-medium text-gray-100 hover:text-gray-500 transition-colors"
                   >
                     {p.name} ↗
                   </a>
                 </div>
                 {p.period && (
-                  <span className="text-[11px] text-gray-400 shrink-0">
+                  <span className="text-[11px] text-gray-300 shrink-0">
                     {p.period}
                   </span>
                 )}
-              </div>
-              <p className="text-[11px] text-gray-400 mt-0.5">{p.role}</p>
-              <p className="text-sm text-gray-600 mt-2 leading-relaxed">
+              </div>  
+              <p className="text-[11px] text-gray-300 mt-0.5">{p.role}</p>
+              <p className="text-sm text-gray-400 mt-2 leading-relaxed">
                 {p.description}
               </p>
               <div className="flex flex-wrap gap-2 mt-3">
                 {p.stack.map((tag) => (
                   <span
                     key={tag}
-                    className="text-[11px] text-gray-400 bg-gray-50 border border-gray-100 px-2 py-0.5 rounded"
+                    className="text-[11px] text-gray-300 bg-gray-300/10 border border-gray-300/10 px-2 py-0.5 rounded"
                   >
                     {tag}
                   </span>
@@ -111,11 +109,11 @@ export default function Home() {
         </div>
       </section>
 
-      <hr className="border-white my-10" />
+      <hr className="my-10" />
 
       {/* Projects */}
       <section>
-        <h2 className="text-[11px] font-medium text-gray-400 tracking-widest mb-4">
+        <h2 className="text-[11px] font-medium text-gray-300/50 tracking-widest mb-4">
           Selected Work
         </h2>
         <div className="flex flex-col gap-8">
@@ -127,7 +125,7 @@ export default function Home() {
                     href={p.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-medium text-gray-900 hover:text-gray-500 transition-colors"
+                    className="text-sm font-medium text-gray-100 hover:text-gray-500 transition-colors"
                   >
                     {p.name} ↗
                   </a>
@@ -136,27 +134,27 @@ export default function Home() {
                       href={p.githubHref}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[11px] text-gray-400 hover:text-gray-600 transition-colors"
+                      className="text-[11px] text-gray-300 hover:text-gray-600 transition-colors"
                     >
                       github ↗
                     </a>
                   )}
                 </div>
                 {p.period && (
-                  <span className="text-[11px] text-gray-400 shrink-0">
+                  <span className="text-[11px] text-gray-300 shrink-0">
                     {p.period}
                   </span>
                 )}
               </div>
-              <p className="text-[11px] text-gray-400 mt-0.5">{p.role}</p>
-              <p className="text-sm text-gray-600 mt-2 leading-relaxed">
+              <p className="text-[11px] text-gray-300 mt-0.5">{p.role}</p>
+              <p className="text-sm text-gray-400 mt-2 leading-relaxed">
                 {p.description}
               </p>
               <div className="flex flex-wrap gap-2 mt-3">
                 {p.stack.map((tag) => (
                   <span
                     key={tag}
-                    className="text-[11px] text-gray-400 bg-gray-50 border border-gray-100 px-2 py-0.5 rounded"
+                    className="text-[11px] text-gray-300 bg-gray-300/10 border border-gray-300/10 px-2 py-0.5 rounded"
                   >
                     {tag}
                   </span>
@@ -168,17 +166,9 @@ export default function Home() {
       </section>
 
 
-      <hr className="border-white my-10" />
+      <hr className="my-10" />
 
-      {/* GitHub Activity */}
-      <section>
-        <h2 className="text-[11px] font-medium text-gray-400 tracking-widest mb-4">
-          GitHub Activity
-        </h2>
-        <GitHubSection />
-      </section>
-
-      <div className="mt-16 text-[11px] text-gray-300 text-center">
+      <div className="mt-16 text-[11px] text-gray-300/50 text-center">
         trying to be better than yesterday
       </div>
     </main>

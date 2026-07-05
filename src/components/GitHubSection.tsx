@@ -14,10 +14,11 @@ export function GitHubSection() {
     <div className="overflow-x-auto">
       <GitHubCalendar
         username="qrphy"
-        colorScheme="light"
-        fontSize={10}
+        colorScheme="dark"
+        fontSize={11}
         blockSize={11}
         blockMargin={3}
+        blockRadius={10}
         errorMessage="GitHub activity could not be loaded."
       />
     </div>
