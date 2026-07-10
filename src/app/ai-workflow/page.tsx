@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import WorkflowGraph from "./graph";
 
 export const metadata: Metadata = {
   title: "Personal AI Workflow",
@@ -144,56 +145,6 @@ const skills = [
   "Verification",
 ];
 
-function getNode(id: string) {
-  const node = graphNodes.find((item) => item.id === id);
-
-  if (!node) {
-    throw new Error(`Missing graph node: ${id}`);
-  }
-
-  return node;
-}
-
-function nodeSize(size: string) {
-  if (size === "lg") {
-    return "h-16 w-16 text-[11px]";
-  }
-
-  if (size === "md") {
-    return "h-13 w-13 text-[10px]";
-  }
-
-  return "h-10 w-10 text-[9px]";
-}
-
-function nodeTone(group: string) {
-  if (group === "agent") {
-    return "border-violet-300/55 bg-violet-400/18 text-violet-100 shadow-[0_0_34px_rgba(139,92,246,0.28)]";
-  }
-
-  if (group === "quality" || group === "ship") {
-    return "border-emerald-300/40 bg-emerald-400/12 text-emerald-100";
-  }
-
-  if (group === "memory" || group === "tooling") {
-    return "border-zinc-100/35 bg-zinc-100/12 text-zinc-100";
-  }
-
-  return "border-amber-200/45 bg-amber-300/12 text-amber-100";
-}
-
-function satelliteTone(tone: string) {
-  if (tone === "green") {
-    return "bg-emerald-400/45";
-  }
-
-  if (tone === "white") {
-    return "bg-zinc-100/80";
-  }
-
-  return "bg-zinc-500/35";
-}
-
 export default function AiWorkflowPage() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#050505] text-zinc-100">
@@ -209,97 +160,19 @@ export default function AiWorkflowPage() {
             Personal AI Workflow
           </h1>
           <p className="mt-4 max-w-xl text-sm leading-6 text-zinc-400">
-            A modular agent system I use to turn vague ideas into plans, code,
-            reviews, tests, content, and shipped work.
+            I don&apos;t use AI as a chat box. I use it as a system: vague ideas go
+            in, and plans, code, reviews, tests, and shipped work come out. Pull
+            the graph around — every node is a real step I run.
           </p>
         </div>
 
         <div className="mt-10 grid flex-1 gap-6 lg:grid-cols-[minmax(0,1fr)_300px]">
-          <div className="relative min-h-[560px] overflow-hidden rounded border border-zinc-800/90 bg-[#101010] shadow-2xl shadow-black/50">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.16),transparent_34%),radial-gradient(circle_at_25%_70%,rgba(34,197,94,0.12),transparent_24%),linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:100%_100%,100%_100%,42px_42px,42px_42px]" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent,rgba(0,0,0,0.78)_78%)]" />
-
-            <svg
-              className="absolute inset-0 h-full w-full"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              {meshLines.map(([from, to]) => {
-                const start = getNode(from);
-                const end = getNode(to);
-
-                return (
-                  <line
-                    key={`${from}-${to}`}
-                    x1={start.x}
-                    y1={start.y}
-                    x2={end.x}
-                    y2={end.y}
-                    className="stroke-zinc-500/16"
-                    strokeWidth="0.18"
-                  />
-                );
-              })}
-              {graphNodes
-                .filter((node) => node.id !== "skills")
-                .map((node) => {
-                  const core = getNode("skills");
-
-                  return (
-                    <line
-                      key={`core-${node.id}`}
-                      x1={core.x}
-                      y1={core.y}
-                      x2={node.x}
-                      y2={node.y}
-                      className="stroke-violet-400/50"
-                      strokeWidth="0.28"
-                    />
-                  );
-                })}
-            </svg>
-
-            {satelliteNodes.map((node, index) => (
-              <span
-                key={`${node.x}-${node.y}-${index}`}
-                className={`absolute h-2.5 w-2.5 rounded-full ${satelliteTone(
-                  node.tone,
-                )}`}
-                style={{ left: `${node.x}%`, top: `${node.y}%` }}
-              />
-            ))}
-
-            {graphNodes.map((node) => (
-              <div
-                key={node.id}
-                className="group absolute -translate-x-1/2 -translate-y-1/2"
-                style={{ left: `${node.x}%`, top: `${node.y}%` }}
-              >
-                <div
-                  className={`${nodeSize(
-                    node.size,
-                  )} flex items-center justify-center rounded-full border text-center font-medium transition duration-300 group-hover:scale-110 group-hover:border-zinc-100/70 ${nodeTone(
-                    node.group,
-                  )}`}
-                >
-                  {node.label}
-                </div>
-                <div className="pointer-events-none absolute left-1/2 top-full z-10 mt-3 w-48 -translate-x-1/2 rounded border border-zinc-700 bg-zinc-950/95 p-3 text-xs leading-5 text-zinc-300 opacity-0 shadow-xl shadow-black/40 transition duration-200 group-hover:opacity-100">
-                  {node.description}
-                </div>
-              </div>
-            ))}
-
-            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-4 border-t border-zinc-800/90 pt-4 text-[11px] text-zinc-500">
-              <span>
-                intent {"->"} orchestration {"->"} execution {"->"} verification
-              </span>
-              <span className="hidden text-violet-200/70 sm:inline">
-                structured workflow, not a chat box
-              </span>
-            </div>
-          </div>
+          <WorkflowGraph
+            nodes={graphNodes}
+            satellites={satelliteNodes}
+            edges={meshLines}
+            coreId="skills"
+          />
 
           <aside className="grid content-start gap-4">
             <div className="rounded border border-zinc-800 bg-zinc-950/70 p-4">
@@ -344,9 +217,8 @@ export default function AiWorkflowPage() {
                 Principle
               </div>
               <p className="mt-3 text-sm leading-6 text-zinc-300">
-                Every project starts as unclear intent. The workflow turns it
-                into context, tasks, specialist agents, reusable skills, and a
-                verification loop.
+                Nothing ships on a claim. Lint, build, tests, and the real UI
+                decide — and if any of them disagree with me, they win.
               </p>
             </div>
           </aside>
