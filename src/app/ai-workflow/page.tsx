@@ -147,83 +147,83 @@ const skills = [
 
 export default function AiWorkflowPage() {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#050505] text-zinc-100">
-      <section className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-5 py-8 sm:px-8 lg:px-10">
-        <div>
-          <Link
-            href="/"
-            className="text-[11px] uppercase tracking-[0.28em] text-zinc-500 transition-colors hover:text-zinc-200"
-          >
-            Furkan Titiz
-          </Link>
-          <h1 className="mt-5 max-w-2xl text-3xl font-medium tracking-tight text-zinc-50 sm:text-5xl">
-            Personal AI Workflow
-          </h1>
-          <p className="mt-4 max-w-xl text-sm leading-6 text-zinc-400">
-            I don&apos;t use AI as a chat box. I use it as a system: vague ideas go
-            in, and plans, code, reviews, tests, and shipped work come out. Pull
-            the graph around — every node is a real step I run.
-          </p>
-        </div>
+    <main className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
+      <Link
+        href="/"
+        className="text-xs text-gray-300 transition-colors hover:text-gray-500"
+      >
+        ← Furkan Titiz
+      </Link>
 
-        <div className="mt-10 grid flex-1 gap-6 lg:grid-cols-[minmax(0,1fr)_300px]">
-          <WorkflowGraph
-            nodes={graphNodes}
-            satellites={satelliteNodes}
-            edges={meshLines}
-            coreId="skills"
-          />
+      <h1 className="mt-8 text-xl font-medium tracking-tight text-gray-100">
+        Personal AI Workflow
+      </h1>
+      <p className="mt-4 max-w-lg text-sm leading-relaxed text-gray-400">
+        I don&apos;t use AI as a chat box. I use it as a system: vague ideas go
+        in, and plans, code, reviews, tests, and shipped work come out. Pull the
+        graph around — every node is a real step I run.
+      </p>
 
-          <aside className="grid content-start gap-4">
-            <div className="rounded border border-zinc-800 bg-zinc-950/70 p-4">
-              <h2 className="text-[11px] font-medium uppercase tracking-[0.22em] text-zinc-500">
-                System Loops
-              </h2>
-              <div className="mt-4 grid gap-3">
-                {workflows.map((workflow) => (
-                  <div
-                    key={workflow.title}
-                    className="border-l border-violet-300/30 pl-3"
-                  >
-                    <div className="text-sm font-medium text-zinc-100">
-                      {workflow.title}
-                    </div>
-                    <div className="mt-1 text-xs leading-5 text-zinc-500">
-                      {workflow.chain}
-                    </div>
-                  </div>
-                ))}
+      <div className="mt-12">
+        <WorkflowGraph
+          nodes={graphNodes}
+          satellites={satelliteNodes}
+          edges={meshLines}
+          coreId="skills"
+        />
+      </div>
+
+      <hr className="my-12" />
+
+      <div className="grid gap-10 sm:grid-cols-2">
+        <section>
+          <h2 className="mb-4 text-[11px] font-medium tracking-widest text-gray-300/50">
+            System Loops
+          </h2>
+          <div className="flex flex-col gap-4">
+            {workflows.map((workflow) => (
+              <div key={workflow.title}>
+                <div className="text-[13px] text-gray-200">{workflow.title}</div>
+                <div className="mt-1 font-mono text-[11px] leading-relaxed text-gray-400">
+                  {workflow.chain}
+                </div>
               </div>
-            </div>
+            ))}
+          </div>
+        </section>
 
-            <div className="rounded border border-zinc-800 bg-zinc-950/70 p-4">
-              <h2 className="text-[11px] font-medium uppercase tracking-[0.22em] text-zinc-500">
-                Skill Matrix
-              </h2>
-              <div className="mt-4 grid grid-cols-2 gap-2">
-                {skills.map((skill) => (
-                  <div
-                    key={skill}
-                    className="rounded border border-zinc-800 bg-zinc-900/50 px-2 py-2 text-[11px] text-zinc-300"
-                  >
-                    {skill}
-                  </div>
-                ))}
-              </div>
-            </div>
+        <section>
+          <h2 className="mb-4 text-[11px] font-medium tracking-widest text-gray-300/50">
+            Skill Matrix
+          </h2>
+          <div className="flex flex-wrap gap-2">
+            {skills.map((skill) => (
+              <span
+                key={skill}
+                className="rounded border border-gray-300/10 bg-gray-300/[0.03] px-2 py-0.5 text-[11px] text-gray-300"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </section>
+      </div>
 
-            <div className="rounded border border-emerald-300/20 bg-emerald-400/5 p-4">
-              <div className="text-[11px] uppercase tracking-[0.22em] text-emerald-200/70">
-                Principle
-              </div>
-              <p className="mt-3 text-sm leading-6 text-zinc-300">
-                Nothing ships on a claim. Lint, build, tests, and the real UI
-                decide — and if any of them disagree with me, they win.
-              </p>
-            </div>
-          </aside>
-        </div>
+      <hr className="my-12" />
+
+      <section>
+        <h2 className="mb-4 text-[11px] font-medium tracking-widest text-gray-300/50">
+          Principle
+        </h2>
+        <p className="max-w-lg text-sm leading-relaxed text-gray-400">
+          Nothing ships on a claim. Lint, build, tests, and the real UI decide —
+          and if any of them disagree with me, they win.
+        </p>
       </section>
+
+      <div className="mt-16 text-center text-[11px] text-gray-300/50">
+        trying to be better than yesterday
+      </div>
     </main>
   );
 }

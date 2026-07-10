@@ -30,37 +30,38 @@ const DAMPING = 0.86;
 const MIN_ZOOM = 0.55;
 const MAX_ZOOM = 3.2;
 
+// The homepage palette: grey everywhere, amber only on the agent nodes.
+const AMBER = "rgb(251,191,36)";
+const EDGE = "rgba(209,213,219,0.10)";
+const EDGE_LIT = "rgba(209,213,219,0.32)";
+const SPOKE = "rgba(209,213,219,0.14)";
+const SPOKE_LIT = "rgba(251,191,36,0.45)";
+
 function nodeRadius(size: string) {
   if (size === "lg") return 7.4;
   if (size === "md") return 6.2;
   return 4.8;
 }
 
+function isAgent(group: string) {
+  return group === "agent";
+}
+
 function nodeFill(group: string) {
-  if (group === "agent") return "rgba(139,92,246,0.20)";
-  if (group === "quality" || group === "ship") return "rgba(52,211,153,0.14)";
-  if (group === "memory" || group === "tooling") return "rgba(244,244,245,0.13)";
-  return "rgba(252,211,77,0.14)";
+  return isAgent(group) ? "rgba(251,191,36,0.10)" : "rgba(209,213,219,0.04)";
 }
 
 function nodeStroke(group: string) {
-  if (group === "agent") return "rgba(196,181,253,0.62)";
-  if (group === "quality" || group === "ship") return "rgba(110,231,183,0.48)";
-  if (group === "memory" || group === "tooling") return "rgba(244,244,245,0.38)";
-  return "rgba(253,230,138,0.5)";
+  return isAgent(group) ? "rgba(251,191,36,0.45)" : "rgba(209,213,219,0.18)";
 }
 
 function nodeText(group: string) {
-  if (group === "agent") return "#ede9fe";
-  if (group === "quality" || group === "ship") return "#d1fae5";
-  if (group === "memory" || group === "tooling") return "#fafafa";
-  return "#fef3c7";
+  return isAgent(group) ? AMBER : "#d1d5db";
 }
 
 function satelliteFill(tone: string) {
-  if (tone === "green") return "rgba(52,211,153,0.45)";
-  if (tone === "white") return "rgba(244,244,245,0.8)";
-  return "rgba(113,113,122,0.35)";
+  if (tone === "white") return "rgba(209,213,219,0.28)";
+  return "rgba(209,213,219,0.12)";
 }
 
 type Body = { x: number; y: number; vx: number; vy: number };
@@ -286,10 +287,7 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
   const at = (id: string) => positions[id];
 
   return (
-    <div className="relative min-h-[420px] flex-1 overflow-hidden rounded border border-zinc-800/90 bg-[#101010] shadow-2xl shadow-black/50 sm:min-h-[560px]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.16),transparent_34%),radial-gradient(circle_at_25%_70%,rgba(34,197,94,0.12),transparent_24%),linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:100%_100%,100%_100%,42px_42px,42px_42px]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent,rgba(0,0,0,0.78)_78%)]" />
-
+    <div className="relative h-[340px] w-full overflow-hidden sm:h-[420px]">
       <svg
         ref={svgRef}
         className="absolute inset-0 h-full w-full touch-none select-none"
@@ -311,16 +309,6 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
         onPointerCancel={endPointer}
         onWheel={onWheel}
       >
-        <defs>
-          <filter id="node-glow" x="-120%" y="-120%" width="340%" height="340%">
-            <feGaussianBlur stdDeviation="2.4" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-
         {satellites.map((satellite, index) => (
           <circle
             key={`sat-${index}`}
@@ -343,8 +331,8 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
               y1={start.y}
               x2={end.x}
               y2={end.y}
-              stroke={lit ? "rgba(196,181,253,0.55)" : "rgba(113,113,122,0.16)"}
-              strokeWidth={lit ? 0.32 : 0.18}
+              stroke={lit ? EDGE_LIT : EDGE}
+              strokeWidth={lit ? 0.3 : 0.16}
             />
           );
         })}
@@ -363,8 +351,8 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
                 y1={core.y}
                 x2={body.x}
                 y2={body.y}
-                stroke={lit ? "rgba(167,139,250,0.85)" : "rgba(167,139,250,0.5)"}
-                strokeWidth={lit ? 0.42 : 0.28}
+                stroke={lit ? SPOKE_LIT : SPOKE}
+                strokeWidth={lit ? 0.34 : 0.18}
               />
             );
           })}
@@ -392,18 +380,17 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
               onPointerLeave={() => setHovered(null)}
             >
               <circle
-                r={focused ? radius * 1.12 : radius}
+                r={focused ? radius * 1.08 : radius}
                 fill={nodeFill(node.group)}
-                stroke={focused ? "rgba(244,244,245,0.7)" : nodeStroke(node.group)}
-                strokeWidth={0.36}
-                filter={node.group === "agent" ? "url(#node-glow)" : undefined}
+                stroke={focused ? "rgba(209,213,219,0.45)" : nodeStroke(node.group)}
+                strokeWidth={0.3}
               />
               <text
                 textAnchor="middle"
                 dominantBaseline="central"
                 fill={nodeText(node.group)}
                 fontSize={node.size === "sm" ? 2.2 : 2.6}
-                fontWeight={500}
+                fontWeight={400}
                 pointerEvents="none"
               >
                 {node.label}
@@ -414,27 +401,27 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
       </svg>
 
       {detail && (
-        <div className="pointer-events-none absolute left-4 top-4 w-56 rounded border border-zinc-700 bg-zinc-950/95 p-3 text-xs leading-5 text-zinc-300 shadow-xl shadow-black/40">
-          <div className="mb-1 text-[11px] uppercase tracking-[0.2em] text-zinc-500">
+        <div className="pointer-events-none absolute left-0 top-0 w-48 rounded-sm border border-gray-300/10 bg-[#060606]/90 px-3 py-2.5">
+          <div className="text-[10px] uppercase tracking-widest text-gray-300/40">
             {detail.label}
           </div>
-          {detail.description}
+          <p className="mt-1 text-[12px] leading-relaxed text-gray-400">
+            {detail.description}
+          </p>
         </div>
       )}
 
       <button
         type="button"
         onClick={reset}
-        className="absolute right-4 top-4 rounded border border-zinc-800 bg-zinc-950/80 px-2.5 py-1.5 text-[11px] text-zinc-400 transition-colors hover:border-zinc-600 hover:text-zinc-200"
+        className="absolute right-0 top-0 text-[11px] text-gray-300/40 transition-colors hover:text-gray-300"
       >
         reset view
       </button>
 
-      <div className="pointer-events-none absolute bottom-4 left-4 right-4 flex items-center justify-between gap-4 border-t border-zinc-800/90 pt-4 text-[11px] text-zinc-500">
-        <span>drag nodes · scroll to zoom · drag canvas to pan</span>
-        <span className="hidden text-violet-200/70 sm:inline">
-          structured workflow, not a chat box
-        </span>
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 flex items-baseline justify-between gap-4 text-[11px] text-gray-300/40">
+        <span>drag · scroll to zoom · drag canvas to pan</span>
+        <span className="hidden sm:inline">not a chat box</span>
       </div>
     </div>
   );
