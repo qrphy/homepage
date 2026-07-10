@@ -379,7 +379,9 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
         // outer nodes once the simulation spread them. "meet" fits them all.
         preserveAspectRatio="xMidYMid meet"
         role="img"
-        aria-label="Interactive graph of the AI workflow: intent, context, planner, builder, reviewer, skills, verify, and output."
+        aria-label={`Interactive graph of the AI workflow, centered on ${
+          nodes.find((node) => node.id === coreId)?.label ?? coreId
+        }: ${nodes.map((node) => node.label).join(", ")}.`}
         // pan-y hands vertical swipes to the page, so the graph is never a
         // scroll trap. Node drags and pinches opt out in the touchstart above.
         style={{ cursor: grabbing ? "grabbing" : "grab", touchAction: "pan-y" }}

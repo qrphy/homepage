@@ -22,13 +22,14 @@ const graphNodes = [
     description: "Vague project ideas, bugs, drafts, and questions enter the system.",
   },
   {
-    id: "context",
-    label: "Context",
+    id: "index",
+    label: "Index",
     group: "memory",
-    x: 24,
-    y: 27,
-    size: "sm",
-    description: "Relevant files, notes, decisions, and constraints are pulled into view.",
+    x: 50,
+    y: 50,
+    size: "lg",
+    description:
+      "Everything the system knows, and how it finds it again: notes, prior decisions, code, and the research it runs on its own.",
   },
   {
     id: "planner",
@@ -61,9 +62,9 @@ const graphNodes = [
     id: "skills",
     label: "Skills",
     group: "tooling",
-    x: 50,
-    y: 78,
-    size: "lg",
+    x: 24,
+    y: 27,
+    size: "md",
     description: "Reusable capabilities handle frontend, content, SEO, QA, and deployment.",
   },
   {
@@ -102,19 +103,17 @@ const satelliteNodes = [
   { x: 93, y: 64, tone: "white" },
 ];
 
+// Peer relationships only. Every node also gets a spoke to the core, drawn by
+// the graph itself — naming the core here would double the line.
 const meshLines = [
-  ["intent", "context"],
   ["intent", "planner"],
-  ["context", "builder"],
-  ["planner", "reviewer"],
+  ["planner", "builder"],
+  ["builder", "reviewer"],
   ["builder", "skills"],
   ["reviewer", "skills"],
-  ["verify", "skills"],
-  ["output", "skills"],
-  ["context", "skills"],
-  ["planner", "skills"],
   ["verify", "builder"],
-  ["reviewer", "output"],
+  ["reviewer", "verify"],
+  ["verify", "output"],
 ];
 
 const workflows = [
@@ -170,7 +169,7 @@ export default function AiWorkflowPage() {
         nodes={graphNodes}
         satellites={satelliteNodes}
         edges={meshLines}
-        coreId="skills"
+        coreId="index"
       />
 
       <div className="grid gap-10 sm:grid-cols-2">
