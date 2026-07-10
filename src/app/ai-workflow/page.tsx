@@ -147,33 +147,31 @@ const skills = [
 
 export default function AiWorkflowPage() {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
-      <Link
-        href="/"
-        className="text-xs text-gray-300 transition-colors hover:text-gray-500"
-      >
-        ← Furkan Titiz
-      </Link>
+    <main className="mx-auto max-w-3xl px-6 py-16 sm:py-24 space-y-16">
+      <header>
+        <Link
+          href="/"
+          className="text-xs text-gray-300 transition-colors hover:text-gray-500"
+        >
+          ← Furkan Titiz
+        </Link>
 
-      <h1 className="mt-8 text-xl font-medium tracking-tight text-gray-100">
-        Personal AI Workflow
-      </h1>
-      <p className="mt-4 max-w-lg text-sm leading-relaxed text-gray-400">
-        I don&apos;t use AI as a chat box. I use it as a system: vague ideas go
-        in, and plans, code, reviews, tests, and shipped work come out. Pull the
-        graph around — every node is a real step I run.
-      </p>
+        <h1 className="mt-8 text-xl font-medium tracking-tight text-gray-100">
+          Personal AI Workflow
+        </h1>
+        <p className="mt-4 max-w-lg text-sm leading-relaxed text-gray-400">
+          I don&apos;t use AI as a chat box. I use it as a system: vague ideas go
+          in, and plans, code, reviews, tests, and shipped work come out. Pull the
+          graph around — every node is a real step I run.
+        </p>
+      </header>
 
-      <div className="mt-12">
-        <WorkflowGraph
-          nodes={graphNodes}
-          satellites={satelliteNodes}
-          edges={meshLines}
-          coreId="skills"
-        />
-      </div>
-
-      <hr className="my-12" />
+      <WorkflowGraph
+        nodes={graphNodes}
+        satellites={satelliteNodes}
+        edges={meshLines}
+        coreId="skills"
+      />
 
       <div className="grid gap-10 sm:grid-cols-2">
         <section>
@@ -209,8 +207,6 @@ export default function AiWorkflowPage() {
         </section>
       </div>
 
-      <hr className="my-12" />
-
       <section>
         <h2 className="mb-4 text-[11px] font-medium tracking-widest text-gray-300/50">
           Principle
@@ -221,7 +217,7 @@ export default function AiWorkflowPage() {
         </p>
       </section>
 
-      <div className="mt-16 text-center text-[11px] text-gray-300/50">
+      <div className="text-center text-[11px] text-gray-300/50">
         trying to be better than yesterday
       </div>
     </main>

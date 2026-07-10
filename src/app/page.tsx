@@ -87,7 +87,7 @@ const aiWorkflowRows = aiWorkflowNodes.reduce<AiWorkflowNode[][]>(
 
 export default function Home() {
   return (
-    <main className="max-w-lg mx-auto px-6 py-16 sm:py-24">
+    <main className="max-w-lg mx-auto px-6 py-16 sm:py-24 space-y-16">
       {/* Hero */}
       <section>
         <div className="flex items-center justify-between">
@@ -123,8 +123,6 @@ export default function Home() {
           </a>
         </div>
       </section>
-
-<hr className="my-10" />
 
       {/* Experience */}
       <section>
@@ -169,8 +167,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      <hr className="my-10" />
 
       {/* Projects */}
       <section>
@@ -225,8 +221,6 @@ export default function Home() {
           ))}
         </div>
       </section>
-
-      <hr className="my-10" />
 
       {/* Personal AI Workflow */}
       <section aria-labelledby="ai-workflow-heading">
@@ -296,9 +290,8 @@ export default function Home() {
         </Link>
       </section>
 
-      <hr className="my-10" />
 
-      <div className="mt-16 text-[11px] text-gray-300/50 text-center">
+      <div className="text-[11px] text-gray-300/50 text-center">
         trying to be better than yesterday
       </div>
     </main>
