@@ -75,12 +75,18 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
   const running = useRef(false);
   const startLoop = useRef<() => void>(() => {});
   const dragging = useRef<string | null>(null);
-  const panning = useRef<{ x: number; y: number } | null>(null);
+  const panning = useRef<{ clientX: number; clientY: number } | null>(null);
+  // Live pointers, so a second finger can turn a drag into a pinch.
+  const pointers = useRef<Map<number, { x: number; y: number }>>(new Map());
+  const pinch = useRef<{ distance: number; zoom: number } | null>(null);
 
   // The loop mutates refs; each frame publishes an immutable snapshot to render.
   const view = useRef({ x: 0, y: 0, zoom: 1 });
   const [hovered, setHovered] = useState<string | null>(null);
   const [active, setActive] = useState<string | null>(null);
+  // touch-action is ignored on SVG children, so a node drag has to suspend
+  // pan-y on the <svg> itself or the browser steals the gesture for scrolling.
+  const [grabbing, setGrabbing] = useState(false);
 
   const [frozen, setFrozen] = useState<{
     positions: Record<string, { x: number; y: number }>;
@@ -124,18 +130,70 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
     [hovered, edgeSet]
   );
 
-  // Convert a pointer event into simulation coordinates.
+  // Convert a pointer event into simulation coordinates. Under "meet" the
+  // viewBox is letterboxed: one scale for both axes, centered in the box.
   const toWorld = useCallback((event: { clientX: number; clientY: number }) => {
     const svg = svgRef.current;
     if (!svg) return { x: 0, y: 0 };
     const rect = svg.getBoundingClientRect();
     const { x, y, zoom } = view.current;
     const span = WORLD / zoom;
+    const scale = Math.min(rect.width, rect.height) / span;
+    const padX = (rect.width - span * scale) / 2;
+    const padY = (rect.height - span * scale) / 2;
     return {
-      x: x + ((event.clientX - rect.left) / rect.width) * span,
-      y: y + ((event.clientY - rect.top) / rect.height) * span,
+      x: x + (event.clientX - rect.left - padX) / scale,
+      y: y + (event.clientY - rect.top - padY) / scale,
     };
   }, []);
+
+  // Scale around a screen point, keeping whatever sits under it pinned: zoom
+  // first, then shift by however far that point drifted.
+  const zoomAt = useCallback(
+    (next: number, clientX: number, clientY: number) => {
+      const clamped = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, next));
+      if (clamped === view.current.zoom) return;
+      const before = toWorld({ clientX, clientY });
+      view.current.zoom = clamped;
+      const after = toWorld({ clientX, clientY });
+      view.current.x += before.x - after.x;
+      view.current.y += before.y - after.y;
+      publish();
+    },
+    [toWorld, publish]
+  );
+
+  // React attaches wheel and touchstart passively, where preventDefault() is a
+  // no-op, so the page scrolls alongside the gesture. Bind both non-passively.
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+
+    const onWheel = (event: WheelEvent) => {
+      event.preventDefault();
+      zoomAt(
+        view.current.zoom * Math.exp(-event.deltaY * 0.0016),
+        event.clientX,
+        event.clientY
+      );
+    };
+
+    // touch-action is declared on SVG children but never honored — Chrome's
+    // hit test needs a layout box, which <g> has none of. So a node drag and
+    // a pinch have to cancel the scroll here, before the browser commits to
+    // one. touchstart is the last moment preventDefault() can still do that.
+    const onTouchStart = (event: TouchEvent) => {
+      const onNode = (event.target as Element | null)?.closest("[data-node]");
+      if (onNode || event.touches.length > 1) event.preventDefault();
+    };
+
+    svg.addEventListener("wheel", onWheel, { passive: false });
+    svg.addEventListener("touchstart", onTouchStart, { passive: false });
+    return () => {
+      svg.removeEventListener("wheel", onWheel);
+      svg.removeEventListener("touchstart", onTouchStart);
+    };
+  }, [zoomAt]);
 
   useEffect(() => {
     const step = () => {
@@ -212,8 +270,48 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
     };
   }, [nodes, edgeSet, coreId, publish]);
 
+  const spread = () => {
+    const [a, b] = [...pointers.current.values()];
+    return {
+      distance: Math.hypot(a.x - b.x, a.y - b.y) || 0.01,
+      midX: (a.x + b.x) / 2,
+      midY: (a.y + b.y) / 2,
+    };
+  };
+
+  const onPointerDown = useCallback((event: React.PointerEvent<SVGSVGElement>) => {
+    pointers.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    event.currentTarget.setPointerCapture?.(event.pointerId);
+
+    if (pointers.current.size === 2) {
+      // A second finger promotes whatever was happening into a pinch.
+      dragging.current = null;
+      panning.current = null;
+      pinch.current = { distance: spread().distance, zoom: view.current.zoom };
+      setGrabbing(true);
+      return;
+    }
+
+    // One finger on empty canvas belongs to the page, so it can scroll past.
+    // A mouse has no such conflict and pans as before.
+    if (event.pointerType !== "touch") {
+      panning.current = { clientX: event.clientX, clientY: event.clientY };
+      setGrabbing(true);
+    }
+  }, []);
+
   const onPointerMove = useCallback(
     (event: React.PointerEvent<SVGSVGElement>) => {
+      if (pointers.current.has(event.pointerId)) {
+        pointers.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
+      }
+
+      if (pinch.current && pointers.current.size === 2) {
+        const { distance, midX, midY } = spread();
+        zoomAt(pinch.current.zoom * (distance / pinch.current.distance), midX, midY);
+        return;
+      }
+
       if (dragging.current) {
         const point = toWorld(event);
         const body = bodies.current.get(dragging.current);
@@ -227,50 +325,35 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
       }
 
       if (panning.current) {
-        const svg = svgRef.current;
-        if (!svg) return;
-        const rect = svg.getBoundingClientRect();
-        const span = WORLD / view.current.zoom;
-        view.current.x -= ((event.clientX - panning.current.x) / rect.width) * span;
-        view.current.y -= ((event.clientY - panning.current.y) / rect.height) * span;
-        panning.current = { x: event.clientX, y: event.clientY };
+        const from = toWorld(panning.current);
+        const to = toWorld(event);
+        view.current.x += from.x - to.x;
+        view.current.y += from.y - to.y;
+        panning.current = { clientX: event.clientX, clientY: event.clientY };
         publish();
       }
     },
-    [toWorld, publish]
+    [toWorld, publish, zoomAt]
   );
 
   const endPointer = useCallback((event: React.PointerEvent<SVGSVGElement>) => {
+    pointers.current.delete(event.pointerId);
     const wasDragging = dragging.current !== null;
-    dragging.current = null;
-    panning.current = null;
+
+    if (pointers.current.size < 2) pinch.current = null;
+    // Lifting one of two fingers must not hand the graph a stale pan origin.
+    if (pointers.current.size === 0) {
+      dragging.current = null;
+      panning.current = null;
+      setGrabbing(false);
+    }
+
     if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
       event.currentTarget.releasePointerCapture(event.pointerId);
     }
     // Releasing a node lets the springs pull the layout back into balance.
     if (wasDragging) startLoop.current();
   }, []);
-
-  const onWheel = useCallback(
-    (event: React.WheelEvent<SVGSVGElement>) => {
-      const svg = svgRef.current;
-      if (!svg) return;
-      const anchor = toWorld(event);
-      const next = Math.min(
-        MAX_ZOOM,
-        Math.max(MIN_ZOOM, view.current.zoom * Math.exp(-event.deltaY * 0.0016))
-      );
-      const rect = svg.getBoundingClientRect();
-      const ratioX = (event.clientX - rect.left) / rect.width;
-      const ratioY = (event.clientY - rect.top) / rect.height;
-      // Keep the point under the cursor pinned while the scale changes.
-      view.current.x = anchor.x - ratioX * (WORLD / next);
-      view.current.y = anchor.y - ratioY * (WORLD / next);
-      view.current.zoom = next;
-      publish();
-    },
-    [toWorld, publish]
-  );
 
   const reset = useCallback(() => {
     view.current = { x: 0, y: 0, zoom: 1 };
@@ -290,16 +373,17 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
     <div className="relative h-[340px] w-full overflow-hidden sm:h-[420px]">
       <svg
         ref={svgRef}
-        className="absolute inset-0 h-full w-full touch-none select-none"
+        className="absolute inset-0 h-full w-full select-none"
         viewBox={`${painted.x} ${painted.y} ${span} ${span}`}
-        preserveAspectRatio="xMidYMid slice"
+        // "slice" cropped the square world to cover the box, cutting off the
+        // outer nodes once the simulation spread them. "meet" fits them all.
+        preserveAspectRatio="xMidYMid meet"
         role="img"
         aria-label="Interactive graph of the AI workflow: intent, context, planner, builder, reviewer, skills, verify, and output."
-        style={{ cursor: "grab" }}
-        onPointerDown={(event) => {
-          panning.current = { x: event.clientX, y: event.clientY };
-          event.currentTarget.setPointerCapture?.(event.pointerId);
-        }}
+        // pan-y hands vertical swipes to the page, so the graph is never a
+        // scroll trap. Node drags and pinches opt out in the touchstart above.
+        style={{ cursor: grabbing ? "grabbing" : "grab", touchAction: "pan-y" }}
+        onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={endPointer}
         onPointerLeave={(event) => {
@@ -307,7 +391,6 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
           setHovered(null);
         }}
         onPointerCancel={endPointer}
-        onWheel={onWheel}
       >
         {satellites.map((satellite, index) => (
           <circle
@@ -366,13 +449,24 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
           return (
             <g
               key={node.id}
+              data-node=""
               transform={`translate(${body.x} ${body.y})`}
               opacity={dim ? 0.32 : 1}
               style={{ cursor: "grab" }}
               onPointerDown={(event) => {
                 event.stopPropagation();
-                dragging.current = node.id;
-                setActive(node.id);
+                pointers.current.set(event.pointerId, {
+                  x: event.clientX,
+                  y: event.clientY,
+                });
+                if (pointers.current.size === 2) {
+                  dragging.current = null;
+                  pinch.current = { distance: spread().distance, zoom: view.current.zoom };
+                } else {
+                  dragging.current = node.id;
+                  setActive(node.id);
+                }
+                setGrabbing(true);
                 svgRef.current?.setPointerCapture?.(event.pointerId);
                 startLoop.current();
               }}
@@ -420,7 +514,8 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
       </button>
 
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 flex items-baseline justify-between gap-4 text-[11px] text-gray-300/40">
-        <span>drag · scroll to zoom · drag canvas to pan</span>
+        <span className="sm:hidden">drag a node · pinch to zoom</span>
+        <span className="hidden sm:inline">drag · scroll to zoom · drag canvas to pan</span>
         <span className="hidden sm:inline">not a chat box</span>
       </div>
     </div>
