@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# furkantitiz.dev
 
-## Getting Started
+My personal site. Dark, quiet, and deliberately small: a single page of who I am
+and what I've built, plus one route that explains how I actually work with AI.
 
-First, run the development server:
+Live at [www.furkantitiz.dev](https://www.furkantitiz.dev).
+
+## Routes
+
+| Route | What's there |
+|-------|--------------|
+| `/` | Hero, experience, selected work, and a short summary of the AI workflow |
+| `/ai-workflow` | An interactive force-directed graph of the system, plus the loops and skills behind it |
+
+Both are statically prerendered at build time. There is no server, no database,
+and no API.
+
+## Running it
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open <http://localhost:3000>.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Next.js 16 (App Router), TypeScript, and Tailwind CSS v4, deployed on Vercel.
 
-## Learn More
+Five runtime dependencies, on purpose: `next`, `react`, `react-dom`,
+`@vercel/analytics`, and `@vercel/speed-insights`. If you see Supabase or Sanity
+mentioned on the site, those belong to the projects being described — not to this
+one.
 
-To learn more about Next.js, take a look at the following resources:
+Fonts are Geist Sans and Geist Mono, loaded through `next/font/google` rather
+than the `geist` package.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Two things that will bite you
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**There is no `tailwind.config.js`, and there shouldn't be.** Tailwind v4 only
+reads that file if `globals.css` contains an explicit `@config` directive. Add
+the config back without the directive and it sits there doing nothing, quietly,
+while you wonder why your changes have no effect. Theme values live in the
+`@theme inline` block in `src/app/globals.css`.
 
-## Deploy on Vercel
+**Section spacing comes from one place.** `<main>` carries a `space-y-16`, and
+the `<section>` elements have no vertical margins of their own. To add a section,
+make it a direct child of `<main>` and leave the spacing alone.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Verifying a change
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npx tsc --noEmit
+npm run lint
+npm run build
+```
+
+The build output should still show `/` and `/ai-workflow` marked `○ (Static)`.
+If either turned dynamic, something started reading request-time state.
