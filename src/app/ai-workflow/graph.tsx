@@ -378,7 +378,7 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
         // "slice" cropped the square world to cover the box, cutting off the
         // outer nodes once the simulation spread them. "meet" fits them all.
         preserveAspectRatio="xMidYMid meet"
-        role="img"
+        role="group"
         aria-label={`Interactive graph of the AI workflow, centered on ${
           nodes.find((node) => node.id === coreId)?.label ?? coreId
         }: ${nodes.map((node) => node.label).join(", ")}.`}
@@ -452,6 +452,9 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
             <g
               key={node.id}
               data-node=""
+              role="button"
+              tabIndex={0}
+              aria-label={`${node.label}. ${node.description}`}
               transform={`translate(${body.x} ${body.y})`}
               opacity={dim ? 0.32 : 1}
               style={{ cursor: "grab" }}
@@ -474,6 +477,13 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
               }}
               onPointerEnter={() => setHovered(node.id)}
               onPointerLeave={() => setHovered(null)}
+              onFocus={() => setActive(node.id)}
+              onBlur={() => setActive(null)}
+              onKeyDown={(event) => {
+                if (event.key !== "Enter" && event.key !== " ") return;
+                event.preventDefault();
+                setActive(node.id);
+              }}
             >
               <circle
                 r={focused ? radius * 1.08 : radius}
@@ -516,8 +526,8 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
       </button>
 
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 flex items-baseline justify-between gap-4 text-[11px] text-gray-300/40">
-        <span className="sm:hidden">drag a node · pinch to zoom</span>
-        <span className="hidden sm:inline">drag · scroll to zoom · drag canvas to pan</span>
+        <span className="sm:hidden">drag or tap a node · pinch to zoom</span>
+        <span className="hidden sm:inline">drag or tab through nodes · scroll to zoom</span>
         <span className="hidden sm:inline">not a chat box</span>
       </div>
     </div>

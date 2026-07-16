@@ -1,7 +1,8 @@
 # furkantitiz.dev
 
-My personal site. Dark, quiet, and deliberately small: a single page of who I am
-and what I've built, plus one route that explains how I actually work with AI.
+My personal site. Dark, quiet, and deliberately small: an evidence-led portfolio
+for my work as an AI Engineer building agentic systems, with Stylefinden as the
+production case study.
 
 Live at [www.furkantitiz.dev](https://www.furkantitiz.dev).
 
@@ -9,11 +10,12 @@ Live at [www.furkantitiz.dev](https://www.furkantitiz.dev).
 
 | Route | What's there |
 |-------|--------------|
-| `/` | Hero, experience, selected work, and a short summary of the AI workflow |
-| `/ai-workflow` | An interactive force-directed graph of the system, plus the loops and skills behind it |
+| `/` | Positioning, Stylefinden production case study, agentic system overview, infrastructure, selected work, and contact |
+| `/ai-workflow` | Interactive architecture, operating loops, connected infrastructure, control model, and the Stylefinden application |
 
-Both are statically prerendered at build time. There is no server, no database,
-and no API.
+Both routes are statically prerendered at build time. This portfolio has no
+request-time server or database; the APIs shown on the site belong to the
+Stylefinden product and the agentic engineering system described there.
 
 ## Running it
 
@@ -51,10 +53,12 @@ make it a direct child of `<main>` and leave the spacing alone.
 ## Verifying a change
 
 ```bash
+npm test
 npx tsc --noEmit
 npm run lint
 npm run build
 ```
 
-The build output should still show `/` and `/ai-workflow` marked `○ (Static)`.
-If either turned dynamic, something started reading request-time state.
+The content test protects the public positioning and infrastructure claims. The
+build output should still show `/` and `/ai-workflow` marked `○ (Static)`. If
+either turned dynamic, something started reading request-time state.

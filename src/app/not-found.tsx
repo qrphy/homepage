@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
+
 export default function NotFound() {
   return (
     <div className="min-h-[60vh] flex items-center justify-center text-center">
