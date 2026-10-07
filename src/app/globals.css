@@ -251,6 +251,22 @@ section[id] { scroll-margin-top: 24px; }
 .graph-reset:hover { color: var(--color-ink); }
 .system-page svg [role="button"]:focus-visible circle { stroke: var(--color-focus); }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --color-background: #191919;
+    --color-ink: #ededed;
+    --color-body: #b8b8b8;
+    --color-muted: #a0a0a0;
+    --color-border: #363636;
+    --color-selection: #424242;
+    --color-focus: #c7c7c0;
+    --color-scrollbar: #606060;
+    --graph-neutral: 220, 220, 220;
+    --graph-accent: 218, 174, 100;
+  }
+}
+
 @media (max-width: 540px) {
   .workflow-article { padding-top: 32px; }
   .workflow-service { grid-template-columns: 1fr; gap: 2px; }
