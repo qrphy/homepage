@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SiteIdentity from "@/components/SiteIdentity";
 import WorkflowGraph from "./graph";
 
 export const metadata: Metadata = {
   title: "Agentic Engineering System",
   description:
-    "Explore the vault-backed agentic engineering system Furkan Titiz uses to build Stylefinden through specialist agents, APIs, skills, and verification gates.",
+    "Explore Furkan Titiz's personal engineering system across web and iOS products: project memory, specialist agents, APIs, skills, and verification.",
   alternates: {
     canonical: "https://www.furkantitiz.dev/ai-workflow",
   },
   openGraph: {
     title: "Agentic Engineering System | Furkan Titiz",
     description:
-      "Explore the vault-backed agentic engineering system Furkan Titiz uses to build Stylefinden through specialist agents, APIs, skills, and verification gates.",
+      "Explore Furkan Titiz's personal engineering system across web and iOS products: project memory, specialist agents, APIs, skills, and verification.",
     url: "https://www.furkantitiz.dev/ai-workflow",
     type: "website",
     images: [
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Furkan Titiz's agentic engineering system for Stylefinden",
+        alt: "Furkan Titiz's personal agentic engineering system",
       },
     ],
   },
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Agentic Engineering System | Furkan Titiz",
     description:
-      "Explore the vault-backed agentic engineering system Furkan Titiz uses to build Stylefinden through specialist agents, APIs, skills, and verification gates.",
+      "Explore Furkan Titiz's personal engineering system across web and iOS products: project memory, specialist agents, APIs, skills, and verification.",
     images: ["/opengraph-image"],
   },
 };
@@ -51,7 +52,7 @@ const graphNodes = [
     y: 50,
     size: "lg",
     description:
-      "A durable context layer for project decisions, constraints, code, research, and Stylefinden history.",
+      "A durable context layer for each project's decisions, constraints, code, research, and history.",
   },
   {
     id: "orchestrator",
@@ -180,23 +181,21 @@ const infrastructure = [
 
 export default function AiWorkflowPage() {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-16 sm:py-24 space-y-16">
-      <header>
-        <Link
-          href="/"
-          className="text-xs text-gray-300 transition-colors hover:text-gray-500"
-        >
-          ← Furkan Titiz
-        </Link>
-
-        <h1 className="mt-8 text-xl font-medium tracking-tight text-gray-100">
+    <main className="portfolio-shell system-page workflow-article">
+      <SiteIdentity />
+      <header className="article-intro">
+        <h1>
           Agentic Engineering System
         </h1>
-        <p className="mt-4 max-w-lg text-sm leading-relaxed text-gray-400">
-          This is the system I designed to build Stylefinden: a vault-backed memory
-          layer, specialist agents, reusable skills, API-connected workflows, and
-          verification gates. Agents can operate selected steps; I remain responsible
-          for architecture, credentials, publishing rules, and every production decision.
+        <p className="workflow-lead">
+          A personal approach to building software with AI: project context,
+          specialist agents, reusable skills, and verification. I use it across
+          my projects; Stylefinden is one example of it in practice.
+        </p>
+        <p className="workflow-opening">
+          I built this approach to keep decisions and constraints connected to
+          the work. An individual AI response is useful, but product development
+          also needs continuity, clear scope, and evidence that a change works.
         </p>
       </header>
 
@@ -207,95 +206,107 @@ export default function AiWorkflowPage() {
         coreId="index"
       />
 
-      <div className="grid gap-10 sm:grid-cols-2">
+      <section aria-labelledby="how-it-works-heading" className="system-explanation">
+        <h2 id="how-it-works-heading">How I work with the system</h2>
+        <div className="system-principles">
+          <div><h3>Context before action</h3><p>Each task starts with the relevant code, project constraints, and prior decisions. I keep context focused on the problem rather than loading everything. Useful findings return to project memory so the next session can build on them.</p></div>
+          <div><h3>Specialized work</h3><p>Work is scoped into manageable steps. Agents bring roles such as planning, implementation, and review; skills provide reusable methods for those roles. The combination depends on the task, with more scrutiny for changes that affect production.</p></div>
+          <div><h3>Evidence before release</h3><p>A generated change is a candidate, not a finished result. Tests, builds, browser checks, and review help establish what works. Findings can send the task back for revision before I decide whether it is ready.</p></div>
+        </div>
+      </section>
+
+      <div className="workflow-reference">
         <section>
-          <h2 className="mb-4 text-[11px] font-medium tracking-widest text-gray-300/50">
+          <h2 className="mb-4 text-sm font-medium text-gray-500">
             System Loops
           </h2>
-          <div className="flex flex-col gap-4">
+          <div className="workflow-loops">
             {workflows.map((workflow) => (
               <div key={workflow.title}>
-                <div className="text-[13px] text-gray-200">{workflow.title}</div>
-                <div className="mt-1 font-mono text-[11px] leading-relaxed text-gray-400">
+                <h3>{workflow.title}</h3>
+                <p className="workflow-chain">
                   {workflow.chain}
-                </div>
+                </p>
               </div>
             ))}
           </div>
         </section>
 
         <section>
-          <h2 className="mb-4 text-[11px] font-medium tracking-widest text-gray-300/50">
+          <h2 className="mb-4 text-sm font-medium text-gray-500">
             Skill Matrix
           </h2>
-          <div className="flex flex-wrap gap-2">
-            {skills.map((skill) => (
-              <span
-                key={skill}
-                className="rounded border border-gray-300/10 bg-gray-300/[0.03] px-2 py-0.5 text-[11px] text-gray-300"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
+          <p className="workflow-skills">{skills.join(" · ")}</p>
         </section>
       </div>
 
       <section>
-        <h2 className="mb-4 text-[11px] font-medium tracking-widest text-gray-300/50">
+        <h2 className="mb-4 text-sm font-medium text-gray-500">
           Connected Infrastructure
         </h2>
-        <div className="grid gap-3 sm:grid-cols-2">
+        <p className="mb-5 text-sm leading-relaxed text-gray-600">These are services behind Stylefinden, rather than the agent system itself. Scoped workflows can interact with them where the task and permissions allow.</p>
+        <dl className="workflow-services">
           {infrastructure.map((service) => (
             <div
               key={service.name}
-              className="border-l border-gray-300/10 pl-3"
+              className="workflow-service"
             >
-              <div className="text-[13px] text-gray-200">{service.name}</div>
-              <p className="mt-1 text-[11px] leading-relaxed text-gray-400">
+              <dt>{service.name}</dt>
+              <dd>
                 {service.responsibility}
-              </p>
+              </dd>
             </div>
           ))}
-        </div>
+        </dl>
       </section>
 
       <section>
-        <h2 className="mb-4 text-[11px] font-medium tracking-widest text-gray-300/50">
+        <h2 className="mb-4 text-sm font-medium text-gray-500">
           Control Model
         </h2>
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="workflow-control">
           <div>
-            <div className="text-[13px] text-gray-200">Agents operate</div>
-            <p className="mt-2 text-sm leading-relaxed text-gray-400">
+            <div className="text-[13px] text-gray-800">Agents operate</div>
+            <p className="mt-2 text-sm leading-relaxed text-gray-600">
               Scoped planning, implementation, review, testing, documentation,
               and selected content or service workflows.
             </p>
           </div>
           <div>
-            <div className="text-[13px] text-gray-200">I retain control</div>
-            <p className="mt-2 text-sm leading-relaxed text-gray-400">
+            <div className="text-[13px] text-gray-800">I retain control</div>
+            <p className="mt-2 text-sm leading-relaxed text-gray-600">
               Architecture, credentials, publishing rules, verification standards,
               and every production decision remain human-governed.
             </p>
           </div>
         </div>
       </section>
-
       <section>
-        <h2 className="mb-4 text-[11px] font-medium tracking-widest text-gray-300/50">
+        <h2 className="mb-4 text-sm font-medium text-gray-500">
           System in Practice
         </h2>
-        <p className="max-w-lg text-sm leading-relaxed text-gray-400">
-          Stylefinden is the production environment for this system. It supports
-          feature development, project memory, content operations, verification,
-          and coordination across the services behind the product.
+        <p className="max-w-lg text-sm leading-relaxed text-gray-600">
+          At Stylefinden, I use this approach for application development,
+          content operations, and maintenance. The project combines a web
+          application, editorial content, localization, and connected services,
+          so a change needs more context than the file being edited.
         </p>
+        <p className="mt-4 max-w-lg text-sm leading-relaxed text-gray-600">
+          For a localization change, the workflow starts with the relevant
+          routes and market rules, then scopes the implementation and review.
+          UI, API, and SEO checks help verify the result; confirmed decisions
+          are recorded for future work. This is a recurring way of working,
+          rather than a claim that every task follows an identical pipeline.
+        </p>
+        <p className="mt-4 max-w-lg text-sm leading-relaxed text-gray-600">
+          Content work follows the same principle: research and drafting are
+          separate from editorial review and publication. AI supports the work;
+          architecture, verification standards, and production decisions remain
+          my responsibility.
+        </p>
+        <Link href="/work/stylefinden" className="plain-entry system-project-link">Stylefinden <span>A fashion discovery and editorial platform</span></Link>
       </section>
-
-      <div className="text-center text-[11px] text-gray-300/50">
-        trying to be better than yesterday
-      </div>
+      <footer className="article-footer"><Link href="/">All writing</Link><Link href="/work/stylefinden">Stylefinden <span aria-hidden="true">→</span></Link></footer>
     </main>
   );
 }

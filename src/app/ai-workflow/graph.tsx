@@ -30,12 +30,12 @@ const DAMPING = 0.86;
 const MIN_ZOOM = 0.55;
 const MAX_ZOOM = 3.2;
 
-// The homepage palette: grey everywhere, amber only on the agent nodes.
-const AMBER = "rgb(251,191,36)";
-const EDGE = "rgba(209,213,219,0.10)";
-const EDGE_LIT = "rgba(209,213,219,0.32)";
-const SPOKE = "rgba(209,213,219,0.14)";
-const SPOKE_LIT = "rgba(251,191,36,0.45)";
+// Neutral graph with a warm accent for agent nodes.
+const AMBER = "rgb(var(--graph-accent))";
+const EDGE = "rgba(var(--graph-neutral),0.10)";
+const EDGE_LIT = "rgba(var(--graph-neutral),0.32)";
+const SPOKE = "rgba(var(--graph-neutral),0.14)";
+const SPOKE_LIT = "rgba(var(--graph-accent),0.45)";
 
 function nodeRadius(size: string) {
   if (size === "lg") return 7.4;
@@ -48,20 +48,20 @@ function isAgent(group: string) {
 }
 
 function nodeFill(group: string) {
-  return isAgent(group) ? "rgba(251,191,36,0.10)" : "rgba(209,213,219,0.04)";
+  return isAgent(group) ? "rgba(var(--graph-accent),0.10)" : "rgba(var(--graph-neutral),0.04)";
 }
 
 function nodeStroke(group: string) {
-  return isAgent(group) ? "rgba(251,191,36,0.45)" : "rgba(209,213,219,0.18)";
+  return isAgent(group) ? "rgba(var(--graph-accent),0.45)" : "rgba(var(--graph-neutral),0.18)";
 }
 
 function nodeText(group: string) {
-  return isAgent(group) ? AMBER : "#d1d5db";
+  return isAgent(group) ? AMBER : "var(--color-body)";
 }
 
 function satelliteFill(tone: string) {
-  if (tone === "white") return "rgba(209,213,219,0.28)";
-  return "rgba(209,213,219,0.12)";
+  if (tone === "white") return "rgba(var(--graph-neutral),0.28)";
+  return "rgba(var(--graph-neutral),0.12)";
 }
 
 type Body = { x: number; y: number; vx: number; vy: number };
@@ -370,7 +370,8 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
   const at = (id: string) => positions[id];
 
   return (
-    <div className="relative h-[340px] w-full overflow-hidden sm:h-[420px]">
+    <div className="w-full">
+      <div className="relative h-[340px] w-full overflow-hidden sm:h-[420px]">
       <svg
         ref={svgRef}
         className="absolute inset-0 h-full w-full select-none"
@@ -488,7 +489,7 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
               <circle
                 r={focused ? radius * 1.08 : radius}
                 fill={nodeFill(node.group)}
-                stroke={focused ? "rgba(209,213,219,0.45)" : nodeStroke(node.group)}
+                stroke={focused ? "rgba(var(--graph-neutral),0.45)" : nodeStroke(node.group)}
                 strokeWidth={0.3}
               />
               <text
@@ -506,29 +507,22 @@ export default function WorkflowGraph({ nodes, satellites, edges, coreId }: Prop
         })}
       </svg>
 
-      {detail && (
-        <div className="pointer-events-none absolute left-0 top-0 w-48 rounded-sm border border-gray-300/10 bg-[#060606]/90 px-3 py-2.5">
-          <div className="text-[10px] uppercase tracking-widest text-gray-300/40">
-            {detail.label}
-          </div>
-          <p className="mt-1 text-[12px] leading-relaxed text-gray-400">
-            {detail.description}
-          </p>
-        </div>
-      )}
-
       <button
         type="button"
         onClick={reset}
-        className="absolute right-0 top-0 text-[11px] text-gray-300/40 transition-colors hover:text-gray-300"
+        className="graph-reset absolute right-0 top-0 text-[11px] transition-colors"
       >
         reset view
       </button>
 
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 flex items-baseline justify-between gap-4 text-[11px] text-gray-300/40">
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 flex items-baseline justify-between gap-4 text-[11px] text-gray-600">
         <span className="sm:hidden">drag or tap a node · pinch to zoom</span>
         <span className="hidden sm:inline">drag or tab through nodes · scroll to zoom</span>
-        <span className="hidden sm:inline">not a chat box</span>
+
+      </div>
+      </div>
+      <div className="mt-4 min-h-20 border-t border-gray-200 pt-4" aria-live="polite" aria-atomic="true">
+        {detail ? <><div className="text-xs font-medium text-gray-800">{detail.label}</div><p className="mt-1 text-xs leading-relaxed text-gray-600">{detail.description}</p></> : <p className="text-xs leading-relaxed text-gray-600">Select a node to explore its role in the system.</p>}
       </div>
     </div>
   );
