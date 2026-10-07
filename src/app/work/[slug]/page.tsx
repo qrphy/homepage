@@ -37,7 +37,7 @@ export default async function ProjectPage({ params }: Props) {
       <article>
         <header className="article-intro"><h1>{project.name}</h1><p>{project.description}</p><div className="article-meta"><span>{project.role}</span><span>{project.status}</span></div>{project.url && <a className="article-link" href={project.url} target="_blank" rel="noopener noreferrer">Visit {project.name} <span aria-hidden="true">↗</span></a>}</header>
         <figure className={`article-figure figure-${project.slug}`}><Image src={project.image} alt={project.imageAlt} width={project.imageWidth} height={project.imageHeight} sizes={project.slug === "wakesay" || project.slug === "visual-plate" ? "120px" : "(max-width: 700px) 90vw, 640px"} priority /><figcaption>{project.slug === "visual-plate" || project.slug === "wakesay" ? "App icon · In development" : "A look at the live project"}</figcaption></figure>
-        <div className="article-body">{project.sections.filter((section) => !["The product", "The idea", "The archive", "Engineering focus"].includes(section.title)).map((section) => <section key={section.title}><h2>{section.title}</h2><p>{section.text}</p></section>)}
+        <div className="article-body">{project.sections.map((section) => <section key={section.title}><h2>{section.title}</h2><p>{section.text}</p></section>)}
           <section aria-labelledby="decisions-heading"><h2 id="decisions-heading">Engineering decisions</h2><div className="article-decisions">{engineeringNotes[project.slug]?.map((note) => <div key={note.title}><h3>{note.title}</h3><p>{note.text}</p></div>)}</div></section>
           <section><h2>Built with</h2><p>{project.stack.join(" · ")}</p></section>
         </div>

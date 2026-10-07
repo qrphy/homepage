@@ -1,8 +1,8 @@
 # furkantitiz.dev
 
-My personal site. Dark, quiet, and deliberately small: an evidence-led portfolio
-for my work as an AI Engineer building agentic systems, with Stylefinden as the
-production case study.
+My personal site. A quiet portfolio for my work in AI engineering,
+web products, and native iOS apps. The visual direction uses a narrow content
+column and restrained typography, with light and dark colors following the device preference.
 
 Live at [www.furkantitiz.dev](https://www.furkantitiz.dev).
 
@@ -10,10 +10,14 @@ Live at [www.furkantitiz.dev](https://www.furkantitiz.dev).
 
 | Route | What's there |
 |-------|--------------|
-| `/` | Positioning, Stylefinden production case study, agentic system overview, infrastructure, selected work, and contact |
+| `/` | Introduction, contact and CV links, Writing, and a four-project index |
 | `/ai-workflow` | Interactive architecture, operating loops, connected infrastructure, control model, and the Stylefinden application |
+| `/work/stylefinden` | Stylefinden product and engineering overview |
+| `/work/wakesay` | WakeSay's couples-focused product direction and engineering overview |
+| `/work/visual-plate` | Visual Plate development overview |
+| `/work/museum-of-my-mind` | Personal image archive overview |
 
-Both routes are statically prerendered at build time. This portfolio has no
+All routes are statically prerendered at build time. This portfolio has no
 request-time server or database; the APIs shown on the site belong to the
 Stylefinden product and the agentic engineering system described there.
 
@@ -35,8 +39,7 @@ Five runtime dependencies, on purpose: `next`, `react`, `react-dom`,
 mentioned on the site, those belong to the projects being described — not to this
 one.
 
-Fonts are Geist Sans and Geist Mono, loaded through `next/font/google` rather
-than the `geist` package.
+Inter is loaded through `next/font/google`.
 
 ## Two things that will bite you
 
@@ -46,9 +49,16 @@ the config back without the directive and it sits there doing nothing, quietly,
 while you wonder why your changes have no effect. Theme values live in the
 `@theme inline` block in `src/app/globals.css`.
 
-**Section spacing comes from one place.** `<main>` carries a `space-y-16`, and
-the `<section>` elements have no vertical margins of their own. To add a section,
-make it a direct child of `<main>` and leave the spacing alone.
+**Portfolio layout lives in `globals.css`.** The main content column is 640px,
+with 64px between homepage sections (48px on mobile). Project details and the
+workflow article use the same 640px column. Project content is maintained in
+`src/content/projects.ts`; all entries in `sections` are displayed.
+
+Project preview assets in `public/work/` come from the live Stylefinden and
+Museum of My Mind sites, plus the WakeSay and Visual Plate application icons.
+WakeSay and Visual Plate are identified as in development, with no invented
+launch links or results. Colors use shared CSS variables and
+`prefers-color-scheme`, without a theme toggle or client-side theme state.
 
 ## Verifying a change
 

@@ -2,7 +2,6 @@ export const projects = [
   {
     slug: "stylefinden",
     name: "Stylefinden",
-    category: "Web platform",
     status: "Live",
     summary: "A place to discover personal style.",
     description: "A fashion discovery and editorial platform that brings together outfits, hairstyles, body-shape guides, and style inspiration.",
@@ -14,7 +13,6 @@ export const projects = [
     url: "https://stylefinden.com",
     stack: ["Next.js", "TypeScript", "Sanity", "Supabase", "Resend", "Vercel"],
     sections: [
-      { title: "The product", text: "Stylefinden connects visual discovery with editorial content. Visitors can explore outfit inspiration and practical guides in one place." },
       { title: "My work", text: "I built the platform from scratch and own the product engineering end to end: the application, CMS architecture, data systems, transactional email, analytics, and deployment." },
       { title: "Behind the scenes", text: "Stylefinden is also the production environment for my agentic engineering system. Project memory, specialist agents, reusable skills, and verification support development and content operations. I retain responsibility for architecture and production decisions." },
     ],
@@ -22,7 +20,6 @@ export const projects = [
   {
     slug: "wakesay",
     name: "WakeSay",
-    category: "iOS · In development",
     status: "In development",
     summary: "A shared morning, even when you are apart.",
     description: "An iPhone app in development for couples to share morning and bedtime routines, exchange real voice recordings, and build habits together.",
@@ -41,7 +38,6 @@ export const projects = [
   {
     slug: "visual-plate",
     name: "Visual Plate",
-    category: "iOS · In development",
     status: "In development",
     summary: "Understand the menu before you order.",
     description: "An AI-assisted iPhone app for travelers to scan unfamiliar menus, recognize dishes, and understand what they are about to order.",
@@ -53,15 +49,12 @@ export const projects = [
     url: null,
     stack: ["SwiftUI", "AVFoundation", "Vision", "Supabase", "AI matching", "MapKit"],
     sections: [
-      { title: "The idea", text: "Ordering from an unfamiliar menu can be difficult when a translation alone does not explain the dish. Visual Plate is designed to help travelers see and understand food before making a choice." },
       { title: "What I’m building", text: "A camera-led experience that connects menu scanning and text recognition with dish matching, food imagery, and useful explanations. The wider product includes discovery, an AI assistant, and a personal library." },
-      { title: "Engineering focus", text: "The pipeline combines on-device camera and text recognition with structured food data and AI fallback. Dish identity, imagery, and information confidence are treated separately so the product can communicate uncertainty. The app is in development." },
     ],
   },
   {
     slug: "museum-of-my-mind",
     name: "Museum of My Mind",
-    category: "Personal archive",
     status: "Live",
     summary: "Photographs, memories, and visual fragments.",
     description: "A personal image archive for photographs and visual fragments, designed around gallery layouts and optimized image delivery.",
@@ -73,7 +66,6 @@ export const projects = [
     url: "https://museumofmymind.com",
     stack: ["Photography", "Web design", "Image delivery"],
     sections: [
-      { title: "The archive", text: "A personal space for photographs and visual fragments. The images lead the experience, with gallery layouts that give them room to be explored." },
       { title: "My work", text: "I designed and developed the archive, with a focus on presenting imagery and delivering it efficiently across screen sizes." },
     ],
   },

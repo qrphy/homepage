@@ -4,6 +4,21 @@ import test from "node:test";
 
 const read = (path) => readFile(new URL(`../${path}`, import.meta.url), "utf8");
 
+test("project sections are rendered directly and the layout uses only Inter", async () => {
+  const projects = await read("src/content/projects.ts");
+  const page = await read("src/app/work/[slug]/page.tsx");
+  const layout = await read("src/app/layout.tsx");
+  const styles = await read("src/app/globals.css");
+
+  assert.doesNotMatch(projects, /category:|title: "(?:The product|The idea|The archive|Engineering focus)"/);
+  assert.match(page, /project\.sections\.map/);
+  assert.doesNotMatch(page, /project\.sections\.filter/);
+  assert.match(layout, /const inter = Inter/);
+  assert.doesNotMatch(layout, /Geist_Mono|geistSans|geistMono/);
+  assert.match(styles, /--font-inter/);
+  assert.doesNotMatch(styles, /--font-geist|--color-border|\.work-card|\.project-tabs|\.preview-wakesay/);
+});
+
 test("WakeSay reflects the couples-focused direction and uses an app icon", async () => {
   const source = await read("src/content/projects.ts");
   const wakesay = source.slice(source.indexOf('slug: "wakesay"'), source.indexOf('slug: "visual-plate"'));
