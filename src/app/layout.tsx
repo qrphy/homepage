@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     canonical: "https://www.furkantitiz.dev",
   },
   title: {
-    default: "Furkan Titiz | AI Engineer building agentic systems",
+    default: "Furkan Titiz",
     template: "%s | Furkan Titiz",
   },
   description:
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     "Full-Stack Product Engineering",
   ],
   openGraph: {
-    title: "Furkan Titiz | AI Engineer building agentic systems",
+    title: "Furkan Titiz",
     description:
       "AI Engineer and Co-Founder of Stylefinden, building web products, iOS apps, and agentic systems with thoughtful interfaces and verified engineering workflows.",
     url: "https://www.furkantitiz.dev",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Furkan Titiz | AI Engineer building agentic systems",
+    title: "Furkan Titiz",
     description:
       "AI Engineer and Co-Founder of Stylefinden, building web products, iOS apps, and agentic systems with thoughtful interfaces and verified engineering workflows.",
     images: ["/opengraph-image"],

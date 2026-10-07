@@ -11,12 +11,12 @@ test("site metadata keeps the primary title and description search-ready", async
   const source = await read("src/app/layout.tsx");
 
   assert.match(source, /metadataBase:\s*new URL\("https:\/\/www\.furkantitiz\.dev"\)/);
-  assert.match(source, /default:\s*"[^"]+AI Engineer[^"]+"/);
+  assert.match(source, /default:\s*"Furkan Titiz"/);
   assert.match(source, /description:\s*\n?\s*"[^"]+"/);
 
   const title = source.match(/default:\s*"([^"]+)"/)?.[1] ?? "";
   const description = source.match(/description:\s*\n?\s*"([^"]+)"/)?.[1] ?? "";
-  assert.ok(title.length >= 30 && title.length <= 60, `title length: ${title.length}`);
+  assert.equal(title, "Furkan Titiz");
   assert.ok(
     description.length >= 120 && description.length <= 160,
     `description length: ${description.length}`,
