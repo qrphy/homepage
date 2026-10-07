@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 
-const geistSans = Geist({
+const geistSans = Inter({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | Furkan Titiz",
   },
   description:
-    "AI Engineer and Co-Founder of Stylefinden, building agentic engineering systems and full-stack products with human-governed production workflows.",
+    "AI Engineer and Co-Founder of Stylefinden, building web products, iOS apps, and agentic systems with thoughtful interfaces and verified engineering workflows.",
   keywords: [
     "Furkan Titiz",
     "AI Engineer",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Furkan Titiz | AI Engineer building agentic systems",
     description:
-      "AI Engineer and Co-Founder of Stylefinden, building agentic engineering systems and full-stack products with human-governed production workflows.",
+      "AI Engineer and Co-Founder of Stylefinden, building web products, iOS apps, and agentic systems with thoughtful interfaces and verified engineering workflows.",
     url: "https://www.furkantitiz.dev",
     siteName: "Furkan Titiz",
     locale: "en_US",
@@ -62,13 +62,25 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Furkan Titiz | AI Engineer building agentic systems",
     description:
-      "AI Engineer and Co-Founder of Stylefinden, building agentic engineering systems and full-stack products with human-governed production workflows.",
+      "AI Engineer and Co-Founder of Stylefinden, building web products, iOS apps, and agentic systems with thoughtful interfaces and verified engineering workflows.",
     images: ["/opengraph-image"],
   },
+  manifest: "/site.webmanifest?v=20261003-2",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico?v=20261003-2", sizes: "16x16 32x32 48x48", type: "image/x-icon" },
+      { url: "/favicon-16x16.png?v=20261003-2", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png?v=20261003-2", sizes: "32x32", type: "image/png" },
+      { url: "/android-chrome-192x192.png?v=20261003-2", sizes: "192x192", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png?v=20261003-2", sizes: "180x180", type: "image/png" }],
+    shortcut: "/favicon.ico?v=20261003-2",
   },
   authors: [{ name: "Furkan Titiz", url: "https://www.furkantitiz.dev" }],
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
