@@ -11,7 +11,7 @@ export default function NotFound() {
     <main className="portfolio-shell project-article">
       <SiteIdentity />
       <header className="article-intro"><h1>Page not found</h1><p>This page may have moved, or the link may be out of date.</p></header>
-      <Link href="/" className="plain-entry not-found-link">Back to Furkan Titiz</Link>
+      <div className="not-found-link"><Link href="/" className="plain-entry">Back to Furkan Titiz</Link></div>
     </main>
   );
 }

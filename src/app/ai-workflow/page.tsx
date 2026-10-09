@@ -304,7 +304,7 @@ export default function AiWorkflowPage() {
           architecture, verification standards, and production decisions remain
           my responsibility.
         </p>
-        <Link href="/work/stylefinden" className="plain-entry system-project-link">Stylefinden <span>A fashion discovery and editorial platform</span></Link>
+        <div className="system-project-link"><Link href="/work/stylefinden" className="plain-entry">Stylefinden <span>A fashion discovery and editorial platform</span></Link></div>
       </section>
       <footer className="article-footer"><Link href="/">All writing</Link><Link href="/work/stylefinden">Stylefinden <span aria-hidden="true">→</span></Link></footer>
     </main>

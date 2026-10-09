@@ -67,7 +67,20 @@ export default function Home() {
         <Image className="profile-avatar" src="/profile.jpg" alt="Furkan Titiz" width={64} height={64} priority />
         <h1>Furkan Titiz</h1>
         <p>I’m an AI engineer in Türkiye, building web and iOS products. Currently co-founding <a href="https://stylefinden.com" target="_blank" rel="noopener noreferrer">Stylefinden</a> and making apps of my own.</p>
-        <nav className="personal-links" aria-label="Contact and profiles"><a href="mailto:furkan@furkantitiz.dev">Email</a><a href="https://github.com/qrphy" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/furkan-titiz/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="/Furkan-Titiz-CV.pdf" target="_blank" rel="noopener noreferrer" aria-label="CV (PDF, opens in a new tab)">CV</a></nav>
+        <nav className="personal-links" aria-label="Contact and profiles">
+          <a href="mailto:furkan@furkantitiz.dev" aria-label="Email">
+            <svg className="social-icon social-mail-icon" width="22" height="18" viewBox="0 0 28 24" aria-hidden="true">
+              <defs><mask id="email-logo-mask"><rect y="1" width="28" height="22" rx="3" fill="white" /><path d="m3 6 11 8 11-8" fill="none" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></mask></defs>
+              <rect width="28" height="24" fill="currentColor" mask="url(#email-logo-mask)" />
+            </svg>
+          </a>
+          <a href="https://github.com/qrphy" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <Image className="social-icon social-brand-icon" src="/social/github.svg" alt="" width={18} height={18} />
+          </a>
+          <a href="https://www.linkedin.com/in/furkan-titiz/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <span className="social-icon linkedin-icon" aria-hidden="true"><Image className="social-brand-icon" src="/social/linkedin.png" alt="" width={840} height={779} /></span>
+          </a>
+        </nav>
       </header>
 
       <section className="personal-section" aria-labelledby="writing-heading">

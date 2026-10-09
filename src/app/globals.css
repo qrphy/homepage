@@ -58,14 +58,20 @@ section[id] { scroll-margin-top: 24px; }
 .personal-intro > p { font-size: 24px; font-weight: 600; line-height: 1.45; color: #595959; }
 .personal-intro > p a { text-decoration: none; transition: color 160ms ease; }
 .personal-intro > p a:hover { color: #171717; text-decoration: underline; }
-.personal-links { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 42px; color: #767676; font-size: 14px; }
-.personal-links a { display: inline-flex; align-items: center; min-height: 44px; transition: color 160ms ease; }
+.personal-links { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 42px; color: #767676; font-size: 14px; }
+.personal-links a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; transition: color 160ms ease; }
+.social-icon { width: 18px; height: 18px; flex-shrink: 0; object-fit: fill; }
+.social-mail-icon { width: 22px; }
+.linkedin-icon { display: block; overflow: hidden; }
+.linkedin-icon img { display: block; width: auto; max-width: none; height: 18px; }
+.social-brand-icon { opacity: .65; transition: opacity 160ms ease; }
+.personal-links a:hover .social-brand-icon { opacity: 1; }
 .personal-links a:hover { color: #171717; }
 .personal-home > .personal-section { margin-top: 64px; }
 .personal-section h2 { font-size: 16px; line-height: 26px; font-weight: 400; color: #767676; margin-bottom: 20px; }
 .personal-list { list-style: none; }
 .personal-list li + li { margin-top: 10px; }
-.personal-list a { display: block; font-size: 20px; font-weight: 500; line-height: 1.65; letter-spacing: 0; color: #202020; padding: 3px 0; }
+.personal-list a { display: inline; font-size: 20px; font-weight: 500; line-height: 1.65; letter-spacing: 0; color: #202020; }
 .personal-list a:hover .project-index-name, .writing-list a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .project-index-description { color: #767676; transition: color 160ms ease; }
 .project-index a:hover .project-index-description { color: #595959; }
@@ -92,10 +98,10 @@ section[id] { scroll-margin-top: 24px; }
 .article-decisions h3 { font-size: 16px; font-weight: 500; line-height: 1.6; margin-bottom: 8px; }
 .article-related { margin-top: 56px; }
 .article-related h2 { color: #767676; font-size: 16px; font-weight: 400; margin-bottom: 16px; }
-.plain-entry { display: block; font-size: 20px; font-weight: 500; line-height: 1.65; padding: 4px 0; }
+.plain-entry { display: inline; font-size: 20px; font-weight: 500; line-height: 1.65; }
 .plain-entry:hover { text-decoration: underline; text-underline-offset: 4px; }
 .plain-entry > span { color: #767676; font-weight: 400; }
-.system-project-link { margin-top: 24px; font-size: 16px; }
+.system-project-link { margin-top: 28px; }
 .article-footer { display: flex; justify-content: space-between; gap: 24px; margin-top: 48px; font-size: 14px; color: #767676; }
 .article-footer a { padding: 12px 0; }
 
@@ -116,7 +122,6 @@ section[id] { scroll-margin-top: 24px; }
 .workflow-service dd { color: #767676; }
 .workflow-control { display: grid; gap: 24px; }
 .workflow-control > div > div { font-size: 16px; font-weight: 500; color: #262626; margin-bottom: 8px; }
-.workflow-article .system-project-link { font-size: 20px; margin-top: 28px; }
 .workflow-article [aria-live="polite"] { border-top: none; padding-top: 20px; }
 .workflow-article [aria-live="polite"] p { font-size: 14px; line-height: 1.8; color: #767676; }
 .workflow-article [aria-live="polite"] > div { font-size: 14px; }
@@ -137,9 +142,10 @@ section[id] { scroll-margin-top: 24px; }
 .system-page svg [role="button"]:focus-visible circle { stroke: var(--color-focus); }
 
 @media (prefers-color-scheme: dark) {
+  .social-brand-icon { filter: invert(1); }
   :root {
     color-scheme: dark;
-    --color-background: #191919;
+    --color-background: #0d0d0d;
     --color-ink: #ededed;
     --color-body: #b8b8b8;
     --color-muted: #a0a0a0;
