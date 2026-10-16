@@ -42,14 +42,15 @@ export const projects = [
     summary: "Understand the menu before you order.",
     description: "An AI-assisted iPhone app for travelers to scan unfamiliar menus, recognize dishes, and understand what they are about to order.",
     role: "Product design & engineering",
-    image: "/work/visualplate.png",
-    imageAlt: "Visual Plate app icon with a fork and knife on a dark background",
+    image: "/work/visualplate-chef.png",
+    imageAlt: "Visual Plate app icon featuring a smiling chef on a warm coral background",
     imageWidth: 1024,
     imageHeight: 1024,
-    url: null,
-    stack: ["SwiftUI", "AVFoundation", "Vision", "Supabase", "AI matching", "MapKit"],
+    url: "https://visual-plate.vercel.app",
+    stack: ["SwiftUI", "Vision", "Supabase", "StoreKit", "AI dish matching"],
     sections: [
-      { title: "What I’m building", text: "A camera-led experience that connects menu scanning and text recognition with dish matching, food imagery, and useful explanations. The wider product includes discovery, an AI assistant, and a personal library." },
+      { title: "What I’m building", text: "The first release focuses on scanning menus, exploring dish images and descriptions, and saving favorites in a personal library. A short onboarding introduces the app, while a profile brings together account settings, subscriptions, and character customization." },
+      { title: "Design and development", text: "I design and build the native iPhone app and its companion website. A warm chef character anchors the visual identity, with a light interface and small animations that make the scanning process easier to follow. The website introduces the app and its planned monthly subscriptions; purchases will take place in the app." },
     ],
   },
   {
@@ -81,8 +82,8 @@ export const engineeringNotes: Record<string, { title: string; text: string }[]>
     { title: "Make sharing intentional", text: "Partner interactions are built around explicit permissions and recipient control. A remote request is not treated as proof that an alarm has been scheduled or has rung; audio delivery and alarm behavior require physical-device verification." },
   ],
   "visual-plate": [
-    { title: "A translation is only part of the answer", text: "The prototype combines menu text recognition with image recognition and location-aware analysis to help identify the actual dish." },
-    { title: "Keep uncertainty visible", text: "Dish identity, imagery, and information confidence are treated separately. Caching and user feedback support the analysis without treating every AI result as certain." },
+    { title: "A translation is only part of the answer", text: "The scanning flow is designed around on-device menu text recognition and dish matching, with images and descriptions that help explain unfamiliar dishes." },
+    { title: "Keep uncertainty visible", text: "Dish identity, imagery, and information confidence are treated separately. The backend is being developed to check existing dish records before requesting AI output, while keeping access rights and usage limits on the server." },
   ],
   "museum-of-my-mind": [
     { title: "Let the photographs lead", text: "A full-screen gallery keeps attention on the archive. Cloudinary delivery and connection-aware incremental loading support exploring imagery across devices." },
