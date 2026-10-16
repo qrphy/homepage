@@ -47,10 +47,10 @@ export const projects = [
     imageWidth: 1024,
     imageHeight: 1024,
     url: "https://visual-plate.vercel.app",
-    stack: ["SwiftUI", "Vision", "Supabase", "StoreKit", "AI dish matching"],
+    stack: ["Figma", "SwiftUI", "Vision", "Supabase", "StoreKit", "AI dish matching"],
     sections: [
       { title: "What I’m building", text: "The first release focuses on scanning menus, exploring dish images and descriptions, and saving favorites in a personal library. A short onboarding introduces the app, while a profile brings together account settings, subscriptions, and character customization." },
-      { title: "Design and development", text: "I design and build the native iPhone app and its companion website. A warm chef character anchors the visual identity, with a light interface and small animations that make the scanning process easier to follow. The website introduces the app and its planned monthly subscriptions; purchases will take place in the app." },
+      { title: "Design and development", text: "I design and build the native iPhone app and its companion website. I used Figma to design the app screens and prototype animations, including the chef character’s expressions and the menu capture and scanning sequence. These prototypes guide the implementation in code. A warm chef character anchors the visual identity, with a light interface and small animations that make the scanning process easier to follow. The website introduces the app and its planned monthly subscriptions; purchases will take place in the app." },
     ],
   },
   {
