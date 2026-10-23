@@ -46,7 +46,7 @@ export const projects = [
     imageAlt: "Visual Plate app icon featuring a smiling chef on a warm coral background",
     imageWidth: 1024,
     imageHeight: 1024,
-    url: "https://visual-plate.vercel.app",
+    url: "https://visualplate.app",
     stack: ["Figma", "SwiftUI", "Vision", "Supabase", "StoreKit", "AI dish matching"],
     sections: [
       { title: "What I’m building", text: "The first release focuses on scanning menus, exploring dish images and descriptions, and saving favorites in a personal library. A short onboarding introduces the app, while a profile brings together account settings, subscriptions, and character customization." },

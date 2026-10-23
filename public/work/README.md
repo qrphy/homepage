@@ -7,4 +7,4 @@
 
 The user authorized showcasing WakeSay and Visual Plate alongside the existing portfolio projects. Descriptions are derived from the repositories and project vaults. WakeSay reflects the accepted couples-focused direction, still in development. No generated imagery is used.
 
-Visual Plate: `visualplate-chef.png` is the current chef app icon, copied from the companion website’s approved brand assets. The portfolio links to https://visual-plate.vercel.app; the iPhone app remains in development.
+Visual Plate: `visualplate-chef.png` is the current chef app icon, copied from the companion website’s approved brand assets. The portfolio links to https://visualplate.app; the iPhone app remains in development.
